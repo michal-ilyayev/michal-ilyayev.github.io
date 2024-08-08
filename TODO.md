@@ -1,10 +1,11 @@
 # Foundation
 
-- [x] GitHub 
-  - [x] Setup Repository
-  - [x] GitHub Pages
-  - [x] GitHub Actions (CI/CD)
+## GitHub 
+- [x] Setup Git Repository
+- [x] GitHub Pages
+- [x] GitHub Actions (CI/CD)
 
+## Framework
 - [x] Astro
 - [x] SCSS
 - [x] TailwindCSS
@@ -13,7 +14,7 @@
 - [x] TypeScript
 
 
-# Astro Plugins
+## Astro Plugins
 - [x] tailwindcss
 - [x] images
 - [ ] icons
@@ -23,33 +24,21 @@
 - [ ] React
 
 
-# Astro Project Structure
+## Astro Project Structure
 - [x] Layouts
 - [x] Images
 - [x] Components
 - [x] Pages
 
 
-# Basic Pages
-- [ ] Home
+## Basic Pages (placeholders) and Navigation
+- [x] Home
 - [x] 404
-- [ ] About
-- [ ] Contact
+- [x] About
+- [x] Contact
 - [x] Terms
 - [x] Privacy
 - [x] robots.txt
-
-
-# Features
-- [ ] Scroll to Top
-- [x] Google Analytics
-- [ ] Light / Dark Mode
-  - [ ] Dark Mode Toggle
-  - [ ] Dark Mode default based on system
-- [ ] Responsive
-  - [ ] Mobile
-  - [ ] Tablet
-  - [ ] Desktop
 
 
 # Layout and SEO
@@ -74,3 +63,21 @@
 - [x] Canonical URL
 - [x] Google Fonts
 
+
+# Features
+- [ ] Scroll to Top
+- [x] Google Analytics
+- [ ] Light / Dark Mode
+  - [ ] Dark Mode Toggle
+  - [ ] Dark Mode default based on system
+- [ ] Responsive
+  - [ ] Mobile
+  - [ ] Tablet
+  - [ ] Desktop
+
+
+--------------------------------------------
+
+# Content
+
+- [ ] About
