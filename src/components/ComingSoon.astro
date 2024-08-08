@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  title?: string;
+}
+
+const {
+  title='Coming Soon...'
+} = Astro.props;
+---
+
+<div class="flex justify-center items-center h-dvh bg-gradient-to-l from-violet-50 via-purple-50 to-pink-50">
+  <div class="flex flex-col justify-center items-center gap-10">
+    <a href="/">
+      <Icon name="my-logo" size={100} class="text-primary" />
+    </a>
+
+    <h1 class="font-light text-3xl font-mono">{title}</h1>
+  </div>
+</div>
