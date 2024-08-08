@@ -1,0 +1,52 @@
+---
+import NavLink from '../NavLink.astro';
+---
+
+<nav>
+  <ul>
+    <li>
+      <NavLink href="/">Homepage</NavLink>
+    </li>
+    <li>
+      <NavLink href="/about/">About</NavLink>
+    </li>
+    <li>
+      <NavLink href="/blog/">Blog</NavLink>
+    </li>
+    <li>
+      <NavLink href="/terms/">Terms</NavLink>
+    </li>
+    <li>
+      <NavLink href="/privacy/">Privacy</NavLink>
+    </li>
+    <li>
+      <NavLink href="/contact/">Contact</NavLink>
+    </li>
+  </ul>
+</nav>
+
+<style is:global>
+  footer nav {
+    @apply w-full min-w-[50%] border-b lg:border-0 border-gray-800 py-8 lg:py-0;
+
+    ul {
+      @apply flex flex-col md:flex-row justify-around items-center gap-2 md:gap-8;
+
+      li a {
+        @apply
+        text-gray-400
+        text-sm
+        uppercase
+        transition-all
+        hover:text-secondary
+        ;
+
+
+        &.active {
+          @apply text-primary
+        }
+      }
+    }
+  }
+
+</style>

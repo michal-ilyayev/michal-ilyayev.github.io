@@ -11,10 +11,11 @@ export default {
         sans: ['Roboto', 'Open Sans', 'Arial', 'sans-serif'],
         serif: ['Roboto Serif', 'Merriweather', 'serif'],
         mono: ['Roboto Mono', 'monospace'],
+        handwriting: ['Permanent Marker', 'cursive'],
       },
       colors: {
         primary: '#7065f9',
-        'primary-light': '#8b7ef5',
+        'primary-light': '#8f8af9',
         secondary: '#ffcc5f',
       }
     },
