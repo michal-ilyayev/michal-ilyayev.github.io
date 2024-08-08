@@ -1,5 +1,6 @@
 ---
 import '~/scss/global.scss';
+import GtmHead from '~/components/analytics/GTM-head.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_IMAGE, SITE_KEYWORDS } from '~/consts';
 
 export interface Props {
@@ -63,6 +64,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+  <!-- Google Analytics -->
+  <GtmHead />
 </head>
 <body>
   <slot />
