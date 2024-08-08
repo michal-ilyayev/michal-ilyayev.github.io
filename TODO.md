@@ -19,8 +19,7 @@
 - [x] images
 - [ ] icons
 - [ ] mdx
-- [ ] sitemap
-- [ ] RSS
+- [x] sitemap
 - [ ] React
 
 
@@ -47,7 +46,7 @@
 - [x] Manifest
 - [x] Title
 - [ ] Logo
-- [ ] Meta Tags
+- [x] Meta Tags
   - [x] Title
   - [x] Description
   - [x] Keywords
@@ -59,7 +58,7 @@
 - [x] Open Graph
 - [x] OG Image
 - [x] Twitter Cards
-- [ ] Sitemap
+- [x] Sitemap
 - [x] Canonical URL
 - [x] Google Fonts
 

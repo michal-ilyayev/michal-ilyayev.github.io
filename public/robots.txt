@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://michal-ilyayev.github.io/sitemap-index.xml
