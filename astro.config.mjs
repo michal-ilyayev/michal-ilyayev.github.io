@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
+import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 
 
@@ -13,11 +14,15 @@ export default defineConfig({
 
   integrations: [
 
-    // https://docs.astro.build/en/guides/integrations-guide/tailwind/
-    tailwind(),
-
     // https://docs.astro.build/en/guides/integrations-guide/sitemap/
     sitemap(),
+
+    // https://docs.astro.build/en/guides/integrations-guide/mdx/
+    // https://docs.astro.build/en/guides/markdown-content/#configuring-markdown-and-mdx
+    mdx(),
+
+    // https://docs.astro.build/en/guides/integrations-guide/tailwind/
+    tailwind(),
 
     // https://iconify.design/
     // https://www.astroicon.dev/reference/configuration/
@@ -31,7 +36,7 @@ export default defineConfig({
 
     // https://docs.astro.build/en/guides/integrations-guide/react/
     react({
-      experimentalReactChildren: true,
+      experimentalReactChildren: true
     })
   ],
   build: {

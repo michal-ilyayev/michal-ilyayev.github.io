@@ -18,7 +18,7 @@
 - [x] tailwindcss
 - [x] images
 - [x] icons
-- [ ] mdx
+- [x] mdx
 - [x] sitemap
 - [x] React
 
@@ -73,10 +73,24 @@
 - [ ] Navigation
 - [ ] Hamburger Menu
 - [ ] Social Media Links
+  - [ ] GitHub
+  - [ ] LinkedIn
 
 
+## Footer
+- [ ] Copyright
+- [ ] Navigation
+  - Home
+  - About
+  - Portfolio
+  - Contact
+  - Blog
+  - Credits
+  - Terms
+  - Privacy
 
-## Features
+- [ ] Social Media Links
+
 - [ ] Scroll to Top
 
 
@@ -85,16 +99,85 @@
 
 # Content
 
-- About
 
-- Resume
+## Homepage
+- [ ] Hero
+  - [ ] Title
+  - [ ] Subtitle
+  - [ ] Call to Action
+  - [ ] My Picture
 
-- Portfolio
-  - Programming Projects
-  - Art Projects
-  - Shield Initiative
+- [ ] About
+- [ ] Portfolio
+- [ ] Contact
+- [ ] Blog
 
-- 
+
+## About
+- [ ] Bio
+- [ ] Skills
+- [ ] Education
+- [ ] Experience
+- [ ] Interests
+- [ ] Hobbies
+- [ ] Awards
+- [ ] Certifications
+- [ ] Projects (with links to portfolio)
+
+- [ ] Testimonials
+- [ ] Contact
+
+- [ ] Resume (PDF)
+
+
+## Credits
+- [ ] Icons
+- [ ] Images
+- [ ] Fonts
+- [ ] Libraries
+- [ ] Tools
+- [ ] Tutorials
+- [ ] Templates
+- [ ] Inspiration
+- [ ] References
+- [ ] Resources
+- [ ] Assets
+- [ ] Code Snippets
+- [ ] Components
+- [ ] Plugins
+- [ ] Extensions
+- [ ] Software
+- [ ] Services
+- [ ] Hosting
+- [ ] Domains
+- [ ] SEO
+- [ ] Analytics
+- [ ] Accessibility
+
+
+## Portfolio
+
+### Programming Projects
+  - This website
+  - Game: whack-a-mole
+  - Game: tetris
+
+### Visual Arts
+  - Photography
+  - Drawing
+  - Painting
+  - Sculpture
+  - My Awards
+
+### Shield Initiative
+  - [ ] Description
+  - [ ] Pictures & Videos
+    - [ ] The shields we created
+    - [ ] The team
+    - [ ] The happy recipients
+  - [ ] Goals, Achievements and Future Plans
+
+
 
 
 
@@ -103,6 +186,8 @@
 --------------------------------------------
 
 # Future Optimizations
+
+- [ ] Cookie Consent (for Google Analytics)
 
 - [ ] Contact Form
   - [ ] React Hook Form
@@ -114,6 +199,15 @@
   - [ ] Form Validation (Frontend + Backend)
   - [ ] Form Reset
 
+- [ ] Transitions
+  - [ ] Page Transitions
+  - [ ] Element Transitions
+  - [ ] Hover Effects
+  - [ ] Loading Effects
+  - [ ] Scroll Effects
+  - [ ] Parallax Effects
+  - [ ] Animation Library
+  - [ ] Custom Animations
 
 - [ ] Light / Dark Mode
   - [ ] Dark Mode Toggle Button
