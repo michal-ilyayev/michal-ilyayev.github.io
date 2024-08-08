@@ -40,6 +40,7 @@
 - [x] robots.txt
 
 # Features
+- [ ] Scroll to Top
 - [ ] Google Analytics
 - [ ] Light / Dark Mode
   - [ ] Dark Mode Toggle
@@ -51,20 +52,20 @@
 
 
 # Layout and SEO
-- [ ] Favicon
+- [x] Favicon
 - [ ] Logo
 - [ ] Meta Tags
-  - [ ] Title
-  - [ ] Description
-  - [ ] Keywords
-  - [ ] Author
-  - [ ] Language
-  - [ ] Theme Color
-  - [ ] Charset
-  - [ ] Viewport
+  - [x] Title
+  - [x] Description
+  - [x] Keywords
+  - [x] Author
+  - [x] Language
+  - [x] Theme Color
+  - [x] Charset
+  - [x] Viewport
   - [ ] Google Site Verification
-- [ ] Open Graph
-- [ ] OG Image
-- [ ] Twitter Cards
+- [x] Open Graph
+- [x] OG Image
+- [x] Twitter Cards
 - [ ] Sitemap
-- [ ] Canonical URL
+- [x] Canonical URL

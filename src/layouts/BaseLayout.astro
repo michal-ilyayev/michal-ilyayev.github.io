@@ -1,15 +1,68 @@
 ---
 import '~/scss/global.scss';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_IMAGE, SITE_KEYWORDS } from '~/consts';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  keywords?: string[];
+}
+
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  image = SITE_IMAGE,
+  keywords = SITE_KEYWORDS
+} = Astro.props;
+
+const htmlTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+const keywordsStr = keywords.join(', ');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width" />
+  <title>{htmlTitle}</title>
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow" />
+  <meta name="title" content={title} />
+  <meta name="author" content="Michal Ilyayev" />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywordsStr} />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Global Metadata -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="x-ua-compatible" content="IE=Edge" />
   <meta name="generator" content={Astro.generator} />
-  <title>Michal Ilyayev</title>
+  <meta name="language" content="en" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={new URL(image, Astro.url)} />
 </head>
 <body>
   <slot />
