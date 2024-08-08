@@ -6,7 +6,13 @@ import tailwindForms from '@tailwindcss/forms';
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#7065f9',
+        'primary-light': '#8b7ef5',
+        secondary: '#ffcc5f',
+      }
+    },
   },
   plugins: [
     tailwindTypography({

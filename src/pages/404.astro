@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import errorImg from '../assets/img/marilyn.svg';
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout title="404 Page not fount">
+  <div class="flex justify-center items-center h-dvh">
+    <div class="page-container">
+      <div class="flex flex-col lg:flex-row items-center justify-center min-h-[600px]">
+        <div class="w-full lg:max-w-1/2">
+          <Image src={errorImg} width={800} alt="404" class="w-full" />
+        </div>
+        <div class="w-full max-w-1/2">
+          <h1 class="text-center text-7xl text-gray-500">
+            404
+          </h1>
+          <h2 class="text-center text-3xl text-primary mt-12">
+            PAGE NOT FOUND
+          </h2>
+          <p class="my-12 max-w-[500px] text-center mx-auto">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.<br />
+            Please make sure you spelled the URL correctly.
+          </p>
+          <div class="mt-5 w-full text-center">
+            <a href="/" class="btn btn-primary">
+              Go back to homepage
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
