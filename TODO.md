@@ -39,9 +39,10 @@
 - [x] Privacy
 - [x] robots.txt
 
+
 # Features
 - [ ] Scroll to Top
-- [ ] Google Analytics
+- [x] Google Analytics
 - [ ] Light / Dark Mode
   - [ ] Dark Mode Toggle
   - [ ] Dark Mode default based on system
@@ -53,6 +54,9 @@
 
 # Layout and SEO
 - [x] Favicon
+- [x] Apple Touch Icon
+- [x] Manifest
+- [x] Title
 - [ ] Logo
 - [ ] Meta Tags
   - [x] Title
@@ -63,9 +67,10 @@
   - [x] Theme Color
   - [x] Charset
   - [x] Viewport
-  - [ ] Google Site Verification
 - [x] Open Graph
 - [x] OG Image
 - [x] Twitter Cards
 - [ ] Sitemap
 - [x] Canonical URL
+- [x] Google Fonts
+
