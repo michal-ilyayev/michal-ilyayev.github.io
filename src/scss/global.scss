@@ -18,6 +18,24 @@
   @apply lg:container mx-auto w-full px-5;
 }
 
+.prose-custom {
+  @apply
+  mx-auto
+  prose
+  prose-lg
+  prose-a:font-normal
+  prose-a:transition
+  prose-a:ease-linear
+  prose-a:duration-100
+
+  prose-a:text-primary
+  hover:prose-a:text-secondary
+
+  prose-a:no-underline
+  hover:prose-a:underline
+  max-w-[70ch]
+  ;
+}
 
 
 .btn-primary {

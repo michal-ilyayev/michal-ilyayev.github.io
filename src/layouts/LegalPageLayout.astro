@@ -1,0 +1,24 @@
+---
+import Layout from './Layout.astro';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    image?: string;
+  };
+}
+
+const props = Astro.props.frontmatter;
+---
+
+<Layout {...props}>
+  <div class="flex flex-col justify-between min-h-screen w-full h-full">
+
+    <main class="md:py-16 py-8 mx-auto">
+      <article class="prose-custom">
+        <slot />
+      </article>
+    </main>
+  </div>
+</Layout>

@@ -15,16 +15,18 @@
 
 # Astro Plugins
 - [x] tailwindcss
+- [x] images
+- [ ] icons
 - [ ] mdx
 - [ ] sitemap
 - [ ] RSS
 - [ ] React
 
 
-# Astro Features
+# Astro Project Structure
 - [x] Layouts
 - [x] Images
-- [ ] Components
+- [x] Components
 - [x] Pages
 
 
@@ -33,8 +35,8 @@
 - [x] 404
 - [ ] About
 - [ ] Contact
-- [ ] Terms
-- [ ] Privacy
+- [x] Terms
+- [x] Privacy
 - [x] robots.txt
 
 # Features
@@ -65,6 +67,4 @@
 - [ ] OG Image
 - [ ] Twitter Cards
 - [ ] Sitemap
-- [ ] Robots.txt
-- [ ] RSS Feed
 - [ ] Canonical URL
