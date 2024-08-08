@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 import react from '@astrojs/react';
 
 
@@ -18,9 +19,22 @@ export default defineConfig({
     // https://docs.astro.build/en/guides/integrations-guide/sitemap/
     sitemap(),
 
+    // https://iconify.design/
+    // https://www.astroicon.dev/reference/configuration/
+    icon({
+      iconDir: 'src/assets/icons',
+      include: {
+        'fa-solid': ['*'],
+        'mdi': ['*']
+      }
+    }),
+
     // https://docs.astro.build/en/guides/integrations-guide/react/
     react({
       experimentalReactChildren: true,
     })
-  ]
+  ],
+  build: {
+    assets: 'assets'
+  }
 });
