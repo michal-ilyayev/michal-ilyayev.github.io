@@ -17,10 +17,10 @@
 ## Astro Plugins
 - [x] tailwindcss
 - [x] images
-- [ ] icons
+- [x] icons
 - [ ] mdx
 - [x] sitemap
-- [ ] React
+- [x] React
 
 
 ## Astro Project Structure
@@ -40,12 +40,12 @@
 - [x] robots.txt
 
 
-# Layout and SEO
+## Layout and SEO
 - [x] Favicon
 - [x] Apple Touch Icon
 - [x] Manifest
 - [x] Title
-- [ ] Logo
+- [x] Logo
 - [x] Meta Tags
   - [x] Title
   - [x] Description
@@ -61,22 +61,67 @@
 - [x] Sitemap
 - [x] Canonical URL
 - [x] Google Fonts
-
-
-# Features
-- [ ] Scroll to Top
 - [x] Google Analytics
-- [ ] Light / Dark Mode
-  - [ ] Dark Mode Toggle
-  - [ ] Dark Mode default based on system
-- [ ] Responsive
-  - [ ] Mobile
-  - [ ] Tablet
-  - [ ] Desktop
+
+
+--------------------------------------------
+
+# Design and Layout
+
+## Header
+- [ ] Logo
+- [ ] Navigation
+- [ ] Hamburger Menu
+- [ ] Social Media Links
+
+
+
+## Features
+- [ ] Scroll to Top
+
 
 
 --------------------------------------------
 
 # Content
 
-- [ ] About
+- About
+
+- Resume
+
+- Portfolio
+  - Programming Projects
+  - Art Projects
+  - Shield Initiative
+
+- 
+
+
+
+
+
+--------------------------------------------
+
+# Future Optimizations
+
+- [ ] Contact Form
+  - [ ] React Hook Form
+  - [ ] Backend API
+  - [ ] Email Service
+  - [ ] Recaptcha
+  - [ ] Success / Error Messages
+  - [ ] Loading Spinner
+  - [ ] Form Validation (Frontend + Backend)
+  - [ ] Form Reset
+
+
+- [ ] Light / Dark Mode
+  - [ ] Dark Mode Toggle Button
+  - [ ] Dark Mode default based on system
+
+- [ ] Responsive Design
+  - [ ] Mobile
+  - [ ] Tablet
+  - [ ] Desktop
+
+- [ ] Search
