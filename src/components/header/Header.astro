@@ -13,18 +13,14 @@ import Navbar from './Navbar.astro';
         <Image src={logoImg} loading="eager" width={200} alt="Logo"
           class="h-12 md:h-14 w-auto transform bg-blend-overlay group-hover:saturate-200 transition-all"
         />
-        <span class="font-handwriting text-xl pt-4">
+        <span class="font-handwriting text-lg pt-4">
           Michal Ilyayev
         </span>
       </a>
     </div>
-    <div class="flex flex-row-reverse lg:flex-row items-center">
+    <div class="flex flex-row-reverse lg:flex-row items-center print:hidden">
       <div class="ml-7 lg:mr-7">
         <Navbar />
-      </div>
-
-      <div class="hidden md:flex items-center">
-
       </div>
     </div>
   </div>

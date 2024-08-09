@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import NavLink from '../NavLink.astro';
 ---
 
@@ -22,6 +23,14 @@ import NavLink from '../NavLink.astro';
     <li>
       <NavLink href="/contact/">Contact</NavLink>
     </li>
+    <li class="flex flex-row gap-5">
+      <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile" class="hover:text-[#0a66c2]">
+        <Icon name="mdi:linkedin" size={36} />
+      </a>
+      <a href="https://github.com/michal-ilyayev" target="_blank" title="My GitHub Profile" class="hover:text-black">
+        <Icon name="mdi:github" size={36} />
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -34,15 +43,14 @@ import NavLink from '../NavLink.astro';
 
       li a {
         @apply
-        text-gray-400
+        text-gray-500
         text-sm
         transition-all
-        hover:text-secondary
+        hover:text-primary-light
         ;
 
-
         &.active {
-          @apply text-primary
+          @apply text-primary;
         }
       }
     }
