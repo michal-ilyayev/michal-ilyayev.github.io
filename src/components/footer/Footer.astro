@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import FooterNav from './FooterNav.astro';
 import ScrollUpBtn from './ScrollUpBtn.astro';
 import { isDev } from '~/consts';
@@ -10,11 +9,11 @@ const currentYear = new Date().getFullYear();
 
 <footer class="print:hidden">
   <section
-    class="bg-gray-900 py-4 w-full bg-gradient-to-t from-gray-900 to-gray-800"
+    class="bg-gray-900 py-4 lg:py-2 w-full bg-gradient-to-t from-gray-900 to-gray-800"
   >
     <div class="page-container flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
 
-        <p class="text-gray-400 text-sm font-light py-8">
+        <p class="text-gray-400 text-sm font-light py-4">
           © Copyright {currentYear} -
           <a href={homeUrl} class="hover:text-white hover:border-b">
             Michal Ilyayev
