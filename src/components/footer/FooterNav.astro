@@ -8,12 +8,9 @@ import NavLink from '../NavLink.astro';
     <li>
       <NavLink href="/">Home</NavLink>
     </li>
-    <!--<li>-->
-    <!--  <NavLink href="/about/">About</NavLink>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--  <NavLink href="/blog/">Blog</NavLink>-->
-    <!--</li>-->
+    <li>
+      <NavLink href="/about/">About</NavLink>
+    </li>
     <li>
       <NavLink href="/terms/">Terms</NavLink>
     </li>
@@ -21,9 +18,14 @@ import NavLink from '../NavLink.astro';
       <NavLink href="/privacy/">Privacy</NavLink>
     </li>
     <li>
-      <NavLink href="/contact/">Contact</NavLink>
+      <NavLink href="/credits/">Credits</NavLink>
     </li>
-    <li class="flex flex-row gap-5">
+    <li>
+      <NavLink href="/contact/" title="Contact">
+        <Icon name="mdi:envelope" size={36} />
+      </NavLink>
+    </li>
+    <li class="flex flex-row gap-6">
       <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile" class="hover:text-[#0a66c2]">
         <Icon name="mdi:linkedin" size={36} />
       </a>

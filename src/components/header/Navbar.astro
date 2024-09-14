@@ -1,6 +1,64 @@
 ---
-
+import NavLink from '../NavLink.astro';
 ---
 <div>
-
+  <nav class="footer-nav">
+    <NavLink href="/">Home</NavLink>
+    <NavLink href="/about/">About</NavLink>
+    <NavLink href="/resume/">Resume</NavLink>
+    <NavLink href="/coding-projects/">Coding Projects</NavLink>
+    <NavLink href="/visual-arts-portfolio/">Visual Arts</NavLink>
+    <NavLink href="/shield-initiative/">Shield Initiative</NavLink>
+    <NavLink href="/contact/" class="btn-contact">Contact</NavLink>
+  </nav>
 </div>
+
+<style is:global>
+  .footer-nav {
+    @apply w-full min-w-[50%]  h-full flex flex-col md:flex-row justify-around items-center gap-2;
+
+    a {
+      @apply
+      flex flex-row items-center justify-around
+      text-gray-500
+      text-sm
+      transition-all
+      h-full
+      p-4
+      rounded-md
+      hover:text-primary-light
+      hover:bg-violet-50
+      border-b-2
+      border-transparent;
+      border-spacing: 0 1rem;
+
+      &.active {
+        @apply
+        text-primary
+        border-b-2
+        border-primary
+        rounded-none
+        hover:bg-transparent
+        ;
+      }
+    }
+
+
+    .btn-contact {
+      @apply
+      bg-violet-500
+      text-white
+      hover:bg-violet-600
+      hover:text-white;
+
+      &.active {
+        @apply
+        text-violet-500
+        bg-transparent
+        rounded-none
+        ;
+      }
+    }
+  }
+
+</style>

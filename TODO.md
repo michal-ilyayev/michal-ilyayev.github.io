@@ -33,7 +33,6 @@
 ## Basic Pages (placeholders) and Navigation
 - [x] Home
 - [x] 404
-- [x] About
 - [x] Contact
 - [x] Terms
 - [x] Privacy
@@ -66,32 +65,52 @@
 
 --------------------------------------------
 
+# Create Empty Pages (for the navigation)
+
+- [x] Home (About Me)
+- [x] Contact
+- [x] Terms
+- [x] Privacy
+- [x] 404
+- [x] Sitemap
+- [x] Robots.txt
+- [x] About
+- [x] Credits
+- [x] Resume
+- [x] Shield Initiative
+- [x] Coding Projects
+- [x] Visual Arts Portfolio
+
+
+--------------------------------------------
+
+
+
 # Design and Layout
 
 ## Header
-- [ ] Logo
-- [ ] Navigation
+- [x] Logo
+- [x] Navigation
 - [ ] Hamburger Menu
-- [ ] Social Media Links
-  - [ ] GitHub
-  - [ ] LinkedIn
+- [x] Social Media Links
+  - [x] GitHub
+  - [x] LinkedIn
 
 
 ## Footer
-- [ ] Copyright
-- [ ] Navigation
+- [x] Copyright
+- [x] Navigation
   - Home
   - About
-  - Portfolio
   - Contact
-  - Blog
   - Credits
   - Terms
   - Privacy
 
-- [ ] Social Media Links
 
-- [ ] Scroll to Top
+- [x] Social Media Links
+
+- [x] Scroll to Top
 
 
 
@@ -107,10 +126,17 @@
   - [ ] Call to Action
   - [ ] My Picture
 
-- [ ] About
-- [ ] Portfolio
-- [ ] Contact
-- [ ] Blog
+
+- [x] Terms
+- [x] Privacy
+- [x] 404
+
+- Direct Links to:
+  - [ ] Resume
+  - [ ] Shield Initiative
+  - [ ] Coding Projects
+  - [ ] Visual Arts Portfolio
+  - [ ] Contact
 
 
 ## About
@@ -127,7 +153,64 @@
 - [ ] Testimonials
 - [ ] Contact
 
-- [ ] Resume (PDF)
+
+## Resume
+- [ ] Bio
+- [ ] Education
+- [ ] Experience
+- [ ] Skills
+- [ ] Achievements
+- [ ] Download PDF
+
+
+
+## Coding Projects
+- This website
+- Game: whack-a-mole
+- Game: wall-game
+- Game: balloon-pop
+
+
+## Visual Arts
+- Photography
+- Drawing
+- Painting
+- Sculpture
+- My Awards
+
+
+## Shield Initiative
+- [ ] Description
+- [ ] Pictures & Videos
+  - [ ] The shields we created
+  - [ ] The team
+  - [ ] The happy recipients
+- [ ] Goals, Achievements and Future Plans
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------
+
+# Future Optimizations
+
 
 
 ## Credits
@@ -154,38 +237,6 @@
 - [ ] Analytics
 - [ ] Accessibility
 
-
-## Portfolio
-
-### Programming Projects
-  - This website
-  - Game: whack-a-mole
-  - Game: tetris
-
-### Visual Arts
-  - Photography
-  - Drawing
-  - Painting
-  - Sculpture
-  - My Awards
-
-### Shield Initiative
-  - [ ] Description
-  - [ ] Pictures & Videos
-    - [ ] The shields we created
-    - [ ] The team
-    - [ ] The happy recipients
-  - [ ] Goals, Achievements and Future Plans
-
-
-
-
-
-
-
---------------------------------------------
-
-# Future Optimizations
 
 - [ ] Cookie Consent (for Google Analytics)
 
