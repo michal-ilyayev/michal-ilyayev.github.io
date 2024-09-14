@@ -20,17 +20,17 @@ import NavLink from '../NavLink.astro';
     <li>
       <NavLink href="/credits/">Credits</NavLink>
     </li>
-    <li>
+    <li class="flex flex-row gap-6 mt-4 md:mt-0">
+
       <NavLink href="/contact/" title="Contact">
-        <Icon name="mdi:envelope" size={36} />
+        <Icon name="mdi:envelope" size={30} />
       </NavLink>
-    </li>
-    <li class="flex flex-row gap-6">
+
       <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile" class="hover:text-[#0a66c2]">
-        <Icon name="mdi:linkedin" size={36} />
+        <Icon name="mdi:linkedin" size={30} />
       </a>
       <a href="https://github.com/michal-ilyayev" target="_blank" title="My GitHub Profile" class="hover:text-black">
-        <Icon name="mdi:github" size={36} />
+        <Icon name="mdi:github" size={30} />
       </a>
     </li>
   </ul>
@@ -38,7 +38,7 @@ import NavLink from '../NavLink.astro';
 
 <style is:global>
   footer nav {
-    @apply w-full min-w-[50%] border-b lg:border-0 border-gray-800 py-4 lg:py-0;
+    @apply w-full min-w-[50%];
 
     ul {
       @apply flex flex-col md:flex-row justify-around items-center gap-2 md:gap-8;

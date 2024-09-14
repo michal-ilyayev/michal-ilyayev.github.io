@@ -1,62 +1,186 @@
 ---
+import { Icon } from 'astro-icon/components';
 import NavLink from '../NavLink.astro';
 ---
-<div>
-  <nav class="footer-nav">
-    <NavLink href="/">Home</NavLink>
-    <NavLink href="/about/">About</NavLink>
-    <NavLink href="/resume/">Resume</NavLink>
-    <NavLink href="/coding-projects/">Coding Projects</NavLink>
-    <NavLink href="/visual-arts-portfolio/">Visual Arts</NavLink>
-    <NavLink href="/shield-initiative/">Shield Initiative</NavLink>
-    <NavLink href="/contact/" class="btn-contact">Contact</NavLink>
+
+<div class="navbar">
+  <div class="flex justify-center lg:hidden">
+    <button id="nav-toggle-btn" aria-label="Toggle Menu">
+      <Icon id="nav-open" name="mdi:menu" size={35} class="text-gray-800" />
+      <Icon id="nav-close" name="mdi:close" size={35} class="text-gray-800 hidden" />
+    </button>
+  </div>
+  <nav class="hidden">
+    <ul>
+      <li>
+        <NavLink href="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink href="/about/">About</NavLink>
+      </li>
+      <li>
+        <NavLink href="/resume/">Resume</NavLink>
+      </li>
+      <li>
+        <NavLink href="/coding-projects/">Coding Projects</NavLink>
+      </li>
+      <li>
+        <NavLink href="/visual-arts-portfolio/">Visual Arts</NavLink>
+      </li>
+      <li>
+        <NavLink href="/shield-initiative/">Shield Initiative</NavLink>
+      </li>
+      <li>
+        <NavLink href="/contact/" class="btn-contact">Contact</NavLink>
+      </li>
+    </ul>
   </nav>
 </div>
 
-<style is:global>
-  .footer-nav {
-    @apply w-full min-w-[50%]  h-full flex flex-col md:flex-row justify-around items-center gap-2;
+<script is:inline>
 
-    a {
+  // toggle the menu open and closed
+  function toggleMenu(close) {
+    close = close === undefined ? !document.querySelector('.navbar nav').classList.contains('hidden') : close;
+    document.querySelector('.navbar nav').classList.toggle('hidden', close);
+    document.getElementById('nav-open').classList.toggle('hidden', !close);
+    document.getElementById('nav-close').classList.toggle('hidden', close);
+  }
+
+  // on click of the menu button, toggle the menu
+  document.getElementById('nav-toggle-btn').addEventListener('click', () => {
+    toggleMenu(undefined);
+  });
+
+  document.querySelectorAll('.navbar nav a').forEach((link) => {
+    // on click of a link, close the menu
+    link.addEventListener('click', () => {
+      toggleMenu(true);
+    });
+  });
+
+  // close the menu when the user clicks outside of it
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.navbar') && !event.target.closest('.navbar nav')) {
+      toggleMenu(true);
+    }
+  });
+
+  // close the menu when the user clicks the escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      toggleMenu(true);
+    }
+  });
+
+</script>
+
+
+<style lang="scss" is:global>
+
+  .navbar {
+    #nav-toggle-btn {
       @apply
-      flex flex-row items-center justify-around
-      text-gray-500
-      text-sm
-      transition-all
-      h-full
-      p-4
-      rounded-md
-      hover:text-primary-light
-      hover:bg-violet-50
-      border-b-2
-      border-transparent;
-      border-spacing: 0 1rem;
-
-      &.active {
-        @apply
-        text-primary
-        border-b-2
-        border-primary
-        rounded-none
-        hover:bg-transparent
-        ;
-      }
+      transform
+      outline-none
+      cursor-pointer
+      border-none
+      bg-transparent
+      transition
+      ease-in-out
+      delay-75
+      ;
     }
 
-
-    .btn-contact {
+    nav {
       @apply
-      bg-violet-500
-      text-white
-      hover:bg-violet-600
-      hover:text-white;
+      lg:flex
+      transition
+      ease-in-out
+      delay-150
+      ;
 
-      &.active {
+      > ul {
         @apply
-        text-violet-500
-        bg-transparent
-        rounded-none
+        absolute
+        top-[80px]
+        pb-24
+        left-0
+        flex
+        flex-col
+        justify-center
+        bg-white
+        w-full
+        p-4
+        gap-2
+        text-center
+        h-[calc(100vh-80px)]
+
+        lg:p-0
+        lg:gap-1
+        lg:h-auto
+        lg:relative
+        lg:top-0
+        lg:flex-row
+        lg:bg-transparent
+        lg:w-auto
+
+        xl:gap-5
         ;
+
+
+        li a {
+          @apply
+          flex flex-row items-center justify-around
+          text-gray-600
+          text-sm
+          h-full
+          rounded-md
+          hover:text-primary
+          hover:bg-violet-50
+          border-b-2
+          border-transparent
+          px-1
+          py-4
+          w-full
+          transition ease-in-out delay-75
+
+          lg:py-3
+          lg:px-2
+          lg:text-sm
+          xl:px-4
+          ;
+
+          &.active {
+            @apply
+            hover:bg-transparent
+            text-primary
+            bg-violet-100
+
+            lg:bg-transparent
+            lg:border-b-2
+            lg:border-primary
+            lg:rounded-none
+            ;
+          }
+        }
+      }
+
+      .btn-contact {
+        @apply
+        lg:px-5
+        lg:bg-violet-500
+        lg:text-white
+        lg:hover:bg-violet-600
+        lg:hover:text-white;
+
+        &.active {
+          @apply
+          lg:text-violet-500
+          lg:bg-transparent
+          lg:rounded-none
+          ;
+        }
       }
     }
   }

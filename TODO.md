@@ -91,7 +91,7 @@
 ## Header
 - [x] Logo
 - [x] Navigation
-- [ ] Hamburger Menu
+- [x] Hamburger Menu
 - [x] Social Media Links
   - [x] GitHub
   - [x] LinkedIn
@@ -126,10 +126,6 @@
   - [ ] Call to Action
   - [ ] My Picture
 
-
-- [x] Terms
-- [x] Privacy
-- [x] 404
 
 - Direct Links to:
   - [ ] Resume

@@ -18,14 +18,19 @@
 
 
 .page-container {
-  @apply lg:container mx-auto w-full px-5;
+  @apply
+  mx-auto
+  w-full
+  xl:max-w-[1600px]
+  px-4
+  lg:px-5
+  ;
 }
 
 .prose-custom {
   @apply
   mx-auto
   prose
-  prose-lg
   prose-a:font-normal
   prose-a:transition
   prose-a:ease-linear
@@ -36,7 +41,7 @@
 
   prose-a:no-underline
   hover:prose-a:underline
-  max-w-[75ch]
+  max-w-[80ch]
   ;
 }
 
