@@ -1,8 +1,40 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import ComingSoon from '~/components/ComingSoon.astro';
+import Slider from '~/components/slider/Slider.astro';
 ---
 
 <Layout title="Visual Arts Portfolio">
-  <ComingSoon />
+  <div class="flex w-full min-h-[900px] bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50">
+    <div class="page-container">
+      <Slider>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/1/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 1</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/2/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 2</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/3/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 3</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/4/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 4</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/5/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 5</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/seed/6/900/600" alt="Visual Arts Portfolio 1" />
+          <p>Visual Arts Portfolio 6</p>
+        </div>
+      </Slider>
+    </div>
+
+
+  </div>
 </Layout>
