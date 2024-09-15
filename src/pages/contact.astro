@@ -17,12 +17,12 @@ const backgroundImage = await getImage({
 
 <Layout title="Contact">
   <div>
-    <div class="flex flex-col lg:flex-row justify-between items-center h-full">
+    <div class="flex flex-col md:flex-row justify-between items-center h-full">
       <div
-        class="bg-cover bg-center bg-no-repeat w-[600px] h-dvh"
+        class="bg-cover bg-center bg-no-repeat w-[600px] h-dvh hidden md:block"
         style={`background-image: linear-gradient(100deg, #ffffffaa, #dfccf9cc, #ffffffee, #ffffffff), url('${backgroundImage.src}');`}
       />
-      <div class="max-w-[600px] p-2 lg:p-10 mx-auto my-5">
+      <div class="max-w-[600px] p-10 mx-auto my-5">
         <h1 class="w-full text-4xl xl:text-6xl mb-10 text-left">
           Contact
         </h1>
@@ -48,7 +48,7 @@ const backgroundImage = await getImage({
           Have a question or want to work together?
           Send me a message and I'll get back to you as soon as possible.
         </p>
-        <div class="w-full max-w-[600px] mx-auto">
+        <div >
           <ContactForm client:load />
         </div>
       </div>
