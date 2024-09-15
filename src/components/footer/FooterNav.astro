@@ -20,28 +20,30 @@ import NavLink from '../NavLink.astro';
     <li>
       <NavLink href="/credits/">Credits</NavLink>
     </li>
-    <li class="flex flex-row gap-6 mt-4 md:mt-0">
-
-      <NavLink href="/contact/" title="Contact">
-        <Icon name="mdi:envelope" size={30} />
-      </NavLink>
-
-      <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile" class="hover:text-[#0a66c2]">
-        <Icon name="mdi:linkedin" size={30} />
-      </a>
-      <a href="https://github.com/michal-ilyayev" target="_blank" title="My GitHub Profile" class="hover:text-black">
-        <Icon name="mdi:github" size={30} />
-      </a>
-    </li>
   </ul>
+  <div class="flex flex-row justify-center gap-6 mt-4 md:mt-0">
+
+    <NavLink href="/contact/" title="Contact">
+      <Icon name="mdi:envelope" size={30} />
+    </NavLink>
+
+    <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile"
+      class="hover:text-[#0a66c2]">
+      <Icon name="mdi:linkedin" size={30} />
+    </a>
+    <a href="https://github.com/michal-ilyayev" target="_blank" title="My GitHub Profile" class="hover:text-black">
+      <Icon name="mdi:github" size={30} />
+    </a>
+  </div>
+
 </nav>
 
 <style is:global>
   footer nav {
-    @apply w-full min-w-[50%];
+    @apply w-full min-w-[50%] flex flex-col md:flex-row justify-around items-center gap-2 md:gap-8;
 
     ul {
-      @apply flex flex-col md:flex-row justify-around items-center gap-2 md:gap-8;
+      @apply flex flex-row justify-around items-center gap-2 md:gap-8;
 
       li a {
         @apply
@@ -49,10 +51,11 @@ import NavLink from '../NavLink.astro';
         text-sm
         transition-all
         hover:text-primary-light
+        bg-transparent rounded-md px-2 py-1
         ;
 
         &.active {
-          @apply text-primary;
+          @apply text-primary bg-violet-50 rounded-md px-2 py-1;
         }
       }
     }
