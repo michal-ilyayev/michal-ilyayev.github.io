@@ -7,49 +7,36 @@ import 'swiper/css/pagination';
 import 'swiper/css/keyboard';
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const options: SwiperOptions = {
-    modules: [Navigation, Pagination, Autoplay, Keyboard],
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    keyboard: {
-      enabled: true,
-    },
-    speed: 800,
-    parallax: true,
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 0,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: true,
-    },
-    // breakpoints: {
-    //   768: {
-    //     slidesPerView: 1,
-    //     slidesPerGroup: 1,
-    //     spaceBetween: 20,
-    //   },
-    //   1024: {
-    //     slidesPerView: 1,
-    //     slidesPerGroup: 1,
-    //     spaceBetween: 30,
-    //   },
-    //   1440: {
-    //     slidesPerView: 1,
-    //     slidesPerGroup: 1,
-    //     spaceBetween: 30,
-    //   }
-    // },
-  };
+const defaultOptions: SwiperOptions = {
+  modules: [Navigation, Pagination, Autoplay, Keyboard],
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  keyboard: {
+    enabled: true,
+  },
+  speed: 800,
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 0,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: true,
+  },
+};
 
-  const swiper = new Swiper('.swiper', options);
-  swiper.init();
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.swiper').forEach((element) => {
+    const elementOptions = element.getAttribute('data-options');
+    const options = (elementOptions && JSON.parse(elementOptions) as SwiperOptions) || {};
+    const swiper = new Swiper(element as HTMLElement, { ...defaultOptions, ...options });
+    swiper.init();
+  });
 });
