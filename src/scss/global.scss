@@ -3,6 +3,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+// Custom styles
+@import './forms';
+
 
 @layer base {
   html {

@@ -1,0 +1,97 @@
+.theme-form {
+  .form-row {
+    @apply
+    mb-4
+    flex
+
+    flex-col
+    md:flex-row
+
+    items-start
+    justify-start
+    gap-2
+    ;
+
+    > label {
+      @apply
+      block
+      text-sm
+      text-gray-500
+      pl-1
+      md:py-2
+      w-full
+      md:w-1/4
+      ;
+
+        line-height: 1.5;
+    }
+
+    > .form-control {
+      @apply
+      flex
+      flex-col
+      grow;
+    }
+
+    input,
+    select,
+    textarea {
+      @apply
+      px-3
+      py-2
+      block
+      rounded-md
+      bg-gray-50
+      border-gray-200
+      grow
+
+      transition
+      duration-150
+      ease-in-out
+
+      focus:border-primary
+      focus:bg-white
+      focus:ring-0
+    }
+
+    .help-text {
+      @apply
+      text-sm
+      text-gray-400
+      ;
+    }
+
+    &.error {
+      label {
+        @apply
+        text-red-500
+        ;
+      }
+
+      input,
+      select,
+      textarea {
+        @apply
+        border-red-500
+        bg-red-50
+        ;
+      }
+
+      .help-text {
+        @apply
+        text-red-500
+        ;
+      }
+    }
+  }
+
+  .form-actions {
+    @apply
+    flex
+    justify-center
+    gap-2
+    md:ml-[25%]
+    my-10
+    ;
+  }
+}
