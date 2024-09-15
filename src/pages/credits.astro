@@ -1,8 +1,175 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import ComingSoon from '~/components/ComingSoon.astro';
+import { Image } from 'astro:assets';
+import githubIcon from '~/assets/icons/github-corner-right.svg';
 ---
 
-<Layout title="Credits">
-  <ComingSoon />
+<Layout>
+  <div class="absolute lg:fixed right-0 top-90">
+    <a href="https://github.com/michal-ilyayev/michal-ilyayev.github.io"
+      target="_blank" rel="noopener noreferrer"
+      aria-label="View Source On GitHub" title="View Source On GitHub"
+    >
+      <Image src={githubIcon} alt="GitHub" class="!mt-0" />
+    </a>
+  </div>
+
+  <div class="prose-custom py-16 px-4 !max-w-[88ch]">
+    <h1 class="py-8">Credits</h1>
+
+    <p>
+      This website is a static site generated with
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+
+      and deployed to
+
+      <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
+        GitHub Pages
+      </a>
+      using
+      <a href="https://github.com/features/actions" target="_blank" rel="noopener noreferrer">GitHub Actions</a>.
+    </p>
+
+    <p>
+      You can find the source code of this website on my
+      <a href="https://github.com/michal-ilyayev/michal-ilyayev.github.io" target="_blank" rel="noopener noreferrer">
+        GitHub repository
+      </a>
+
+      under the MIT License.
+
+      I built this website to learn and experiment with new technologies and design ideas.
+
+      Feel free to borrow any code snippets or ideas from this website for your own projects.
+    </p>
+
+
+    <p>
+      Here are the tools, libraries, images and icons I used to build this website:
+    </p>
+
+
+    <h2>Open Source Tools and Libraries</h2>
+
+    <ul>
+      <li>
+        <a href="https://astro.build" target="_blank" rel="noopener noreferrer">
+          Astro
+        </a> - Static site generator
+      </li>
+      <li>
+        <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
+          Tailwind CSS
+        </a> - Utility-first CSS framework
+      </li>
+      <li>
+        <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+          Vite
+        </a> - Frontend build tool
+      </li>
+      <li>
+        <a href="https://mdxjs.com" target="_blank" rel="noopener noreferrer">
+          MDX
+        </a> - Markdown for the component era
+      </li>
+      <li>
+        <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">
+          Swiper
+        </a> - Modern mobile touch slider
+      <li>
+        <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+          React
+        </a> - JavaScript library for building user interfaces
+      </li>
+      <li>
+        <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a>
+        - Typed JavaScript
+      </li>
+      <li>
+        <a href="https://eslint.org" target="_blank" rel="noopener noreferrer">ESLint</a>
+        - Pluggable JavaScript linter
+      </li>
+      <li>
+        <a href="https://pnpm.io/" target="_blank" rel="noopener noreferrer">
+          pnpm
+        </a>
+        - Fast, disk space efficient package manager
+      </li>
+    </ul>
+
+
+    <h2>Images and Icons</h2>
+
+    <ul>
+      <li>
+        <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
+      </li>
+      <li>
+        <a href="https://undraw.co" target="_blank" rel="noopener noreferrer">Undraw</a>
+      </li>
+      <li>
+        <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">Pexels</a>
+      </li>
+      <li>
+        <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a>
+      </li>
+      <li>
+        <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">Flaticon</a>
+      </li>
+      <li>
+        <a href="https://icon-sets.iconify.design/mdi/" target="_blank" rel="noopener noreferrer">
+          Material Design Icons
+        </a>
+      </li>
+    </ul>
+
+    <h2>Fonts</h2>
+
+    Fonts used in this website are from <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google
+    Fonts</a>:
+
+    <ul>
+      <li style="font-family: Roboto, serif;">
+        <a href="https://fonts.google.com/specimen/Roboto" target="_blank" rel="noopener noreferrer">Roboto</a>
+      </li>
+      <li style="font-family: 'Roboto Mono', monospace;">
+        <a href="https://fonts.google.com/specimen/Roboto+Mono" target="_blank" rel="noopener noreferrer">Roboto
+          Mono</a>
+      </li>
+      <li style="font-family: 'Roboto Serif', sans-serif;">
+        <a href="https://fonts.google.com/specimen/Roboto+Serif" target="_blank" rel="noopener noreferrer">Roboto
+          Serif</a>
+      </li>
+      <li style="font-family: 'Great Vibes', sans-serif;">
+        <a href="https://fonts.google.com/specimen/Great+Vibes" target="_blank" rel="noopener noreferrer">Great
+          Vibes</a>
+      </li>
+      <li style="font-family: 'Permanent Marker', sans-serif; font-weight: lighter">
+        <a href="https://fonts.google.com/specimen/Permanent+Marker" target="_blank" rel="noopener noreferrer">Permanent
+          Marker</a>
+      </li>
+    </ul>
+
+    <h2>Integrations</h2>
+
+    <ul>
+      <li>
+        <a href="https://www.google.com/analytics" target="_blank" rel="noopener noreferrer">
+          Google Analytics
+        </a>
+        - Web analytics service
+      </li>
+      <li>
+        <a href="https://www.google.com/webmasters/tools" target="_blank" rel="noopener noreferrer">
+          Google Search Console
+        </a>
+        - Check indexing status and optimize visibility of the website on Google
+      </li>
+      <li>
+        <a href="https://www.google.com/recaptcha" target="_blank" rel="noopener noreferrer">
+          Google Recaptcha
+        </a>- Protect the website from fraud and abuse
+      </li>
+    </ul>
+  </div>
 </Layout>
