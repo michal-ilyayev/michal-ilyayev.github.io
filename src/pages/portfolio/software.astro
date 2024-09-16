@@ -1,8 +1,133 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import ComingSoon from '~/components/ComingSoon.astro';
+import { Image } from 'astro:assets';
+
+import GitProjectCard from '~/components/GitProjectCard.astro';
+import balloonPopImg from '~/assets/img/games/balloon-pop.png';
+import wallGameImg from '~/assets/img/games/wall-game.png';
+import whackAMoleImg from '~/assets/img/games/whack-a-mole.png';
+import programmerImg from '~/assets/img/programmer.svg';
+import screenshotImg from '~/assets/img/screenshot.png';
 ---
 
 <Layout title="Coding Projects">
-  <ComingSoon />
+  <div class="py-8 lg:py-24 bg-gradient-to-br from-violet-500 via-purple-700 to-pink-400 min-h-dvh">
+
+    <div class="page-container flex flex-col-reverse lg:flex-row gap-8 justify-between items-center py-12">
+      <div>
+
+        <div
+          class="p-6 rounded-2xl bg-gradient-to-br from-gray-200 to-white border-l-8 border-l-amber-400 shadow-lg max-w-[800px]">
+          <p class="text-violet-600 font-handwriting font-light text-4xl py-8 leading-normal">
+            Talk is cheap.<br />
+            Show me the code.
+          </p>
+
+          <p class="font-handwriting text-violet-600">
+            - Linus Torvalds
+          </p>
+        </div>
+
+
+        <h1 class="text-4xl lg:text-6xl font-light !leading-normal text-white px-8 text-center lg:text-left mt-20">
+          Here is some of my work
+          in Software Development:
+        </h1>
+      </div>
+
+      <Image src={programmerImg} alt="" />
+
+    </div>
+  </div>
+
+  <div class="page-container py-20">
+
+    <GitProjectCard
+      title="Portfolio Website"
+      gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io"
+    >
+      <Image
+        src={screenshotImg} height={700}
+        alt="Portfolio Website" slot="image"
+        class="rounded-md shadow-md border border-gray-100 p-1 bg-white"
+      />
+
+      <div>
+        <h2>This Website</h2>
+        <p>
+          This website was developed using <code>Astro</code> and <code>TailwindCSS</code>.
+        </p>
+        <p>
+          For a full list of technologies and resources I used to build this website,
+          please visit the <a href="/credits/">credits page</a>.
+        </p>
+        <p>
+          I built this website to learn and experiment with new technologies and design ideas.
+          Feel free to borrow any code snippets or ideas from this website for your own projects.
+        </p>
+      </div>
+    </GitProjectCard>
+
+    <GitProjectCard
+      title="Whack a Mole"
+      gitHubLink="https://github.com/michal-ilyayev/whack-a-mole"
+    >
+      <Image src={whackAMoleImg} height={700} alt="Whack a Mole" slot="image" />
+
+      <div>
+        <h2>Whack a Mole</h2>
+        <p>
+          The good old Whack a Mole game developed with <code>PyGame</code> and <code>Python</code>.
+        </p>
+        <p>
+          Click on the moles to score points and avoid clicking on the bombs.
+          The game ends when you click on a bomb 3 times.
+        </p>
+      </div>
+    </GitProjectCard>
+
+    <GitProjectCard
+      title="Balloon Pop"
+      gitHubLink="https://github.com/michal-ilyayev/balloon-pop"
+    >
+      <Image src={balloonPopImg} height={700} alt="Balloon Pop" slot="image" />
+
+      <div>
+        <h2>Balloon Pop</h2>
+
+        <p>
+          A simple Balloon Pop game developed with <code>PyGame</code> and <code>Python</code>.
+        </p>
+        <p>
+          Pop as many balloons as possible and avoid the bomb balloon
+          The game ends when all balloons are popped or disappeared or when you click on the bomb balloon.
+        </p>
+      </div>
+    </GitProjectCard>
+
+    <GitProjectCard
+      title="Wall Game"
+      gitHubLink="https://github.com/michal-ilyayev/wall-game"
+    >
+      <Image src={wallGameImg} height={650} alt="Wall Game" slot="image" />
+
+      <div>
+        <h2>Wall Game</h2>
+
+        <p>
+          A simple Wall Game developed with <code>PyGame</code> and <code>Python</code>.
+        </p>
+
+        <p>
+          Navigate your circle using the mouse through the holes in the descending walls. Avoid the bouncing balls, as
+          they will cause you to lose lives. Additionally, ensure your circle passes through the holes accurately.
+          Failing to do so will drag your circle down, costing you life and changing your circle's colour and size.
+        </p>
+        <p>
+          The game ends when you lose all your lives.
+        </p>
+      </div>
+    </GitProjectCard>
+
+  </div>
 </Layout>

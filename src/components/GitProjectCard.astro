@@ -1,0 +1,121 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import githubIcon from '~/assets/icons/github-corner-right.svg';
+
+export type Props = HTMLAttributes<'div'> & {
+  title: string;
+  gitHubLink: string;
+};
+
+const {
+  title,
+  gitHubLink,
+  ...props
+} = Astro.props;
+---
+
+<div {...props}>
+  <div class="project-card">
+    <div class="card-header">
+      <a href={gitHubLink}
+        target="_blank" rel="noopener noreferrer"
+        aria-label="View Source On GitHub"
+        title="View Source On GitHub"
+        class="github-badge"
+      >
+        <Image src={githubIcon} alt="GitHub" class="!mt-0" />
+      </a>
+    </div>
+
+    <div class="project-image">
+      <a href={gitHubLink}
+        target="_blank" rel="noopener noreferrer"
+        aria-label="View On GitHub"
+        title="View On GitHub"
+      >
+        <slot name="image" />
+
+      </a>
+    </div>
+    <div class="project-card-description">
+
+      <div class="prose prose-sm prose-gray px-6 lg:px-4">
+        <slot />
+      </div>
+
+      <a href={gitHubLink}
+        target="_blank" rel="noopener noreferrer"
+        aria-label="View On GitHub"
+        title="View On GitHub"
+        class="btn-outline mt-4 mx-6"
+      >
+        <Icon name="mdi:github" size={30} class="mr-2" />
+        View On GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .project-card {
+    @apply
+    mb-8
+    w-full
+    max-w-[1400px]
+    mx-auto
+    flex
+    flex-col-reverse
+    lg:flex-row
+
+    items-center
+    justify-start
+
+    rounded-md
+    border
+    border-gray-200
+
+    bg-gradient-to-br
+    from-gray-50
+    to-white
+    shadow-md
+    relative
+    ;
+  }
+
+  .project-image {
+    @apply
+    py-5
+    px-4
+    ;
+
+    > img {
+      @apply
+      max-w-full
+      h-full
+      rounded-md
+      ;
+    }
+  }
+
+  .project-card-description {
+    @apply
+    w-full
+    h-full
+    lg:mb-10
+    ;
+  }
+
+  .card-header {
+    @apply
+    absolute
+    top-0
+    right-0;
+
+    .github-badge img {
+      @apply rounded-tr-md;
+    }
+  }
+
+</style>

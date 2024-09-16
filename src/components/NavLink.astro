@@ -4,9 +4,9 @@ import type { HTMLAttributes } from 'astro/types';
 export type Props = HTMLAttributes<'a'>;
 
 const {
-	href,
-	class: className,
-	...props
+  href,
+  class: className,
+  ...props
 } = Astro.props;
 
 const { pathname } = Astro.url;
