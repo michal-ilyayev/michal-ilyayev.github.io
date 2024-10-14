@@ -1,23 +1,30 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import Header from '~/components/header/Header.astro';
 import Footer from '~/components/footer/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
 
-export interface Props {
+export type Props = HTMLAttributes<'div'> & {
   title?: string;
   description?: string;
   image?: string;
 }
 
-const props = Astro.props;
+const {
+  title,
+  description,
+  image,
+  class: className,
+  ...props
+} = Astro.props;
 ---
 
 
-<BaseLayout {...props}>
+<BaseLayout title={title} description={description} image={image}>
   <div class="flex flex-col justify-between min-h-dvh w-full h-full">
     <Header />
 
-    <main class="flex-1 basis-0 relative">
+    <main class:list={['flex-1 basis-0 relative', className]}>
       <slot />
     </main>
 
