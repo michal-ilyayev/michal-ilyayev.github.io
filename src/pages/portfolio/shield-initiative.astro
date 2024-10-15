@@ -1,8 +1,89 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import ComingSoon from '~/components/ComingSoon.astro';
+import { Image } from 'astro:assets';
+
+// shield images
+import amongUsImg from '~/assets/img/shields/among-us.png';
+import blueyImg from '~/assets/img/shields/bluey.png';
+import incrediblesImg from '~/assets/img/shields/incredibles.png';
+import marioImg from '~/assets/img/shields/mario.png';
+import moanaImg from '~/assets/img/shields/moana.png';
+import mulanImg from '~/assets/img/shields/mulan.png';
+import powerPuffImg from '~/assets/img/shields/power-puff.png';
+import rapunzelImg from '~/assets/img/shields/rapunzel.png';
+import spiritedAwayImg from '~/assets/img/shields/spirited-away.png';
+import wolfImg from '~/assets/img/shields/wolf.png';
+
+import allShieldsImg from '~/assets/img/shields/all.png';
+import ShieldsSlider from '~/components/shields-slider/ShieldsSlider.astro';
 ---
 
 <Layout title="Shield Initiative">
-  <ComingSoon />
+  <div class="max-w-full max-h-full w-full h-dvh">
+    <Image src={allShieldsImg} height={700} alt="All Shelds"
+      class="w-full h-full max-w-full p-0 m-0 object-cover object-center" />
+  </div>
+
+  <div class="page-container">
+    <div class="text-center" style="margin: calc(100dvh - 800px) 0">
+      <h1 class="text-4xl font-bold text-gray-800">Shield Designs</h1>
+      <p class="text-lg text-gray-600">A collection of shields from kids movies and TV shows</p>
+      <div class="relative block">
+
+      <ShieldsSlider options={{ speed: 300 }}>
+        <div class="swiper-slide">
+          <Image src={amongUsImg} height={700} alt="Among Us" />
+          <p>Among Us</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={blueyImg} height={700} alt="Bluey" />
+          <p>Bluey</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={incrediblesImg} height={700} alt="Incredibles" />
+          <p>Incredibles</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={marioImg} height={700} alt="Mario" />
+          <p>Mario</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={moanaImg} height={700} alt="Moana" />
+          <p>Moana</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={mulanImg} height={700} alt="Mulan" />
+          <p>Mulan</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={powerPuffImg} height={700} alt="Power Puff" />
+          <p>Power Puff</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={rapunzelImg} height={700} alt="Rapunzel" />
+          <p>Rapunzel</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={spiritedAwayImg} height={700} alt="Spirited Away" />
+          <p>Spirited Away</p>
+        </div>
+
+        <div class="swiper-slide">
+          <Image src={wolfImg} height={700} alt="Wolf" />
+          <p>Wolf</p>
+        </div>
+
+    </ShieldsSlider>
+
+      </div>
+    </div>
+  </div>
 </Layout>
