@@ -5,6 +5,8 @@
 
 // Custom styles
 @import './forms';
+@import './buttons';
+@import './backgrounds';
 
 
 @layer base {
@@ -12,7 +14,8 @@
     --color-primary: #7065f9;
     --color-primary-light: #8f8af9;
 
-    font-family: Roboto, 'Open Sans', Arial, sans-serif;
+    font-family: Inter, Roboto, 'Open Sans', Arial, sans-serif;
+    font-optical-sizing: auto;
     color: #434750;
     font-size: 18px;
     scroll-behavior: smooth;
@@ -48,54 +51,3 @@
   ;
 }
 
-
-.btn-primary {
-  @apply
-  inline-flex
-  justify-center
-  items-center
-  relative
-  bg-primary
-  text-white
-  py-2
-  px-8
-  rounded-md
-  text-lg
-  no-underline
-
-  shadow-sm
-  drop-shadow-sm
-
-  transition
-  ease-linear
-  duration-100
-
-  hover:bg-primary-light;
-}
-
-.btn-outline {
-    @apply
-    inline-flex
-    justify-center
-    items-center
-    relative
-    text-primary
-      bg-violet-50
-    py-2
-    px-8
-    rounded-md
-    text-lg
-    no-underline
-
-    shadow-sm
-    drop-shadow-sm
-      border
-      border-primary
-
-    transition
-    ease-linear
-    duration-100
-
-    hover:bg-primary-light
-  hover:text-white;
-}

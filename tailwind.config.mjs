@@ -9,7 +9,7 @@ export default {
     darkMode: 'class',
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'Open Sans', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'Roboto', 'Open Sans', 'Arial', 'sans-serif'],
         serif: ['Roboto Serif', 'Merriweather', 'serif'],
         mono: ['Roboto Mono', 'monospace'],
         handwriting: ['Permanent Marker', 'cursive'],
