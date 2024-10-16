@@ -161,10 +161,10 @@
 
 
 ## Coding Projects
-- This website
-- Game: whack-a-mole
-- Game: wall-game
-- Game: balloon-pop
+- [x] This website
+- [x] Game: whack-a-mole
+- [x] Game: wall-game
+- [x] Game: balloon-pop
 
 
 ## Visual Arts
@@ -176,12 +176,11 @@
 
 
 ## Shield Initiative
-- [ ] Description
+- [x] Description
 - [ ] Pictures & Videos
-  - [ ] The shields we created
-  - [ ] The team
-  - [ ] The happy recipients
-- [ ] Goals, Achievements and Future Plans
+  - [x] The shields we created
+  - [ ] The process of making them
+
 
 
 
