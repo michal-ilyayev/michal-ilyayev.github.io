@@ -2,86 +2,194 @@
 import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// shield images
-import amongUsImg from '~/assets/img/shields/among-us.png';
-import blueyImg from '~/assets/img/shields/bluey.png';
-import incrediblesImg from '~/assets/img/shields/incredibles.png';
-import marioImg from '~/assets/img/shields/mario.png';
-import moanaImg from '~/assets/img/shields/moana.png';
-import mulanImg from '~/assets/img/shields/mulan.png';
-import powerPuffImg from '~/assets/img/shields/power-puff.png';
-import rapunzelImg from '~/assets/img/shields/rapunzel.png';
-import spiritedAwayImg from '~/assets/img/shields/spirited-away.png';
-import wolfImg from '~/assets/img/shields/wolf.png';
-
-import allShieldsImg from '~/assets/img/shields/all.png';
 import ShieldsSlider from '~/components/shields-slider/ShieldsSlider.astro';
+
+// shield images
+import amongUsImg from '~/assets/si/shields/among-us.png';
+import blueyImg from '~/assets/si/shields/bluey.png';
+import incrediblesImg from '~/assets/si/shields/incredibles.png';
+import marioImg from '~/assets/si/shields/mario.png';
+import moanaImg from '~/assets/si/shields/moana.png';
+import mulanImg from '~/assets/si/shields/mulan.png';
+import powerPuffImg from '~/assets/si/shields/power-puff.png';
+import rapunzelImg from '~/assets/si/shields/rapunzel.png';
+import spiritedAwayImg from '~/assets/si/shields/spirited-away.png';
+import wolfImg from '~/assets/si/shields/wolf.png';
+
+import allShieldsImg from '~/assets/si/all.png';
+import demoVideo from '~/assets/si/demo.mp4';
+import globalNewsImg from '~/assets/si/global-news.svg';
 ---
 
 <Layout title="Shield Initiative">
-  <div class="max-w-full max-h-full w-full h-dvh">
-    <Image src={allShieldsImg} height={700} alt="All Shelds"
-      class="w-full h-full max-w-full p-0 m-0 object-cover object-center" />
-  </div>
+
+  <!--<div class="min-h-[calc(100dvh-80px)]">-->
+  <!--  ss-->
+  <!--</div>-->
+
 
   <div class="page-container">
-    <div class="text-center" style="margin: calc(100dvh - 800px) 0">
-      <h1 class="text-4xl font-bold text-gray-800">Shield Designs</h1>
-      <p class="text-lg text-gray-600">A collection of shields from kids movies and TV shows</p>
+    <div class="flex flex-row justify-between items-center py-16">
+      <div class="prose">
+        <p>
+          The Shield Initiative is a project dedicated to crafting custom-designed wooden shields for hospital IV poles,
+          bringing comfort and joy to children undergoing medical treatment.
+        </p>
+        <p>
+          Each shield is a unique work of art, designed to help creating a more positive hospital experience.
+        </p>
+        <p>
+          Our goal is to continue making a difference through creativity, supporting children in need, and expanding the
+          project to reach even more hospitals.
+        </p>
+      </div>
+
+      <div>
+        <video autoplay loop muted playsinline class="w-full h-full max-w-full p-0 m-0 object-cover object-center">
+          <source src={demoVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-b from-sky-100 via-sky-50 to-transparent">
+    <div class="page-container py-16">
+
+      <div class="text-center">
+        <h2 class="text-4xl font-handwriting text-sky-900 mb-6">The shields we created</h2>
+        <p class="text-lg text-gray-600">Shield designs are inspired by kids movies and TV series</p>
+      </div>
+
       <div class="relative block">
+        <ShieldsSlider options={{ speed: 300 }}>
+          <div class="swiper-slide">
+            <Image src={amongUsImg} height={700} alt="Among Us" />
+            <p>Among Us</p>
+          </div>
 
-      <ShieldsSlider options={{ speed: 300 }}>
-        <div class="swiper-slide">
-          <Image src={amongUsImg} height={700} alt="Among Us" />
-          <p>Among Us</p>
+          <div class="swiper-slide">
+            <Image src={blueyImg} height={700} alt="Bluey" />
+            <p>Bluey</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={incrediblesImg} height={700} alt="The Incredibles" />
+            <p>The Incredibles</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={marioImg} height={700} alt="Mario" />
+            <p>Mario</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={moanaImg} height={700} alt="Moana" />
+            <p>Moana</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={mulanImg} height={700} alt="Mulan" />
+            <p>Mulan</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={powerPuffImg} height={700} alt="The Powerpuff Girls" />
+            <p>The Powerpuff Girls</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={rapunzelImg} height={700} alt="Rapunzel" />
+            <p>Rapunzel</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={spiritedAwayImg} height={700} alt="Spirited Away" />
+            <p>Spirited Away</p>
+          </div>
+
+          <div class="swiper-slide">
+            <Image src={wolfImg} height={700} alt="Princess Mononoke" />
+            <p>Princess Mononoke</p>
+          </div>
+        </ShieldsSlider>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-b from-transparent to-sky-100 pb-16">
+    <div class="flex flex-row justify-center items-center">
+      <div class="max-w-full p-5">
+        <Image src={allShieldsImg} width={1200} alt="All Shelds"
+          class="w-full h-auto object-cover object-center mx-auto rounded-md shadow-md drop-shadow-md" />
+      </div>
+    </div>
+  </div>
+
+  <div class="py-24">
+    <div class="page-container">
+      <div class="flex flex-row items-center justify-between gap-12">
+        <div>
+          <h2 class="text-3xl font-light mb-8 font-handwriting text-gray-600">
+            In the News
+          </h2>
+          <div class="min-h-[372px]">
+            <iframe src="https://globalnews.ca/video/embed/5426927/" width="670" height="372" frameborder="0"
+              allowfullscreen
+              scrolling="no"></iframe>
+          </div>
+          <div class="italic text-gray-600 text-sm p-2">
+            Source:
+            <a
+              class="italic text-gray-600 text-sm underline hover:text-sky-600 hover:no-underline transition-all"
+              href="https://globalnews.ca/news/5427319/shield-initiative-brings-fun-sick-kids/"
+              target="_blank"
+            >
+              https://globalnews.ca/news/5427319/shield-initiative-brings-fun-sick-kids/
+            </a>
+          </div>
         </div>
+        <div>
+          <div class="p-8 border border-gray-200 rounded-xl bg-gray-50">
+            <a
+              href="https://globalnews.ca/news/5427319/shield-initiative-brings-fun-sick-kids/"
+              target="_blank"
+            >
+              <Image src={globalNewsImg} height={50} alt="Global News" />
+            </a>
+            <div class="prose italic mt-8">
+              <h3>
+                "The Shield Initiative" brings colour and fun to sick kids.
+              </h3>
+              <p>
+                Students from Westmount Collegiate Institute in Thornhill have taken on a special project – create a
+                board
+                that fits under an IV pole for a child to sit on or to carry around their belongings.
+              </p>
+              <p>
+                “My son was diagnosed with Leukemia in 2014,” said Shield Initiative founder Ilan Danjoux. “Once my son
+                went through the process, one of the first things I wanted to do was give back to the many individuals
+                and
+                organizations that helped us.”
+              </p>
+              <p>
+                The project known as the Shield Initiative gives children the freedom to move and explore whether at
+                home
+                or in hospital.
+              </p>
 
-        <div class="swiper-slide">
-          <Image src={blueyImg} height={700} alt="Bluey" />
-          <p>Bluey</p>
+              <p>
+                <a
+                  href="https://globalnews.ca/news/5427319/shield-initiative-brings-fun-sick-kids/"
+                  target="_blank"
+                >
+                  Read more...
+                </a>
+              </p>
+
+            </div>
+          </div>
         </div>
-
-        <div class="swiper-slide">
-          <Image src={incrediblesImg} height={700} alt="Incredibles" />
-          <p>Incredibles</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={marioImg} height={700} alt="Mario" />
-          <p>Mario</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={moanaImg} height={700} alt="Moana" />
-          <p>Moana</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={mulanImg} height={700} alt="Mulan" />
-          <p>Mulan</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={powerPuffImg} height={700} alt="Power Puff" />
-          <p>Power Puff</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={rapunzelImg} height={700} alt="Rapunzel" />
-          <p>Rapunzel</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={spiritedAwayImg} height={700} alt="Spirited Away" />
-          <p>Spirited Away</p>
-        </div>
-
-        <div class="swiper-slide">
-          <Image src={wolfImg} height={700} alt="Wolf" />
-          <p>Wolf</p>
-        </div>
-
-    </ShieldsSlider>
 
       </div>
     </div>
