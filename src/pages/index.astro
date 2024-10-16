@@ -1,10 +1,11 @@
 ---
-import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/Layout.astro';
+import SILogo from '~/components/SILogo.astro';
 
 import MeImg from '~/assets/img/me/1.jpeg';
 import computerImg from '~/assets/img/computer.png';
-import { Icon } from 'astro-icon/components';
 ---
 
 <Layout>
@@ -115,10 +116,10 @@ import { Icon } from 'astro-icon/components';
 
   <div class="relative py-24 bg-gradient-to-br from-sky-100 via-transparent  to-transparent ">
     <div class="page-container">
-      <div class="relative flex flex-row justify-between items-start py-8">
+      <div class="relative flex flex-row justify-around items-start py-8">
 
         <div class="sticky top-40">
-          <div class="w-[700px] h-[500px] bg-amber-100"></div>
+          <SILogo />
         </div>
 
         <div>

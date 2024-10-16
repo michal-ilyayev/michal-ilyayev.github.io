@@ -3,6 +3,7 @@ import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 import ShieldsSlider from '~/components/shields-slider/ShieldsSlider.astro';
+import SILogo from '~/components/SILogo.astro';
 
 // shield images
 import amongUsImg from '~/assets/si/shields/among-us.png';
@@ -17,42 +18,68 @@ import spiritedAwayImg from '~/assets/si/shields/spirited-away.png';
 import wolfImg from '~/assets/si/shields/wolf.png';
 
 import allShieldsImg from '~/assets/si/all.png';
+
 import demoVideo from '~/assets/si/demo.mp4';
 import globalNewsImg from '~/assets/si/global-news.svg';
 ---
 
 <Layout title="Shield Initiative">
 
-  <!--<div class="min-h-[calc(100dvh-80px)]">-->
-  <!--  ss-->
-  <!--</div>-->
+  <div class="relative min-h-[400px] py-24 bg-gradient-to-br from-sky-100 via-transparent  to-transparent">
 
+    <div class="h-full page-container">
+      <div class="h-full flex flex-row items-center justify-around">
+        <SILogo />
 
-  <div class="page-container">
-    <div class="flex flex-row justify-between items-center py-16">
-      <div class="prose">
-        <p>
-          The Shield Initiative is a project dedicated to crafting custom-designed wooden shields for hospital IV poles,
-          bringing comfort and joy to children undergoing medical treatment.
-        </p>
-        <p>
-          Each shield is a unique work of art, designed to help creating a more positive hospital experience.
-        </p>
-        <p>
-          Our goal is to continue making a difference through creativity, supporting children in need, and expanding the
-          project to reach even more hospitals.
-        </p>
-      </div>
-
-      <div>
-        <video autoplay loop muted playsinline class="w-full h-full max-w-full p-0 m-0 object-cover object-center">
-          <source src={demoVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="prose-lg max-w-[55ch]">
+          <p>
+            <span class="italic">The Shield Initiative</span> is a project dedicated to crafting custom-designed wooden
+            shields for hospital IV
+            poles, bringing comfort and joy to children undergoing medical treatment.
+          </p>
+          <p>
+            Each shield is a unique work of art, designed to help creating a more positive hospital experience.
+          </p>
+          <p>
+            Our goal is to continue making a difference through creativity, supporting children in need, and expanding
+            the project to reach even more hospitals.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="bg-gradient-to-tr from-emerald-50 via-transparent to-transparent">
+    <div class="page-container">
+      <div class="flex flex-row justify-between items-center py-24">
+        <div class="prose-lg max-w-[50ch]">
+          <p>
+            We are a team of high school students who are passionate about making a difference in the lives of children
+            undergoing medical treatment.
+          </p>
+          <p>
+            We produce, paint and deliver custom-designed wooden platform (shaped like shields)
+            shields that sit on the base of hospital IV poles, for pediatric patients.
+          </p>
+          <p>
+            This gives our little heroes the freedom to move around, explore, and play, while receiving treatment.
+          </p>
+          <p>
+            Our shields are inspired by kids movies and TV series, bringing a touch of magic and joy to the hospital
+            environment.
+          </p>
+        </div>
+
+        <div>
+          <video autoplay loop muted playsinline
+            class="w-full h-full max-w-full p-0 m-0 object-cover object-center rounded-2xl drop-shadow-md">
+            <source src={demoVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="bg-gradient-to-b from-sky-100 via-sky-50 to-transparent">
     <div class="page-container py-16">
 
