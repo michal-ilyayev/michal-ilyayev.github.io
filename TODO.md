@@ -120,43 +120,19 @@
 
 
 ## Homepage
-- [ ] Hero
-  - [ ] Title
-  - [ ] Subtitle
-  - [ ] Call to Action
-  - [ ] My Picture
-
-
-- Direct Links to:
-  - [ ] Resume
-  - [ ] Shield Initiative
-  - [ ] Coding Projects
-  - [ ] Visual Arts Portfolio
-  - [ ] Contact
-
-
-## About
-- [ ] Bio
-- [ ] Skills
-- [ ] Education
-- [ ] Experience
-- [ ] Interests
-- [ ] Hobbies
-- [ ] Awards
-- [ ] Certifications
-- [ ] Projects (with links to portfolio)
-
-- [ ] Testimonials
-- [ ] Contact
+- [x] About Me
+- [x] Visual Arts
+- [x] Shield Initiative
 
 
 ## Resume
-- [ ] Bio
-- [ ] Education
-- [ ] Experience
-- [ ] Skills
-- [ ] Achievements
-- [ ] Download PDF
+- [x] Bio
+- [x] Education
+- [x] Experience
+- [x] Skills
+- [x] Awards
+- [x] Hobbies
+- [x] Print
 
 
 
@@ -168,72 +144,24 @@
 
 
 ## Visual Arts
-- Photography
-- Drawing
-- Painting
-- Sculpture
-- My Awards
+- [ ] Description
+- [ ] Pictures Gallery
 
 
 ## Shield Initiative
 - [x] Description
-- [ ] Pictures & Videos
-  - [x] The shields we created
-  - [ ] The process of making them
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---------------------------------------------
-
-# Future Optimizations
-
+- [x] The shields we created
+- [x] In the News
+- [ ] The process (image gallery)
 
 
 ## Credits
-- [ ] Icons
-- [ ] Images
-- [ ] Fonts
-- [ ] Libraries
-- [ ] Tools
-- [ ] Tutorials
-- [ ] Templates
-- [ ] Inspiration
-- [ ] References
-- [ ] Resources
-- [ ] Assets
-- [ ] Code Snippets
-- [ ] Components
-- [ ] Plugins
-- [ ] Extensions
-- [ ] Software
-- [ ] Services
-- [ ] Hosting
-- [ ] Domains
-- [ ] SEO
-- [ ] Analytics
-- [ ] Accessibility
+- [x] Icons
+- [x] Images
+- [x] Fonts
+- [x] Libraries
+- [x] Tools
 
-
-- [ ] Cookie Consent (for Google Analytics)
 
 - [ ] Contact Form
   - [ ] React Hook Form
@@ -245,23 +173,27 @@
   - [ ] Form Validation (Frontend + Backend)
   - [ ] Form Reset
 
-- [ ] Transitions
-  - [ ] Page Transitions
-  - [ ] Element Transitions
-  - [ ] Hover Effects
-  - [ ] Loading Effects
-  - [ ] Scroll Effects
-  - [ ] Parallax Effects
-  - [ ] Animation Library
-  - [ ] Custom Animations
+
+--------------------------------------------
+
+# Optimizations
+
+- [ ] Responsive Design
+  - [ ] Homepage
+  - [ ] Resume
+  - [ ] Coding Projects
+  - [ ] Visual Arts
+  - [ ] Shield Initiative
+  - [ ] Credits
+  - [ ] Contact
+  - [ ] Terms
+  - [ ] Privacy
+  - [ ] 404
+
+
+- [ ] Cookie Consent (for Google Analytics)
 
 - [ ] Light / Dark Mode
   - [ ] Dark Mode Toggle Button
   - [ ] Dark Mode default based on system
 
-- [ ] Responsive Design
-  - [ ] Mobile
-  - [ ] Tablet
-  - [ ] Desktop
-
-- [ ] Search

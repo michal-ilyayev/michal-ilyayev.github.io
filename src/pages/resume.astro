@@ -16,14 +16,13 @@ import AvatarImg from '~/assets/img/me/3.png';
   <div class="relative max-w-full min-h-screen px-0 sm:px-4 print:px-0 py-10 print:py-5">
 
     <!-- resume page -->
-    <!--<div class="w-full sm:max-w-[52rem] lg:aspect-[8.5/11] bg-white sm:rounded-md shadow-xl mx-auto-->
     <div class="w-full sm:max-w-[52rem] bg-white sm:rounded-md shadow-xl mx-auto
                 print:w-[52rem] print:h-[100vh] print:aspect-[8.5/11] print:rounded-none print:shadow-none">
       <div class="relative w-full h-full flex flex-col p-4 md:p-10 print:p-4">
 
         <!-- header -->
-        <div class="w-full flex flex-col sm:flex-row justify-between sm:items-center gap-10">
-          <div class="flex sm:justify-between items-center gap-6">
+        <div class="w-full flex flex-col lg:flex-row print:flex-row justify-between lg:items-center print:items-center gap-10">
+          <div class="flex justify-start items-center gap-6">
             <div>
               <Image
                 src={AvatarImg}
@@ -34,7 +33,7 @@ import AvatarImg from '~/assets/img/me/3.png';
             </div>
             <div>
               <h1
-                class="text-xl print:text-4xl sm:text-4xl font-[400] font-serif italic border-b border-gray-300 pb-2 mb-2">
+                class="text-2xl print:text-4xl sm:text-4xl font-[400] font-serif italic border-b border-gray-300 pb-2 mb-2">
                 Michal Ilyayev
               </h1>
               <p class="text-gray-500 text-md sm:text-xl print:text-xl italic">
@@ -42,10 +41,10 @@ import AvatarImg from '~/assets/img/me/3.png';
               </p>
             </div>
           </div>
-          <div class="flex sm:justify-end print:justify-end">
-            <div class="flex flex-col w-fit sm:items-start print:items-start gap-1.5 text-gray-600 text-sm">
+          <div class="flex lg:justify-end print:justify-end">
+            <div class="flex flex-col w-fit items-start gap-1.5 text-gray-600 text-sm">
               <a
-                class="flex items-center gap-2"
+                class="flex items-center gap-2 hover:text-primary transition-all"
                 href="https://michal-ilyayev.github.io"
                 target="_blank"
               >
@@ -53,7 +52,7 @@ import AvatarImg from '~/assets/img/me/3.png';
                 https://michal-ilyayev.github.io
               </a>
               <a
-                class="flex items-center gap-2"
+                class="flex items-center gap-2 hover:text-primary transition-all"
                 href="https://www.linkedin.com/in/michal-ilyayev/"
                 target="_blank"
               >
@@ -61,7 +60,7 @@ import AvatarImg from '~/assets/img/me/3.png';
                 linkedin.com/in/michal-ilyayev/
               </a>
               <a
-                class="flex items-center gap-2"
+                class="flex items-center gap-2 hover:text-primary transition-all"
                 href="mailto:michal.ilyayev@gmail.com"
                 target="_blank"
               >
@@ -69,14 +68,13 @@ import AvatarImg from '~/assets/img/me/3.png';
                 michal.ilyayev@gmail.com
               </a>
               <a
-                class="flex items-center gap-2"
+                class="flex items-center gap-2 hover:text-primary transition-all"
                 href="https://www.google.com/maps/place/Thornhill,+Vaughan,+ON/@43.8096,-79.4591"
                 target="_blank"
               >
                 <Icon name="mdi:map-marker" size={20} class="text-gray-500" />
                 Thornhill, Ontario, CA
               </a>
-
             </div>
           </div>
         </div>
@@ -119,7 +117,7 @@ import AvatarImg from '~/assets/img/me/3.png';
                 As an intern, I work closely with a team of highly experienced Software Engineers to develop and
                 maintain web applications for our clients.
                 In this role I am assisting with UI/UX design and creating responsive and
-                user-friendly web applications using React, Tailwind CSS, and Astro.
+                user-friendly web applications using Astro, React, and Tailwind CSS.
               </p>
             </section>
             <section>
@@ -269,7 +267,6 @@ import AvatarImg from '~/assets/img/me/3.png';
 
             <p>
               Sketching and painting (landscapes, human features, and structures),
-              swimming, playing the piano, badminton, art, music, and outdoor activities.
               swimming, playing the piano, art, music, badminton,
               fishing, kayaking, skating, hiking, and hanging out with friends.
             </p>
@@ -321,7 +318,7 @@ import AvatarImg from '~/assets/img/me/3.png';
 
   .resume-body {
     h2 {
-      @apply mt-10 text-lg font-serif font-bold border-b border-gray-300 pb-2 mb-4;
+      @apply mt-10 text-lg font-serif font-bold border-b border-gray-300 mb-4;
 
     }
 
