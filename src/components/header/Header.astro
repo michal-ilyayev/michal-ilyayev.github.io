@@ -4,7 +4,8 @@ import logoImg from '~/assets/img/logo.png';
 import Navbar from './Navbar.astro';
 ---
 
-<header class="print:hidden sticky h-[80px] top-0 w-full bg-white drop-shadow-sm z-20 flex items-center justify-center"
+<header id="header"
+  class="print:hidden sticky h-[80px] top-0 w-full bg-white drop-shadow-sm z-20 flex items-center justify-center transition-all duration-300"
   style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px);"
 >
   <div class="page-container flex items-center justify-between gap-5">
@@ -25,3 +26,29 @@ import Navbar from './Navbar.astro';
     </div>
   </div>
 </header>
+
+
+<script is:inline>
+  /*
+    Only on mobile:
+    When the user scrolls down, hide the header.
+    When the user scrolls up, show the header
+   */
+  let prevScrollPos = window.pageYOffset;
+
+  window.onscroll = function () {
+    // check if the user is on mobile
+    if (window.innerWidth > 1024) {
+      return;
+    }
+    const header = document.getElementById('header');
+    const currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+      header.style.top = '0';
+    } else {
+      header.style.top = '-80px';
+    }
+    prevScrollPos = currentScrollPos;
+  };
+</script>
