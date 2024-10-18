@@ -13,30 +13,47 @@ import computerImg from '~/assets/img/computer.png';
     <div></div>
   </div>
 
-  <div class="min-h-[calc(100dvh-80px)] py-16">
+  <div class="min-h-[calc(100dvh-80px)] py-2 lg:py-16">
 
-    <div class="page-container">
+    <div class="page-container1">
 
-      <div class="flex flex-row justify-between items-center py-8">
-        <div class="flex max-h-full w-1/3">
-          <div class="bg-gradient-to-br from-purple-400 via-violet-400 to-pink-400 p-3 rounded-3xl shadow-xl mx-auto">
-            <Image src={MeImg} height={600} alt="Michal Ilyayev"
-              class="max-h-fit rounded-2xl  shadow-xl mx-auto"
-            />
-          </div>
-        </div>
+      <div class="grid grid-cols-12 gap-8 py-8 max-w-full">
 
-        <div class="mx-auto">
-          <div class="prose text-gray-950">
-            <h2 class="heading">About Me</h2>
+        <div class="order-1 lg:order-2 col-span-12 lg:col-span-7 max-w-full overflow-hidden">
+          <div class="prose max-w-[60ch] mx-auto lg:mx-0 px-6">
+            <h2 class="heading">
+              <a href="/resume/">
+                About Me
+              </a>
+            </h2>
             <p>
               Hello! I'm Michal Ilyayev, a student at Westmount Collegiate Institute in Ontario,
               pursuing a career in Software Engineering.
             </p>
             <p>
               I have a passion for creativity and technology, and my interests span across art, swimming, piano,
-              and badminton.
+              and so much more...
+              (<a href="/resume/">See my Resume</a>!)
             </p>
+          </div>
+        </div>
+
+        <div class="order-2 lg:order-1 col-span-12 row-span-2 lg:col-span-5 flex max-w-full overflow-hidden">
+          <div class="px-6 mx-auto">
+            <div
+              class="bg-gradient-to-br from-purple-400 via-violet-400 to-pink-400 p-3 rounded-3xl shadow-xl">
+              <a href="/resume/">
+                <Image src={MeImg} height={600} alt="Michal Ilyayev"
+                  class="rounded-2xl mx-auto aspect-600/338"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="order-3 col-span-12 lg:col-span-7 max-w-full overflow-hidden">
+          <div class="prose max-w-[60ch] mx-auto lg:mx-0 mt-6 px-6">
             <p>
               My journey into Computer Science began at a young age when my dad first introduced me to the world of
               technology.
@@ -51,19 +68,13 @@ import computerImg from '~/assets/img/computer.png';
               This website showcases my achievements and highlights some of the projects that have defined who I am as
               both a creator and a problem solver.
             </p>
-          </div>
-          <div class="flex flex-row gap-4 my-8">
-            <a href="/portfolio/software/" class="btn-primary">My Coding Portfolio</a>
-            <a href="/resume/" class="btn-outline">Resume</a>
 
-            <a href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank" title="My Linkedin Profile"
-              class="btn-outline" style="padding: 12px">
-              <Icon name="mdi:linkedin" size={30} />
-            </a>
-            <a href="https://github.com/michal-ilyayev" target="_blank" title="My GitHub Profile"
-              class="btn-outline" style="padding: 12px">
-              <Icon name="mdi:github" size={30} />
-            </a>
+            <div class="my-8 text-center lg:text-left">
+              <a href="/portfolio/software/" class="btn-primary">
+                My Coding Portfolio
+                <Icon name="mdi:arrow-right" size={24} class="ml-2" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -74,14 +85,14 @@ import computerImg from '~/assets/img/computer.png';
 
     <div class="page-container">
 
-      <div class="flex flex-row justify-around items-center py-8">
-        <div>
-          <h2 class="heading text-violet-950">
+      <div class="flex flex-col lg:flex-row justify-between items-center">
+        <div class="lg:w-1/2">
+          <h2 class="heading">
             <a href="/portfolio/visual-arts/">
               Visual Arts
             </a>
           </h2>
-          <div class="prose text-violet-950">
+          <div class="prose">
             <p>
               Art has always been close to my heart, a passion that began when my grandfather first introduced me to
               it.
@@ -100,35 +111,42 @@ import computerImg from '~/assets/img/computer.png';
               I hope you enjoy them as much as I enjoyed creating them!
             </p>
           </div>
-
-          <div class="flex flex-row gap-4 my-8">
-            <a href="/portfolio/visual-arts/" class="btn-primary">My Visual Arts Portfolio</a>
-          </div>
         </div>
 
-        <div>
-          <Image src={computerImg} width={700} alt="Creativity" />
+        <div class="py-20 px-2 lg:w-1/2">
+          <a href="/portfolio/visual-arts/">
+            <Image src={computerImg} width={700} alt="Creativity" class="max-w-full" />
+          </a>
+        </div>
+      </div>
+
+      <div class="page-container py-2 lg:py-8 xl:py-2">
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <a href="/portfolio/visual-arts/" class="btn-primary">
+            My Visual Arts Portfolio
+            <Icon name="mdi:arrow-right" size={24} class="ml-2" />
+          </a>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="relative py-24 bg-gradient-to-br from-sky-100 via-transparent  to-transparent ">
+  <div class="relative py-24 bg-gradient-to-br from-sky-100 via-transparent to-transparent ">
     <div class="page-container">
-      <div class="relative flex flex-row justify-around items-start py-8">
+      <div class="relative flex flex-col lg:flex-row justify-around items-start gap-8 py-8 mx-auto">
 
-        <div class="sticky top-40">
+        <div class="mx-auto lg:sticky lg:top-40">
           <SILogo />
         </div>
 
-        <div>
-          <h2 class="heading text-sky-950">
+        <div class="mx-auto">
+          <h2 class="heading hidden lg:block">
             <a href="/portfolio/shield-initiative/">
               Shield Initiative
             </a>
           </h2>
-          <div class="prose prose-sky text-sky-950">
+          <div class="prose prose-sky">
 
             <p>
               "Shield Initiative" is a special project that is very meaningful to me.
@@ -167,9 +185,10 @@ import computerImg from '~/assets/img/computer.png';
             </p>
           </div>
 
-          <div class="flex flex-row gap-4 my-8">
+          <div class="my-12 text-center">
             <a href="/portfolio/shield-initiative/" class="btn-primary">
-              Shield Initiative Project
+              The Shield Initiative Project
+              <Icon name="mdi:arrow-right" size={24} class="ml-2" />
             </a>
           </div>
         </div>

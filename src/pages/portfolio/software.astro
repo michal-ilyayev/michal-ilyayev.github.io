@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 
 import GitProjectCard from '~/components/GitProjectCard.astro';
 import balloonPopImg from '~/assets/img/games/balloon-pop.png';
@@ -17,13 +18,13 @@ import screenshotImg from '~/assets/img/screenshot.png';
 
 
   <div class="relative">
-    <div class="page-container py-24">
-      <div class="flex flex-row justify-around items-center gap-12">
+    <div class="page-container pt-8">
+      <div class="flex flex-col-reverse lg:flex-row justify-around items-center gap-12">
         <div>
           <Image src={programmerImg} height={400} alt="Programmer" />
         </div>
         <div>
-          <div class="prose">
+          <div class="prose pt-10 lg:pt-24 max-w-[50ch]">
             <h2>My Software Development Portfolio</h2>
             <p>
               Over the years, I've developed a wide range of projects, each one representing a unique aspect of my
@@ -35,21 +36,32 @@ import screenshotImg from '~/assets/img/screenshot.png';
             </p>
           </div>
 
-          <div
-            class="mt-10 max-w-[600px] p-8 bg-gradient-to-r from-amber-50  to-orange-50 rounded-2xl border border-orange-100 shadow-md drop-shadow-sm">
-            <p class="text-violet-600 font-handwriting font-light text-xl leading-normal">
-              Talk is cheap. Show me the code!
-            </p>
-            <p class="font-handwriting text-violet-600 text-md pl-3 mt-3">
-              - Linus Torvalds
-            </p>
-          </div>
         </div>
 
       </div>
+
+    </div>
+
+    <div class="page-container mt-24">
+      <div class="relative flex flex-col justify-center items-center">
+        <div
+          class="w-[600px] z-10 max-w-full text-center mx-auto p-8 bg-gradient-to-r from-amber-50  to-orange-50 rounded-2xl border border-orange-100 shadow-md drop-shadow-sm">
+          <p class="text-violet-600 font-handwriting font-light text-xl leading-normal">
+            Talk is cheap. <br />Show me the code!
+          </p>
+          <p class="font-handwriting text-gray-400 text-md pl-3 mt-3">
+            - Linus Torvalds
+          </p>
+        </div>
+        <hr class="hidden border-t border-primary w-full absolute top-[1/2] z-0 md:block" />
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="mx-auto mt-10 animate-bounce w-20 h-20 flex items-center justify-center text-center rounded-full bg-white shadow-sm drop-shadow-sm border">
+        <Icon name="mdi:arrow-down" size={48} class="text-primary" />
+      </div>
     </div>
   </div>
-
 
   <div class="relative">
 

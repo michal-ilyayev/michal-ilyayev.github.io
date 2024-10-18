@@ -4,18 +4,16 @@
 ## Visual Arts
 - [ ] Description
 - [ ] Portfolio: Image Gallery
+- [ ] Responsive Design
 
 
 ## Shield Initiative
 - [ ] The process: Image Gallery
 
 
-## Optimize Responsiveness
-- [ ] Homepage
-- [ ] Coding Projects
-- [ ] Visual Arts
-- [ ] Shield Initiative
-- [ ] Contact
+## Honors and Awards
+- [ ] Description
+- [ ] Image Gallery
 
 
 ## Fixes and Improvements 

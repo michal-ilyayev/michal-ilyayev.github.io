@@ -16,41 +16,25 @@ const backgroundImage = await getImage({
 ---
 
 <Layout title="Contact">
-  <div>
-    <div class="flex flex-col md:flex-row justify-between items-center h-full">
-      <div
-        class="bg-cover bg-center bg-no-repeat w-[600px] h-dvh hidden md:block"
-        style={`background-image: linear-gradient(100deg, #ffffffaa, #dfccf9cc, #ffffffee, #ffffffff), url('${backgroundImage.src}');`}
-      />
-      <div class="max-w-[600px] p-10 mx-auto my-5">
-        <h1 class="w-full text-4xl xl:text-6xl mb-10 text-left">
-          Contact
-        </h1>
-        <p class="text-left text-lg mb-10 flex flex-row gap-5">
-          <a
-            href="https://www.linkedin.com/in/michal-ilyayev/"
-            target="_blank"
-            title="My Linkedin Profile"
-            class="text-[#0a66c2]"
-          >
-            <Icon name="mdi:linkedin" size={60} />
-          </a>
-          <a
-            href="https://github.com/michal-ilyayev"
-            target="_blank" title="My GitHub Profile"
-            class="text-black"
-          >
-            <Icon name="mdi:github" size={60} />
-          </a>
-        </p>
-        <hr class="border-t border-gray-200 mb-10" />
-        <p class="text-left text-md mb-10">
-          Have a question or want to work together?
-          Send me a message and I'll get back to you as soon as possible.
-        </p>
-        <div >
-          <ContactForm client:load />
-        </div>
+  <div class="absolute inset-0 -z-10 h-full w-full bg-white print:hidden">
+    <div
+      class="bg-cover bg-center bg-no-repeat w-[600px] min-h-[calc(100dvh-80px)] hidden md:block"
+      style={`background-image: linear-gradient(100deg, #ffffffaa, #dfccf9cc, #ffffffee, #ffffffff), url('${backgroundImage.src}');`}
+    />
+  </div>
+  <div class="flex justify-center items-center h-full">
+
+    <div class="max-w-[600px] p-10 mx-auto my-5 md:border md:rounded-md md:shadow-md bg-white">
+      <h1 class="w-full text-4xl mb-10 text-left font-handwriting text-primary">
+        Contact
+      </h1>
+      <hr class="border-t border-gray-200 mb-10" />
+      <p class="text-left text-md mb-10">
+        Have a question or want to work together?
+        Send me a message and I'll get back to you as soon as possible.
+      </p>
+      <div>
+        <ContactForm client:load />
       </div>
     </div>
   </div>

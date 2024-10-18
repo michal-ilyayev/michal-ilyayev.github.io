@@ -49,10 +49,12 @@ export default function ContactForm() {
             errors={state.errors}
           />
         </div>
-        <div className="form-row form-actions">
-          <button type="submit" disabled={state.submitting} className="btn-primary">
-            Submit
-          </button>
+        <div className="form-row">
+          <div className="form-actions">
+            <button type="submit" disabled={state.submitting} className="btn-primary w-full">
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

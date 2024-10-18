@@ -21,13 +21,23 @@ const defaultOptions: SwiperOptions = {
     enabled: true,
   },
   speed: 800,
-  slidesPerView: 3,
   slidesPerGroup: 1,
   spaceBetween: 0,
   loop: true,
   autoplay: {
     delay: 5000,
     disableOnInteraction: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+    },
+    1100: {
+      slidesPerView: 2,
+    },
+    1560: {
+      slidesPerView: 3,
+    }
   },
 };
 
