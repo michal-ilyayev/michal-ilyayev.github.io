@@ -1,44 +1,79 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-// import Slider from '~/components/slider/Slider.astro';
+import { getImage } from 'astro:assets';
+import { type GalleryImage } from '~/components/gallery/types';
+import Gallery from '~/components/gallery/Gallery.tsx';
 import ComingSoon from '~/components/ComingSoon.astro';
+import { artImages, type ArtImage } from '~/data/art-gallery';
+import { THUMB_SIZE } from '~/components/gallery/consts';
+import type { ImageMetadata } from 'astro';
+
+
+const imgFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/**/*.{jpeg,jpg,png}');
+
+
+const loadGalleryImage = async (imageData: ArtImage): Promise<GalleryImage | undefined> => {
+  const img: ImageMetadata = (await imgFiles[`/src/assets/art/${imageData.path}`]()).default;
+
+  try {
+    const optimized = await getImage({
+      src: img,
+      format: 'webp',
+      inferSize: true,
+    });
+
+    const thumbnail = await getImage({
+      src: img,
+      format: 'webp',
+      quality: 50,
+      width: THUMB_SIZE,
+      height: THUMB_SIZE * (img.height / img.width),
+    });
+
+    return {
+      src: optimized.src,
+      title: imageData.title,
+      description: imageData.description,
+      width: img.width,
+      height: img.height,
+      srcThumb: thumbnail.src,
+    } as GalleryImage;
+  } catch (e) {
+    console.error(e);
+    return undefined;
+  }
+};
+
+
+const images = await Promise.all(
+  artImages
+    .map(async (imageData) => {
+      return await loadGalleryImage(imageData);
+    })
+    .filter((img) => img !== undefined)
+);
 ---
 
 <Layout title="Visual Arts Portfolio">
-  <ComingSoon />
+  <div class="bg1">
+    <div></div>
+  </div>
+  <div>
+    <div class="my-24">
+      <h1 class="text-4xl text-center my-6 font-handwriting text-primary">
+        My Visual Arts Portfolio
+      </h1>
+      <p class="text-center text-gray-600 max-w-lg mx-auto">
+        Below are some of my favorite artworks that I've developed during high school,
+        each representing a unique aspect of my artistic growth.
+      </p>
+    </div>
+    <div class="page-container mt-6 mb-12">
+      {!images || images.length === 0 ? (
+        <ComingSoon />
+      ) : (
+        <Gallery images={images as GalleryImage[]} client:only="react" />
+      )}
+    </div>
+  </div>
 </Layout>
-
-<!--<Layout title="Visual Arts Portfolio">-->
-<!--  <div class="flex w-full min-h-[900px] bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50">-->
-<!--    <div class="page-container">-->
-<!--      <Slider options={{ speed: 300 }}>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/1/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 1</p>-->
-<!--        </div>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/2/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 2</p>-->
-<!--        </div>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/3/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 3</p>-->
-<!--        </div>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/4/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 4</p>-->
-<!--        </div>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/5/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 5</p>-->
-<!--        </div>-->
-<!--        <div class="swiper-slide">-->
-<!--          <img src="https://picsum.photos/seed/6/900/600" alt="Visual Arts Portfolio 1" />-->
-<!--          <p>Visual Arts Portfolio 6</p>-->
-<!--        </div>-->
-<!--      </Slider>-->
-<!--    </div>-->
-
-
-<!--  </div>-->
-<!--</Layout>-->

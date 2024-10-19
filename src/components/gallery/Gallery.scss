@@ -1,0 +1,121 @@
+.react-photo-album- {
+  &-button {
+    @apply outline-none border-none;
+  }
+
+  &-image {
+    @apply
+    w-full
+    max-w-full
+    h-auto
+    block
+    border
+    border-gray-200
+    p-2
+    bg-white
+    rounded-lg
+    shadow-md
+    drop-shadow-md
+    transition-all
+    duration-300
+    ease-in-out
+
+    hover:scale-[1.02]
+    ;
+  }
+}
+
+
+.yarl__navigation {
+  &_next,
+  &_prev {
+    @apply
+    absolute
+    top-1/2
+    transform
+    -translate-y-1/2
+    bg-white
+    opacity-25
+    rounded-full
+    shadow-md
+    p-2
+    mx-2
+    cursor-pointer
+    transition-all
+    hover:opacity-90
+    hover:shadow-lg
+    hover:bg-gray-100
+    hover:text-gray-800
+    hover:scale-105
+    active:transform
+    active:scale-95
+    z-10;
+
+    svg {
+      @apply
+      w-6
+      h-6
+      text-gray-800;
+    }
+  }
+
+  &_prev {
+    @apply left-1 hover:left-0;
+  }
+
+  &_next {
+    @apply right-1 hover:right-0;
+  }
+}
+
+.yarl__thumbnails {
+  &_thumbnail {
+    @apply
+    border-2
+    border-gray-600
+    transition
+    hover:scale-105
+    ;
+
+    &_active {
+      @apply scale-105 border-gray-200;
+    }
+  }
+}
+
+
+//.yarl__slide {
+//  &_current {
+//    @apply grid grid-cols-2;
+//  }
+//
+//
+//  &_captions_container {
+//    position: relative;
+//    left: 0;
+//    right: 75%;
+//    //padding: 25px;
+//    //background: #ccc;
+//    //min-width: 250px;
+//
+//    // workaround occasional image flickering in mobile Safari
+//    // noinspection CssUnknownProperty
+//    //-webkit-transform: translateZ(0);
+//  }
+//
+//  &_title {
+//    max-width: 100%;
+//  }
+//
+//  &_description {
+//    overflow: hidden;
+//    hyphens: auto;
+//    display: -webkit-box;
+//    text-align: left;
+//    color: #fff;
+//
+//    &_container {
+//      top: var(--yarl__slide_description_container_bottom, 0);
+//    }
+//  }
+//}
