@@ -28,27 +28,29 @@ import Navbar from './Navbar.astro';
 </header>
 
 
-<script is:inline>
-  /*
+<script is:inline data-astro-rerun>
+  (function () {
+    /*
     Only on mobile:
     When the user scrolls down, hide the header.
     When the user scrolls up, show the header
    */
-  let prevScrollPos = window.pageYOffset;
+    let prevScrollPos = window.pageYOffset;
 
-  window.onscroll = function () {
-    // check if the user is on mobile
-    if (window.innerWidth > 1024) {
-      return;
-    }
-    const header = document.getElementById('header');
-    const currentScrollPos = window.pageYOffset;
+    window.onscroll = function () {
+      // check if the user is on mobile
+      if (window.innerWidth > 1024) {
+        return;
+      }
+      const header = document.getElementById('header');
+      const currentScrollPos = window.pageYOffset;
 
-    if (prevScrollPos > currentScrollPos) {
-      header.style.top = '0';
-    } else {
-      header.style.top = '-80px';
-    }
-    prevScrollPos = currentScrollPos;
-  };
+      if (prevScrollPos > currentScrollPos) {
+        header.style.top = '0';
+      } else {
+        header.style.top = '-80px';
+      }
+      prevScrollPos = currentScrollPos;
+    };
+  })();
 </script>
