@@ -1,5 +1,6 @@
 ---
 import '~/scss/global.scss';
+import { ViewTransitions } from 'astro:transitions';
 import GtmHead from '~/components/analytics/GTM-head.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_IMAGE, SITE_KEYWORDS } from '~/consts';
 
@@ -77,6 +78,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <!-- Google Analytics -->
   <GtmHead />
+
+  <!-- Astro Transitions -->
+  <ViewTransitions />
 </head>
 <body>
   <slot />

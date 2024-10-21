@@ -41,12 +41,15 @@ const defaultOptions: SwiperOptions = {
   },
 };
 
-
-document.addEventListener('DOMContentLoaded', function () {
+const initSwiper = () => {
   document.querySelectorAll('.swiper').forEach((element) => {
     const elementOptions = element.getAttribute('data-options');
     const options = (elementOptions && JSON.parse(elementOptions) as SwiperOptions) || {};
     const swiper = new Swiper(element as HTMLElement, { ...defaultOptions, ...options });
     swiper.init();
   });
-});
+}
+
+
+document.addEventListener('DOMContentLoaded', initSwiper);
+document.addEventListener('astro:page-load', initSwiper);
