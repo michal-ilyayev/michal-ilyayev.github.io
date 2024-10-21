@@ -15,7 +15,6 @@ import Slideshow from 'yet-another-react-lightbox/plugins/slideshow';
 
 // CSS: Lightbox + plugins
 import 'yet-another-react-lightbox/styles.css';
-import 'yet-another-react-lightbox/plugins/captions.css';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import './Gallery.scss';
 
@@ -64,8 +63,8 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const captionsRef = useRef<CaptionsRef>(null);
   const thumbnailsRef = useRef<ThumbnailsRef>(null);
 
-  const [showThumbnails, setShowThumbnails] = useLocalStorageState<boolean>('showThumbnails', {defaultValue: true});
-  const [showCaptions, setShowCaptions] = useLocalStorageState<boolean>('showCaptions', {defaultValue: true});
+  const [showThumbnails, setShowThumbnails] = useLocalStorageState<boolean>('showThumbnails', {defaultValue: false});
+  const [showCaptions, setShowCaptions] = useLocalStorageState<boolean>('showCaptions', {defaultValue: false});
 
   // Remember the last state of the thumbnails visibility
   const thumbnailsVisible = thumbnailsRef.current?.visible;

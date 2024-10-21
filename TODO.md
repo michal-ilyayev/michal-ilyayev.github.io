@@ -1,10 +1,6 @@
 # What's left to do for v1.0
 
 
-## Image Gallery
-- [ ] Make the caption visible on left side of the image
-
-
 ## Visual Arts
 - [ ] Add Description to each image
 
