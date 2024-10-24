@@ -23,8 +23,7 @@ export default {
       true,
       {
         ignoreTypes: [
-          '/^ion-/',
-          '/^tdf-/'
+          '/^ion-/'
         ]
       }
     ],
