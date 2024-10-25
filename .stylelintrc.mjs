@@ -19,14 +19,6 @@ export default {
     'scss/double-slash-comment-whitespace-inside': null,
     'scss/at-mixin-argumentless-call-parentheses': null,
     'selector-class-pattern': null,
-    'selector-type-no-unknown': [
-      true,
-      {
-        ignoreTypes: [
-          '/^ion-/'
-        ]
-      }
-    ],
     'declaration-empty-line-before': [
       'always',
       {

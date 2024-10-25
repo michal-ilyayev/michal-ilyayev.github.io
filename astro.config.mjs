@@ -41,5 +41,15 @@ export default defineConfig({
   ],
   build: {
     assets: 'assets'
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        // https://www.fparedes.com/blog/solve-js-api-deprecation-in-dart-sass-in-astro/
+        scss: {
+          api: 'modern-compiler'
+        }
+      }
+    }
   }
 });

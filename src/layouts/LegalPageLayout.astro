@@ -15,10 +15,10 @@ const props = Astro.props.frontmatter;
 <Layout {...props}>
   <div class="flex flex-col justify-between min-h-screen w-full h-full">
 
-    <main class="py-16 px-5 mx-auto">
+    <div class="py-16 px-5 mx-auto">
       <article class="prose-custom">
         <slot />
       </article>
-    </main>
+    </div>
   </div>
 </Layout>

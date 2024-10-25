@@ -35,7 +35,7 @@ import Navbar from './Navbar.astro';
     When the user scrolls down, hide the header.
     When the user scrolls up, show the header
    */
-    let prevScrollPos = window.pageYOffset;
+    let prevScrollPos = window.scrollY;
 
     window.onscroll = function () {
       // check if the user is on mobile
@@ -43,7 +43,7 @@ import Navbar from './Navbar.astro';
         return;
       }
       const header = document.getElementById('header');
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
 
       if (prevScrollPos > currentScrollPos) {
         header.style.top = '0';
