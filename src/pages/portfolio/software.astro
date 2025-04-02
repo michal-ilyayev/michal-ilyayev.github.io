@@ -4,11 +4,13 @@ import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 
 import GitProjectCard from '~/components/GitProjectCard.astro';
-import balloonPopImg from '~/assets/img/games/balloon-pop.png';
-import wallGameImg from '~/assets/img/games/wall-game.png';
-import whackAMoleImg from '~/assets/img/games/whack-a-mole.png';
+import ProjectCard from '~/components/ProjectCard.astro';
+import balloonPopImg from '~/assets/img/projects/balloon-pop.png';
+import wallGameImg from '~/assets/img/projects/wall-game.png';
+import whackAMoleImg from '~/assets/img/projects/whack-a-mole.png';
+import thisWebsiteImg from '~/assets/img/projects/this-website.png';
+import lockInImg from '~/assets/img/projects/lock-in.png';
 import programmerImg from '~/assets/img/programmer.svg';
-import screenshotImg from '~/assets/img/screenshot.png';
 ---
 
 <Layout title="Coding Projects">
@@ -68,13 +70,14 @@ import screenshotImg from '~/assets/img/screenshot.png';
 
   <div class="relative">
 
+
     <div class="page-container py-20">
       <GitProjectCard
         title="Portfolio Website"
         gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io"
       >
         <Image
-          src={screenshotImg} height={700}
+          src={thisWebsiteImg} height={700}
           alt="Portfolio Website" slot="image"
         />
 
@@ -93,6 +96,33 @@ import screenshotImg from '~/assets/img/screenshot.png';
           </p>
         </div>
       </GitProjectCard>
+
+      <ProjectCard
+        title="LOCK-IN"
+        projectLink="https://www.lockin.click/"
+      >
+        <Image
+          src={lockInImg} height={700}
+          alt="LOCK-IN" slot="image"
+        />
+
+        <div>
+          <h2>LOCK-IN</h2>
+          <p>
+            LOCK-IN transforms how coding assignments and exams are delivered, completed, and evaluated - moving beyond
+            traditional paper-based or form-based approaches.
+          </p>
+          <p>
+            It provides a secure, user-friendly platform for students to complete coding assignments and exams.
+            The platform is designed to be easy to use, with a simple and intuitive interface that allows students
+            to focus on their work while using modern code editors and tools.
+          </p>
+          <p>
+            Frontend: <code>React</code>, <code>Tailwind</code>, <code>AntDesign</code>, <code>RTK Query</code><br />
+            Backend: <code>Django/Python</code>, <code>DRF</code>, <code>Postgres</code>, <code>Docker</code>, <code>AWS</code>.
+          </p>
+        </div>
+      </ProjectCard>
 
       <GitProjectCard
         title="Whack a Mole"

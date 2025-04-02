@@ -1,0 +1,112 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import githubIcon from '~/assets/icons/github-corner-right.svg';
+
+export type Props = HTMLAttributes<'div'> & {
+  title: string;
+  projectLink: string;
+};
+
+const {
+  title,
+  projectLink,
+  ...props
+} = Astro.props;
+---
+
+<div {...props}>
+  <div class="project-card">
+
+    <div class="project-image">
+      <a href={projectLink}
+        target="_blank" rel="noopener noreferrer"
+        aria-label="Open Project"
+        title="Open Project"
+      >
+        <slot name="image" />
+
+      </a>
+    </div>
+    <div class="project-card-description">
+
+      <div class="prose prose-sm prose-gray">
+        <slot />
+      </div>
+
+      <a href={projectLink}
+        target="_blank" rel="noopener noreferrer"
+        aria-label="Open Project"
+        title="Open Project"
+        class="btn-outline mt-4 block w-full md:w-auto"
+      >
+        <Icon name="mdi:open-in-new" size={30} class="mr-2" />
+        Open Project
+      </a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .project-card {
+    @apply
+    mb-8
+    w-full
+    max-w-[1200px]
+    mx-auto
+    flex
+    flex-col
+    md:flex-row
+    gap-2
+    md:gap-6
+
+
+
+    items-center
+    justify-start
+
+    rounded-md
+    border
+    border-gray-200
+
+    bg-gradient-to-br
+    from-gray-50
+    to-white
+    shadow-md
+    relative
+    ;
+  }
+
+  .project-image {
+    @apply h-full;
+
+    img {
+      @apply
+      w-full
+      max-w-full
+      rounded-t-md
+      md:rounded-md
+      md:m-4
+      border
+      border-gray-200
+      ;
+    }
+  }
+
+  .project-card-description {
+    @apply
+    w-full
+    h-full
+    p-6
+
+    ;
+
+    h2 {
+      @apply
+      mt-3
+      ;
+    }
+  }
+
+</style>
