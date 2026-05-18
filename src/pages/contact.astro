@@ -2,7 +2,7 @@
 import Layout from '~/layouts/Layout.astro';
 import { getImage } from 'astro:assets';
 import contactImg from '~/assets/img/contact.jpg';
-import ContactForm from '~/components/contact/ContactForm.tsx';
+import ContactForm from '~/components/contact/ContactForm.astro';
 
 const backgroundImage = await getImage({
   src: contactImg,
@@ -33,7 +33,7 @@ const backgroundImage = await getImage({
         Send me a message and I'll get back to you as soon as possible.
       </p>
       <div>
-        <ContactForm client:load />
+        <ContactForm />
       </div>
     </div>
   </div>

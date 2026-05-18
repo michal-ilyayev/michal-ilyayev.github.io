@@ -1,0 +1,40 @@
+---
+const toEmail = 'michal.ilyayev@gmail.com';
+---
+
+<div class="theme-form">
+  <form id="contact-form">
+    <div class="form-row">
+      <label for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        autocomplete="email"
+      />
+    </div>
+    <div class="form-row">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required rows="6"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-actions">
+        <button type="submit" class="btn-primary w-full">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script define:vars={{ toEmail }}>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const email = data.get('email')?.toString().trim() ?? '';
+    const message = data.get('message')?.toString().trim() ?? '';
+    const subject = encodeURIComponent('Contact from website');
+    const body = encodeURIComponent(`From: ${email}\n\n${message}`);
+    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+  });
+</script>
