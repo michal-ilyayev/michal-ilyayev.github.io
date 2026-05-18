@@ -58,16 +58,10 @@
     "typescript": "^5.5.4"
   },
   "engines": {
-    "node": "20.x",
+    "node": "22.x",
     "pnpm": "10.x",
     "yarn": "please-use-pnpm-instead",
     "npm": "please-use-pnpm-instead"
   },
-  "engineStrict": true,
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ]
-  }
+  "engineStrict": true
 }
