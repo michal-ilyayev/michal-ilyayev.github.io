@@ -1,5 +1,5 @@
 ---
-const toEmail = 'michal.ilyayev@gmail.com';
+const CONTACT_EMAIL = 'michal.ilyayev@gmail.com';
 ---
 
 <div class="theme-form">
@@ -26,8 +26,15 @@ const toEmail = 'michal.ilyayev@gmail.com';
   </form>
 </div>
 
-<script define:vars={{ toEmail }}>
+<script define:vars={{ CONTACT_EMAIL }}>
   const form = document.getElementById('contact-form');
+
+  function resetForm() {
+    if (form instanceof HTMLFormElement) {
+      form.reset();
+    }
+  }
+
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(form);
@@ -35,6 +42,8 @@ const toEmail = 'michal.ilyayev@gmail.com';
     const message = data.get('message')?.toString().trim() ?? '';
     const subject = encodeURIComponent('Contact from website');
     const body = encodeURIComponent(`From: ${email}\n\n${message}`);
-    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+    const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    window.open(mailtoHref, '_blank', 'noopener,noreferrer');
+    setTimeout(resetForm, 300);
   });
 </script>
