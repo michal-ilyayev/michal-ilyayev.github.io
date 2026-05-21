@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import NavLink from "../NavLink.astro";
 
-// used to highlight the dropdown trigger when on a past-highlights page
+// highlights "Past Highlights" trigger when on either sub-page
 const pathname = Astro.url.pathname;
 const isPastHighlights =
   pathname.startsWith("/portfolio/shield-initiative") ||
@@ -13,28 +13,16 @@ const isPastHighlights =
   <div class="flex justify-center lg:hidden">
     <button id="nav-toggle-btn" aria-label="Toggle Menu">
       <Icon id="nav-open" name="mdi:menu" size={35} class="text-gray-800" />
-      <Icon
-        id="nav-close"
-        name="mdi:close"
-        size={35}
-        class="text-gray-800 hidden"
-      />
+      <Icon id="nav-close" name="mdi:close" size={35} class="text-gray-800 hidden" />
     </button>
   </div>
   <nav class="hidden">
     <ul>
-      <li>
-        <NavLink href="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink href="/resume/">Resume</NavLink>
-      </li>
-      <li>
-        <NavLink href="/portfolio/software/">Coding Projects</NavLink>
-      </li>
+      <li><NavLink href="/">Home</NavLink></li>
+      <li><NavLink href="/resume/">Resume</NavLink></li>
+      <li><NavLink href="/portfolio/software/">Coding Projects</NavLink></li>
 
-      <!-- Past Highlights dropdown -->
-      <!-- trigger gets .active class when on a past-highlights page -->
+      <!-- Past Highlights dropdown — add more items inside .dropdown-menu as needed -->
       <li class="dropdown-wrap">
         <button
           class={`dropdown-trigger${isPastHighlights ? " active" : ""}`}
@@ -65,112 +53,114 @@ const isPastHighlights =
         </ul>
       </li>
 
-      <li>
-        <NavLink href="/contact/">Contact</NavLink>
-      </li>
+      <li><NavLink href="/contact/">Contact</NavLink></li>
     </ul>
   </nav>
 </div>
 
-<script is:inline data-astro-rerun>
-  // Guard — exits early if elements aren't in the DOM (prevents errors on navigation)
-  const navToggleBtn = document.getElementById("nav-toggle-btn");
-  const navEl = document.querySelector(".navbar nav");
-  const navOpen = document.getElementById("nav-open");
-  const navClose = document.getElementById("nav-close");
-  const trigger = document.querySelector(".dropdown-trigger");
-  const menu = document.querySelector(".dropdown-menu");
-  const chevron = document.querySelector(".dropdown-chevron");
+<script is:inline>
+  function initNavbar() {
+    const navToggleBtn = document.getElementById("nav-toggle-btn");
+    const navEl        = document.querySelector(".navbar nav");
+    const navOpen      = document.getElementById("nav-open");
+    const navClose     = document.getElementById("nav-close");
+    const trigger      = document.querySelector(".dropdown-trigger");
+    const menu         = document.querySelector(".dropdown-menu");
+    const chevron      = document.querySelector(".dropdown-chevron");
 
-  if (!navToggleBtn || !navEl || !trigger || !menu) {
-    // elements not found — skip setup to avoid click errors on other pages
-  } else {
-    // ── hamburger ────────────────────────────────────────────────────────────
+    // bail out if elements aren't in the DOM — prevents errors on other pages
+    if (!navToggleBtn || !navEl || !trigger || !menu) return;
+
+    // AbortController cleans up all listeners on each View Transition navigation
+    window.__navbarAbort?.abort();
+    const { signal } = (window.__navbarAbort = new AbortController());
 
     function closeDropdown() {
       menu.classList.remove("open");
-      chevron.classList.remove("rotated");
+      chevron?.classList.remove("rotated");
       trigger.setAttribute("aria-expanded", "false");
     }
 
     function toggleMenu(close) {
       close = close === undefined ? !navEl.classList.contains("hidden") : close;
       navEl.classList.toggle("hidden", close);
-      navOpen.classList.toggle("hidden", !close);
-      navClose.classList.toggle("hidden", close);
+      navOpen?.classList.toggle("hidden", !close);
+      navClose?.classList.toggle("hidden", close);
       if (close) closeDropdown();
     }
 
-    navToggleBtn.addEventListener("click", () => toggleMenu(undefined));
+    // reset to closed state on every navigation
+    navEl.classList.add("hidden");
+    navOpen?.classList.remove("hidden");
+    navClose?.classList.add("hidden");
+    closeDropdown();
 
-    document.querySelectorAll(".navbar nav a").forEach((link) => {
-      link.addEventListener("click", () => toggleMenu(true));
+    // hamburger toggle
+    navToggleBtn.addEventListener("click", () => toggleMenu(undefined), { signal });
+
+    // close menu when any link is clicked
+    navEl.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => toggleMenu(true), { signal });
     });
 
-    document.addEventListener("click", (event) => {
-      if (
-        !event.target.closest(".navbar") &&
-        !event.target.closest(".navbar nav")
-      ) {
-        toggleMenu(true);
-      }
-    });
+    // close on outside click or Escape
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".navbar")) toggleMenu(true);
+    }, { signal });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { toggleMenu(true); closeDropdown(); }
+    }, { signal });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") toggleMenu(true);
-    });
-
-    // ── dropdown ─────────────────────────────────────────────────────────────
-
+    // dropdown toggle — stopPropagation so the outside-click handler doesn't fire
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = menu.classList.toggle("open");
-      chevron.classList.toggle("rotated", isOpen);
+      chevron?.classList.toggle("rotated", isOpen);
       trigger.setAttribute("aria-expanded", String(isOpen));
-    });
+    }, { signal });
 
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".dropdown-wrap")) closeDropdown();
-    });
+    }, { signal });
   }
+
+  document.addEventListener("astro:page-load", initNavbar);
 </script>
 
 <style lang="scss" is:global>
+
   .navbar {
     #nav-toggle-btn {
-      @apply transform outline-none cursor-pointer
-      border-none bg-transparent
-      transition ease-in-out delay-75;
+      @apply outline-none cursor-pointer border-none bg-transparent transition ease-in-out delay-75;
     }
 
     nav {
       @apply lg:flex transition ease-in-out delay-150;
 
       > ul {
-        @apply absolute top-[80px] pb-24 left-0
-        flex flex-col justify-center
-        bg-white w-full p-4 gap-2 text-center
+        @apply
+        absolute top-[80px] left-0 pb-24
+        flex flex-col justify-center text-center
+        bg-white w-full p-4 gap-2
         h-[calc(100vh-80px)]
-
-        lg:p-0 lg:gap-1 lg:h-auto
-        lg:relative lg:top-0
+        lg:static lg:h-auto lg:p-0 lg:gap-1
         lg:flex-row lg:bg-transparent lg:w-auto
         xl:gap-5;
 
-        li a {
-          @apply flex flex-row items-center justify-around
-          text-gray-600 text-sm h-full
-          rounded-md
+        // top-level links only — dropdown items are styled separately below
+        > li > a {
+          @apply
+          flex flex-row items-center justify-around h-full
+          text-gray-600 text-sm rounded-md
           hover:text-primary hover:bg-violet-50
           border-b-2 border-transparent
           px-1 py-4 w-full
           transition ease-in-out delay-75
-
-          lg:py-3 lg:px-2 lg:text-sm xl:px-4;
+          lg:py-3 lg:px-2 xl:px-4;
 
           &.active {
-            @apply hover:bg-transparent text-primary bg-violet-100
-            lg:bg-transparent lg:border-b-2 lg:border-primary lg:rounded-none;
+            @apply text-primary bg-violet-100 hover:bg-transparent
+            lg:bg-transparent lg:border-b-primary lg:rounded-none;
           }
         }
       }
@@ -179,109 +169,101 @@ const isPastHighlights =
 
   // ── Past Highlights dropdown ──────────────────────────────────────────────
 
-  .dropdown-wrap {
-    position: relative;
-  }
+  .dropdown-wrap { position: relative; }
 
-  // Trigger — matches nav link style exactly
-  // Gets .active when on a past-highlights page (set in frontmatter above)
+  // Trigger looks like a nav link but is a <button>
+  // border-bottom written in plain CSS — Tailwind's border-b shorthand
+  // conflicts with button's default borders and loses the active underline
   .dropdown-trigger {
-    @apply flex flex-row items-center justify-around
-    text-gray-600 text-sm
-    rounded-md
+    @apply
+    flex flex-row items-center justify-center gap-1
+    text-gray-600 text-sm rounded-md
     hover:text-primary hover:bg-violet-50
-    border-b-2 border-transparent
     px-1 py-4 w-full
     transition ease-in-out delay-75
-    bg-transparent border-none cursor-pointer gap-1
+    bg-transparent cursor-pointer
     lg:py-3 lg:px-2 xl:px-4;
 
-    // active state — same as NavLink .active on desktop
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid transparent;
+
+    // active: underline on desktop, fill on mobile — matches other nav links
+    // !important needed because Tailwind utility classes win on specificity
     &.active {
-      @apply text-primary;
+      color: #7065f9;
 
       @media (min-width: 1024px) {
-        @apply bg-transparent border-b-2 border-primary rounded-none;
+        background: transparent !important;
+        border-bottom: 2px solid #7065f9 !important;
+        border-radius: 0 !important;
       }
 
       @media (max-width: 1023px) {
-        @apply bg-violet-100;
+        background: #ede9fe;
       }
     }
   }
 
+  // rotates when dropdown opens
   .dropdown-chevron {
-    transition: transform 0.2s ease;
     flex-shrink: 0;
-    &.rotated {
-      transform: rotate(180deg);
-    }
+    transition: transform 0.2s ease;
+    &.rotated { transform: rotate(180deg); }
   }
 
-  // Hidden by default — .open shows it
-  // Mobile: expands inline | Desktop: floats as a card
+  // mobile: expands inline | desktop: floats as a card below trigger
   .dropdown-menu {
     display: none;
     flex-direction: column;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 2px;
+    padding: 0; margin: 0; gap: 2px;
 
-    &.open {
-      display: flex;
-    }
+    &.open { display: flex; }
 
     @media (min-width: 1024px) {
       position: absolute;
       top: calc(100% + 6px);
       left: 50%;
       transform: translateX(-50%);
+      min-width: 210px; // keeps "Shield Initiative" on one line
       background: #fff;
       border: 1px solid rgba(112, 101, 249, 0.12);
       border-radius: 10px;
       padding: 5px;
-      min-width: 210px; // wide enough for "Shield Initiative" on laptop
       box-shadow: 0 6px 20px rgba(112, 101, 249, 0.1);
       z-index: 50;
     }
   }
 
-  // Dropdown items
+  // fill only — no underline on dropdown items
   .dropdown-item {
-    @apply flex flex-row items-center justify-around
-    text-gray-600 text-sm
-    rounded-md
+    @apply
+    flex flex-row items-center gap-2
+    text-gray-600 text-sm rounded-md
     hover:text-primary hover:bg-violet-50
     px-3 py-3 w-full
-    transition ease-in-out delay-75
-    no-underline gap-2;
+    transition ease-in-out delay-75 no-underline;
 
-    // active — purple bg like the rest of the nav
-    &.active {
-      @apply text-primary bg-violet-100;
-    }
+    border-bottom: none;
+    justify-content: center;
 
-    @media (min-width: 1024px) {
-      justify-content: flex-start;
-    }
+    &.active { @apply text-primary bg-violet-100; }
+
+    svg { flex-shrink: 0; }
+
+    @media (min-width: 1024px) { justify-content: flex-start; }
   }
 
-  // Coloured icons inside the dropdown
-  .icon-shield {
-    color: #5ab4f0;
-  } // blue — matches the shield card
-  .icon-art {
-    color: #f06ab7;
-  } // pink — matches the visual arts card
+  // icon colours — match the project cards in _home.scss
+  // to change: update the same colour in both places
+  .icon-shield { color: #5ab4f0; }
+  .icon-art    { color: #f06ab7; }
 
-  // keep icon colours even on active/hover
   .dropdown-item:hover .icon-shield,
-  .dropdown-item.active .icon-shield {
-    color: #5ab4f0;
-  }
+  .dropdown-item.active .icon-shield { color: #5ab4f0; }
   .dropdown-item:hover .icon-art,
-  .dropdown-item.active .icon-art {
-    color: #f06ab7;
-  }
+  .dropdown-item.active .icon-art    { color: #f06ab7; }
+
 </style>
