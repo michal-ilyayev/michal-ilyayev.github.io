@@ -37,7 +37,7 @@
 .hero-grid,
 .project-section {
   position: relative;
-  z-index: 1; // sit above the background
+  z-index: 1;
 }
 
 // ── HERO ──────────────────────────────────────────────────────────────────────
@@ -119,10 +119,10 @@
 // To adjust sizes: edit the clamp() values (min, fluid, max)
 h1 {
   font-family: "Inter", sans-serif;
-  font-size: clamp(2rem, 11vw, 7.4rem);
+  font-size: clamp(2rem, 11vw, 6.4rem);
   font-weight: 900;
   line-height: 0.9;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   margin: 0;
   color: #160025;
 
@@ -131,19 +131,22 @@ h1 {
     font-family: Georgia, serif;
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(1.8rem, 9.5vw, 5.9rem);
-    color: #7065f9; // --color-primary
-    letter-spacing: 0.01em;
+    font-size: clamp(1.8rem, 9.5vw, 5.1rem);
+    color: #7065f9;
+    letter-spacing: 0.03em;
   }
 }
 
+// "SOFTWARE DEVELOPER" — gap between Ilyayev and this: edit margin-top
+// gap between this and social icons: edit .social-row margin-top below
 .tagline {
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #a89ec0;
-  margin: 1rem 0 0; 
+  margin: 1rem 0 0; // ← gap between Ilyayev and SOFTWARE DEVELOPER
+  padding-top: 0.3rem;
 }
 
 // Circular social icon buttons — each gets its own brand colour
@@ -151,10 +154,10 @@ h1 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1rem; 
+  margin-top: 1rem; // ← gap between SOFTWARE DEVELOPER and social icons
 
   a {
-    width: 48px; height: 48px;
+    width: 52px; height: 52px;
     border-radius: 999px;
     display: grid;
     place-items: center;
@@ -185,64 +188,94 @@ h1 {
   max-width: 590px;
 
   p {
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.75;
     color: #5a5560;
     margin-bottom: 0.9rem;
   }
-
 }
 
 // .main-btn and .secondary-btn styles are in _buttons.scss
 .button-row {
   display: flex;
-  gap: 0.9rem;
+  gap: 1.2rem;
   margin-top: 1.37rem;
   flex-wrap: nowrap;
 }
 
-// ── PAST PROJECTS ─────────────────────────────────────────────────────────────
+// ── PAST HIGHLIGHTS ───────────────────────────────────────────────────────────
 
-// Lavender tinted panel to separate from the hero
-// To change panel colour: edit background
+// Collage background panel — image set in &::after below
+// To change panel opacity: edit the opacity value in &::after
 .project-section {
   background: #f7f5ff;
   border-top: 1px solid rgba(112, 101, 249, 0.1);
   padding: clamp(3rem, 5vw, 6rem) clamp(1.5rem, 6vw, 7rem);
   position: relative;
+  overflow: hidden;
 
   > * {
+    position: relative;
+    z-index: 2;
     max-width: 1180px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  // decorative rainbow line at the top of the panel
+  // gradient line at the very top of the panel
+  // To change colours: edit the two hex values
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
     background: linear-gradient(to right, transparent, #a879ff, #f06ab7, transparent);
+    z-index: 3;
+  }
+
+  // collage background image — sits behind cards
+  // To swap image: change the url() value
+  // To adjust visibility: change opacity (0 = invisible, 1 = full)
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/back.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    filter: blur(1px);
+    z-index: 1;
   }
 }
 
-// "PAST PROJECTS" label with a short line before it
+// "PAST HIGHLIGHTS" label — frosted pill so it reads over the collage background
+// To adjust pill opacity: edit the background rgba alpha (currently 0.75)
 .section-label {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.75rem;
-  color: #9a94aa;
-  margin-bottom: 1.8rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(60, 50, 90, 0.78);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 99px;
+  padding: 0.35rem 0.85rem 0.35rem 0.7rem;
 
+  // gradient line inside the pill
   &::before {
     content: "";
-    display: block;
-    width: 1rem; height: 1px;
-    background: rgba(112, 101, 249, 0.3);
+    width: 36px;
+    height: 1.5px;
+    background: linear-gradient(to right, rgba(124, 92, 255, 0.9), rgba(255, 110, 199, 0.75));
   }
 }
 
@@ -267,9 +300,10 @@ h1 {
   gap: 0.9rem;
   box-shadow: 0 2px 10px rgba(112, 101, 249, 0.05);
 
+  // To adjust hover lift: edit translateY | To adjust glow: edit the last rgba value
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 36px rgba(112, 101, 249, 0.13);
+    transform: translateY(-10px);
+    box-shadow: 0 14px 36px rgba(112, 101, 249, 0.35);
   }
 
   h3 {
@@ -338,13 +372,13 @@ h1 {
 
 // ── MOBILE BIO ────────────────────────────────────────────────────────────────
 
-// Hidden on desktop — only shown below the photo on mobile (see breakpoint below)
+// Hidden on desktop — only shown below the photo on mobile
 // Duplicate of the bio/buttons in hero-content to avoid JS reordering
 .mobile-bio { display: none; }
 
 // ── RESPONSIVE ────────────────────────────────────────────────────────────────
 
-// Tablet / mobile — single column: name → photo → bio → buttons
+// Stacks to single column at 900px — name → photo → bio → buttons
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -366,8 +400,7 @@ h1 {
     box-sizing: border-box;
   }
 
-  // pure vw so name always fits — clamp floor low enough that vw wins on small phones
-  // 12vw on 375px (iPhone SE) = ~45px, fits "MICHAL" without overflow
+  // 12vw on 375px (iPhone SE) = ~45px — fits "MICHAL" without overflow
   h1 {
     width: 100%;
     max-width: 100%;
@@ -377,10 +410,10 @@ h1 {
     letter-spacing: 0.01em;
     overflow-wrap: break-word;
 
-    span { 
+    span {
       font-size: clamp(2.5rem, 10.5vw, 3.8rem);
       padding-top: 0.19rem;
-     }
+    }
   }
 
   .tagline {
@@ -389,9 +422,7 @@ h1 {
     text-align: center;
   }
 
-  .social-row {
-    justify-content: center;
-  }
+  .social-row { justify-content: center; }
 
   .hero-card {
     order: 3;
@@ -411,6 +442,7 @@ h1 {
     &::before, &::after { display: none; }
   }
 
+  // hide desktop bio — mobile-bio block below takes over
   .hero-content .divider,
   .hero-content .intro-box,
   .hero-content .button-row { display: none; }
@@ -434,7 +466,6 @@ h1 {
       height: 3.5px;
       margin-inline: auto;
       background: linear-gradient(to right, transparent, rgba(112, 101, 249, 0.4), transparent);
-      margin-bottom: 0.5rem;
     }
 
     p {
