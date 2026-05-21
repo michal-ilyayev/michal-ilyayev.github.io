@@ -7,8 +7,11 @@
 @use './forms';
 @use './buttons';
 @use './backgrounds';
+@use './home';
 
 
+// Design tokens — available everywhere via var(--name)
+// Also referenced in tailwind.config.js under theme.extend.colors
 @layer base {
   html {
     --color-primary: #7065f9;
@@ -22,7 +25,7 @@
   }
 }
 
-
+// Centered page container — use on any full-width section
 .page-container {
   @apply
   mx-auto
@@ -33,6 +36,9 @@
   ;
 }
 
+
+// Long-form text container (blog, about, etc.)
+// Styles links and prose automatically via Tailwind typography plugin
 .prose-custom {
   @apply
   mx-auto
@@ -50,4 +56,3 @@
   max-w-[80ch]
   ;
 }
-

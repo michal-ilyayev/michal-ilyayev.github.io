@@ -1,4 +1,7 @@
-
+// _buttons.scss — reusable buttons used across the whole site
+// Colours: --color-primary (#7065f9) and --color-primary-light (#8f8af9) from global.scss
+ 
+// Site-wide buttons (Tailwind @apply syntax) — used on older pages
 .btn-primary {
   @apply
   inline-flex
@@ -48,4 +51,48 @@
 
   hover:bg-primary-light
   hover:text-white;
+
+}
+
+// Home page buttons — used in the hero section
+// To change size: edit padding and min-width
+// To change colours: edit background/color on .main-btn and .secondary-btn
+.main-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+  min-width: 175px;
+}
+ 
+// Primary CTA — gradient fill with a glowing shadow
+.main-btn {
+  background: linear-gradient(135deg, #7065f9, #a879ff);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(112, 101, 249, 0.35);
+ 
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(112, 101, 249, 0.5);
+  }
+}
+ 
+// Secondary CTA — soft lavender, sits next to .main-btn
+.secondary-btn {
+  background: #ede9ff;
+  color: #5248c8;
+  border: 1.5px solid rgba(112, 101, 249, 0.18);
+ 
+  &:hover {
+    transform: translateY(-2px);
+    background: #e2dcff;
+    border-color: rgba(112, 101, 249, 0.4);
+  }
 }

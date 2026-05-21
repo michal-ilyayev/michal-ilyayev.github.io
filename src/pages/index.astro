@@ -1,225 +1,147 @@
 ---
-import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
-import Layout from '~/layouts/Layout.astro';
-import SILogo from '~/components/SILogo.astro';
-
-import MeImg from '~/assets/img/me/1.jpeg';
-import computerImg from '~/assets/img/computer.png';
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Layout from "~/layouts/Layout.astro";
+import MeImg from "~/assets/img/me/1.jpeg";
 ---
 
 <Layout>
-  <div class="bg1">
-    <div></div>
-  </div>
+  <main class="home-page">
+    <div class="bg-grid"></div>
 
-  <div class="min-h-[calc(100dvh-80px)] py-2 lg:py-16">
-
-    <div class="page-container1">
-
-      <div class="grid grid-cols-12 gap-8 py-8 max-w-full">
-
-        <div class="order-1 lg:order-2 col-span-12 lg:col-span-7 max-w-full overflow-hidden">
-          <div class="prose max-w-[60ch] mx-auto lg:mx-0 px-6">
-            <h2 class="heading">
-              <a href="/resume/">
-                About Me
-              </a>
-            </h2>
-            <p>
-              Hello! I'm Michal Ilyayev, a student at Westmount Collegiate Institute in Ontario,
-              pursuing a career in Software Engineering.
-            </p>
-            <p>
-              I have a passion for creativity and technology, and my interests span across art, swimming, piano,
-              and so much more...
-              (<a href="/resume/">See my Resume</a>!)
-            </p>
-          </div>
+    <!-- HERO -->
+    <section class="hero-grid">
+      <!-- LEFT: photo -->
+      <aside class="hero-card">
+        <div class="portrait-frame">
+          <Image
+            src={MeImg}
+            height={900}
+            alt="Michal Ilyayev"
+            class="portrait-img"
+          />
         </div>
+      </aside>
 
-        <div class="order-2 lg:order-1 col-span-12 row-span-2 lg:col-span-5 flex max-w-full overflow-hidden">
-          <div class="px-6 mx-auto">
-            <div
-              class="bg-gradient-to-br from-purple-400 via-violet-400 to-pink-400 p-3 rounded-3xl shadow-xl">
-              <a href="/resume/">
-                <Image src={MeImg} height={600} alt="Michal Ilyayev"
-                  class="rounded-2xl mx-auto aspect-600/338"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
+      <!-- RIGHT: content -->
+      <section class="hero-content">
+        <h1>MICHAL <span>Ilyayev</span></h1>
+        <p class="tagline">Software Developer</p>
 
-
-        <div class="order-3 col-span-12 lg:col-span-7 max-w-full overflow-hidden">
-          <div class="prose max-w-[60ch] mx-auto lg:mx-0 mt-6 px-6">
-            <p>
-              My journey into Computer Science began at a young age when my dad first introduced me to the world of
-              technology.
-              From that moment, I was hooked - fascinated by the endless possibilities of creating and innovating
-              through
-              code.
-            </p>
-            <p>
-              I'm eager to learn, and always seeking ways to improve, and help others.
-            </p>
-            <p>
-              This website showcases my achievements and highlights some of the projects that have defined who I am as
-              both a creator and a problem solver.
-            </p>
-
-            <div class="my-8 text-center lg:text-left">
-              <a href="/portfolio/software/" class="btn-primary">
-                My Coding Portfolio
-                <Icon name="mdi:arrow-right" size={24} class="ml-2" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="relative py-24 bg-gradient-to-br from-transparent via-pink-50 to-transparent">
-
-    <div class="page-container">
-
-      <div class="flex flex-col lg:flex-row justify-between items-center">
-        <div class="lg:w-1/2">
-          <h2 class="heading">
-            <a href="/portfolio/visual-arts/">
-              Visual Arts
-            </a>
-          </h2>
-          <div class="prose">
-            <p>
-              Art has always been close to my heart, a passion that began when my grandfather first introduced me to
-              it.
-            </p>
-            <p>
-              That early curiosity sparked a creative journey, eventually leading to my acceptance into the
-              prestigious Westmount CI Arts Program.
-              Over the past three and a half years, I've gained valuable insights and refined my skills, deepening my
-              creativity.
-            </p>
-            <p>
-              Below are some of my favorite artworks that I've developed during this time, each representing a unique
-              aspect of my artistic growth.
-            </p>
-            <p>
-              I hope you enjoy them as much as I enjoyed creating them!
-            </p>
-          </div>
-        </div>
-
-        <div class="py-20 px-2 lg:w-1/2">
-          <a href="/portfolio/visual-arts/">
-            <Image src={computerImg} width={700} alt="Creativity" class="max-w-full" />
+        <div class="social-row">
+          <a
+            href="https://github.com/michal-ilyayev"
+            target="_blank"
+            aria-label="GitHub"
+            class="social-github"
+          >
+            <Icon name="mdi:github" size={22} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/michal-ilyayev/"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="social-linkedin"
+          >
+            <Icon name="mdi:linkedin" size={22} />
+          </a>
+          <a href="/contact/" aria-label="Contact" class="social-email">
+            <Icon name="mdi:email-outline" size={22} />
           </a>
         </div>
-      </div>
 
-      <div class="page-container py-2 lg:py-8 xl:py-2">
-        <div class="lg:w-1/2 text-center lg:text-left">
-          <a href="/portfolio/visual-arts/" class="btn-primary">
-            My Visual Arts Portfolio
-            <Icon name="mdi:arrow-right" size={24} class="ml-2" />
+        <div class="divider"></div>
+
+        <div class="intro-box">
+          <p>
+            I'm pursuing a career in Software Engineering with a passion for
+            creativity and technology. My interests span art, swimming, piano,
+            and so much more.
+          </p>
+          <p>
+            <strong
+              >My journey into CS began when my dad first introduced me to tech</strong
+            >
+            — from that moment I was hooked, fascinated by the endless possibilities
+            of building and innovating through code.
+          </p>
+        </div>
+
+        <div class="button-row">
+          <a href="/portfolio/software/" class="main-btn">
+            Coding projects <Icon name="mdi:arrow-right" size={18} />
+          </a>
+          <a href="/resume/" class="secondary-btn">
+            Resume <Icon name="mdi:file-document-outline" size={18} />
           </a>
         </div>
+      </section>
+    </section>
+
+    <!-- MOBILE ONLY: bio + buttons shown below photo -->
+    <div class="mobile-bio">
+      <div class="divider"></div>
+      <p>
+        I'm pursuing a career in Software Engineering with a passion for
+        creativity and technology. My interests span art, swimming, piano, and
+        so much more.
+      </p>
+      <p>
+        <strong
+          >My journey into CS began when my dad first introduced me to tech</strong
+        >
+        — from that moment I was hooked, fascinated by the endless possibilities of
+        building and innovating through code.
+      </p>
+      <div class="button-row">
+        <a href="/portfolio/software/" class="main-btn">
+          Coding projects <Icon name="mdi:arrow-right" size={18} />
+        </a>
+        <a href="/resume/" class="secondary-btn">
+          Resume <Icon name="mdi:file-document-outline" size={18} />
+        </a>
       </div>
     </div>
-  </div>
 
-
-  <div class="relative py-24 bg-gradient-to-br from-sky-100 via-transparent to-transparent ">
-    <div class="page-container">
-      <div class="relative flex flex-col lg:flex-row justify-around items-start gap-8 py-8 mx-auto">
-
-        <div class="mx-auto lg:sticky lg:top-40">
-          <SILogo />
-        </div>
-
-        <div class="mx-auto">
-          <h2 class="heading hidden lg:block">
-            <a href="/portfolio/shield-initiative/">
-              The Shield Initiative
-            </a>
-          </h2>
-          <div class="prose">
-
-            <p>
-              "The Shield Initiative" is a special project that is very meaningful to me.
-              It was originally founded by Ilan Danjoux to create custom-designed shields for hospital IV poles to
-              bring comfort to children in healthcare environments.
-            </p>
-            <p>
-              Over time, the club gained popularity, formed partnerships with organizations like VIBE Dance Studio,
-              and hosted events both in and out of school.
-              It even received attention from global news outlets.
-            </p>
-            <p>
-              Unfortunately, the initiative faced setbacks during the COVID-19 pandemic, and leadership changes caused
-              the club to lose momentum. When I learned about this, I felt strongly connected to the mission and decided
-              to step up as a leader.
-            </p>
-            <p>
-              After the previous leaders unexpectedly stepped down, I found myself rebuilding the club from scratch,
-              with only half a year left and a small but passionate team of 12 students.
-              Despite the challenges, we successfully produced 10 shields and established meaningful connections,
-              including with Chai Lifeline, who were thrilled to receive our work.
-            </p>
-            <p>
-              Today, my focus is on expanding the Shield Initiative, bringing in new members, and ensuring that future
-              generations can continue this meaningful work.
-            </p>
-            <p>
-              My goal is to restore the club to its full potential and leave behind a lasting legacy.
-              Our team is growing, we gained valuable positive feedback from our partners, and we are excited to see
-              where this journey takes us.
-            </p>
-            <p>
-              With the support of my team, I am confident that we can achieve this goal.
-            </p>
+    <!-- PAST PROJECTS -->
+    <section class="project-section">
+      <p class="section-label">Past projects</p>
+      <div class="project-grid">
+        <a
+          href="/portfolio/shield-initiative/"
+          class="project-card project-card--shield"
+        >
+          <div class="card-icon card-icon--shield">
+            <Icon name="mdi:shield-outline" size={26} />
           </div>
+          <h3>Shield Initiative</h3>
+          <p>
+            Rebuilt a student-led initiative creating custom IV pole shields for
+            children in hospital care — partnered with Chai Lifeline, covered by
+            global news.
+          </p>
+          <span class="card-cta"
+            >View project <Icon name="mdi:arrow-right" size={14} /></span
+          >
+        </a>
 
-          <div class="my-12 text-center">
-            <a href="/portfolio/shield-initiative/" class="btn-primary">
-              The Shield Initiative Project
-              <Icon name="mdi:arrow-right" size={24} class="ml-2" />
-            </a>
+        <a
+          href="/portfolio/visual-arts/"
+          class="project-card project-card--art"
+        >
+          <div class="card-icon card-icon--art">
+            <Icon name="mdi:palette-outline" size={26} />
           </div>
-        </div>
+          <h3>Visual Arts</h3>
+          <p>
+            4 years in Westmount CI's arts program — a creative foundation built
+            on visual storytelling, design, and portfolio-based work.
+          </p>
+          <span class="card-cta"
+            >View gallery <Icon name="mdi:arrow-right" size={14} /></span
+          >
+        </a>
       </div>
-    </div>
-  </div>
-
+    </section>
+  </main>
 </Layout>
-
-
-<style lang="scss">
-
-  .heading {
-    @apply
-    font-handwriting
-    font-light
-    text-3xl
-    mb-6
-    ;
-
-    > a {
-      @apply
-      underline
-      transition
-      ;
-
-      &:hover {
-        @apply
-        text-primary-light
-        brightness-90
-        ;
-      }
-    }
-  }
-
-</style>
