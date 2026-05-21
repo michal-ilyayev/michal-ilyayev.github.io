@@ -1,0 +1,177 @@
+// _pages.scss — shared styles used across multiple portfolio pages
+// Imported in global.scss with @use './pages'
+// DO NOT put home-page-specific or resume-specific styles here
+// Rule: only add a class here if it's used on 2+ pages
+
+// ── PAGE TITLE ───────────────────────────────────────────────────────────────
+// Bold Inter + italic Georgia serif — consistent heading treatment site-wide
+// Usage: <h1 class="page-title">My <em>Coding</em> Portfolio</h1>
+.page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: #160025;
+    margin: 0;
+  
+    em {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      color: #7065f9;
+    }
+  }
+  
+  // ── EYEBROW LABEL ────────────────────────────────────────────────────────────
+  // Small uppercase label with a short line before it
+  // Usage: <p class="page-eyebrow">Software Development</p>
+  .page-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a89ec0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+  
+    &::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: rgba(112, 101, 249, 0.4);
+    }
+  }
+  
+  // ── GITHUB / EXTERNAL PILL LINK ──────────────────────────────────────────────
+  // Purple outlined pill for external links (GitHub, live site etc.)
+  // Usage: <a class="page-gh-link" href="...">...</a>
+  .page-gh-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #7065f9;
+    text-decoration: none;
+    border: 1.5px solid rgba(112, 101, 249, 0.25);
+    background: rgba(112, 101, 249, 0.04);
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    width: fit-content;
+    transition: 0.2s ease;
+  
+    &:hover {
+      background: rgba(112, 101, 249, 0.1);
+      border-color: rgba(112, 101, 249, 0.5);
+    }
+  }
+  
+  // ── QUOTE BOX ────────────────────────────────────────────────────────────────
+  // Centered purple-tinted box — currently used on software page
+  // Usage:
+  //   <div class="quote-box">
+  //     <p class="quote-text">...</p>
+  //     <p class="quote-author">...</p>
+  //   </div>
+  .quote-box {
+    width: 600px;
+    max-width: 100%;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(112, 101, 249, 0.15);
+    border-radius: 1.25rem;
+    background: rgba(112, 101, 249, 0.03);
+  }
+  
+  .quote-text {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #7065f9;
+    margin: 0 0 0.4rem;
+  }
+  
+  .quote-author {
+    font-size: 0.85rem;
+    color: #a89ec0;
+    margin: 0;
+  }
+  
+  // ── PROJECTS PANEL ───────────────────────────────────────────────────────────
+  // Lavender tinted panel — used on software page, reusable for any project listing
+  // To change panel colour: edit background
+  // To change top border: edit the gradient in border-image
+  .sw-projects-panel {
+    background: #f7f5ff;
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to right, transparent, #a879ff, #f06ab7, transparent) 1;
+    padding: clamp(3rem, 5vw, 5rem) 0;
+    margin-top: 2rem;
+  }
+  
+  .sw-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid rgba(112, 101, 249, 0.15);
+  }
+  
+  .sw-panel-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a89ec0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  
+    &::before {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1px;
+      background: rgba(112, 101, 249, 0.4);
+    }
+  }
+  
+  .sw-panel-count {
+    font-size: 0.75rem;
+    color: #a89ec0;
+    font-family: 'Courier New', monospace;
+  }
+  
+  // Numbered project label with a trailing line
+  // Usage: <p class="sw-project-num">01</p>
+  .sw-project-num {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #a89ec0;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
+    &::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 0.5px;
+      background: rgba(112, 101, 249, 0.12);
+    }
+  }
+  
+  .sw-project-section {
+    position: relative;
+    margin-bottom: 1rem;
+  }

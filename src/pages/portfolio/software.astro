@@ -14,36 +14,33 @@ import programmerImg from '~/assets/img/programmer.svg';
 ---
 
 <Layout title="Coding Projects">
-  <div class="bg2">
-    <div></div>
-  </div>
+  <div class="bg2"><div></div></div>
 
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
   <div class="relative">
     <div class="page-container pt-8">
-      <div class="flex flex-col-reverse lg:flex-row justify-around items-center gap-12">
+      <div class="flex flex-col lg:flex-row justify-around items-center gap-12">
 
-        <div>
-          <Image src={programmerImg} height={400} alt="Programmer" />
-        </div>
-
-        <div class="hero-text">
-          <p class="hero-eyebrow">Software Development</p>
-          <h1 class="hero-title">
-            My <em>Coding</em><br />Portfolio
-          </h1>
-          <p class="hero-sub">
+        <!-- LEFT: text — image moved to right -->
+        <div class="sw-hero-text">
+          <h1 class="page-title">My <em>Coding</em><br />Portfolio</h1>
+          <p class="sw-sub">
             Over the years, I've developed a wide range of projects, each one
             representing a unique aspect of my creativity and problem-solving skills.
           </p>
-          <p class="hero-sub">
+          <p class="sw-sub">
             Below are some of my favorite projects that I've worked on, each one
             showcasing my passion for software development.
           </p>
-          <a href="https://github.com/michal-ilyayev" target="_blank" class="hero-gh-link">
+          <a href="https://github.com/michal-ilyayev" target="_blank" class="page-gh-link">
             <Icon name="mdi:github" size={18} />
             github.com/michal-ilyayev
           </a>
+        </div>
+
+        <!-- RIGHT: illustration -->
+        <div>
+          <Image src={programmerImg} height={400} alt="Programmer" />
         </div>
 
       </div>
@@ -51,39 +48,45 @@ import programmerImg from '~/assets/img/programmer.svg';
   </div>
 
   <!-- ── QUOTE ─────────────────────────────────────────────────────────── -->
-  <div class="page-container mt-20 mb-4">
+  <div class="page-container mt-20">
     <div class="relative flex flex-col justify-center items-center">
       <div class="quote-box">
-        <p class="quote-text">"Talk is cheap. Show me the code."</p>
-        <p class="quote-author">— Linus Torvalds</p>
+
+        <!-- styled as a fake import statement -->
+        <p class="sw-quote-code">
+          <span class="sw-kw">import</span>
+          <span class="sw-str"> "talk is cheap,</span>
+          <br />
+          <span class="sw-str">&nbsp;&nbsp;show me the code"</span>
+          <span class="sw-op"> from</span>
+          <span class="sw-fn"> LinusTorvalds</span><span class="sw-op">;</span>
+        </p>
+
       </div>
       <hr class="hidden border-t border-primary w-full absolute top-[1/2] z-0 md:block" />
     </div>
   </div>
 
   <!-- bouncing arrow -->
-  <div class="w-full mb-2">
-    <div class="mx-auto mt-8 animate-bounce w-20 h-20 flex items-center justify-center text-center rounded-full bg-white shadow-sm drop-shadow-sm border">
+  <div class="w-full">
+    <div class="mx-auto mt-10 animate-bounce w-20 h-20 flex items-center justify-center text-center rounded-full bg-white shadow-sm drop-shadow-sm border">
       <Icon name="mdi:arrow-down" size={48} class="text-primary" />
     </div>
   </div>
 
   <!-- ── PROJECTS PANEL ─────────────────────────────────────────────────── -->
+  <!-- styles from _pages.scss — .projects-panel, .panel-header, .project-num etc. -->
   <div class="projects-panel">
     <div class="page-container">
 
       <div class="panel-header">
         <p class="panel-eyebrow">Projects</p>
-        <p class="panel-count">5 total · always updating</p>
+        <p class="panel-count">05 total · always updating</p>
       </div>
 
-      <!-- 01 -->
       <div class="project-section">
         <p class="project-num">01</p>
-        <GitProjectCard
-          title="Portfolio Website"
-          gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io"
-        >
+        <GitProjectCard title="Portfolio Website" gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io">
           <Image src={thisWebsiteImg} height={700} alt="Portfolio Website" slot="image" />
           <div>
             <h2>This Website</h2>
@@ -94,7 +97,6 @@ import programmerImg from '~/assets/img/programmer.svg';
         </GitProjectCard>
       </div>
 
-      <!-- 02 -->
       <div class="project-section">
         <p class="project-num">02</p>
         <ProjectCard title="LOCK-IN" projectLink="https://www.lockin.click/">
@@ -111,7 +113,6 @@ import programmerImg from '~/assets/img/programmer.svg';
         </ProjectCard>
       </div>
 
-      <!-- 03 -->
       <div class="project-section">
         <p class="project-num">03</p>
         <GitProjectCard title="Whack a Mole" gitHubLink="https://github.com/michal-ilyayev/whack-a-mole">
@@ -124,7 +125,6 @@ import programmerImg from '~/assets/img/programmer.svg';
         </GitProjectCard>
       </div>
 
-      <!-- 04 -->
       <div class="project-section">
         <p class="project-num">04</p>
         <GitProjectCard title="Balloon Pop" gitHubLink="https://github.com/michal-ilyayev/balloon-pop">
@@ -137,7 +137,6 @@ import programmerImg from '~/assets/img/programmer.svg';
         </GitProjectCard>
       </div>
 
-      <!-- 05 -->
       <div class="project-section">
         <p class="project-num">05</p>
         <GitProjectCard title="Wall Game" gitHubLink="https://github.com/michal-ilyayev/wall-game">
@@ -158,10 +157,11 @@ import programmerImg from '~/assets/img/programmer.svg';
 
 
 <style lang="scss">
+  // All shared styles (page-title, page-eyebrow, page-gh-link, quote-box,
+  // projects-panel, panel-header, project-num) live in _pages.scss
+  // Only software-page-specific styles go here
 
-  // ── HERO ────────────────────────────────────────────────────────────────
-
-  .hero-text {
+  .sw-hero-text {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -169,170 +169,24 @@ import programmerImg from '~/assets/img/programmer.svg';
     padding-top: 2rem;
   }
 
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a89ec0;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin: 0;
-
-    &::before {
-      content: '';
-      display: block;
-      width: 1.5rem;
-      height: 1px;
-      background: rgba(112, 101, 249, 0.4);
-    }
-  }
-
-  .hero-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    color: #160025;
-    margin: 0;
-
-    em {
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-weight: 300;
-      color: #7065f9;
-    }
-  }
-
-  .hero-sub {
+  .sw-sub {
     font-size: 1rem;
     line-height: 1.75;
     color: #5a5560;
     margin: 0;
   }
 
-  .hero-gh-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #7065f9;
-    text-decoration: none;
-    border: 1.5px solid rgba(112, 101, 249, 0.25);
-    background: rgba(112, 101, 249, 0.04);
-    padding: 0.5rem 1rem;
-    border-radius: 0.6rem;
-    width: fit-content;
-    margin-top: 0.5rem;
-    transition: 0.2s ease;
-
-    &:hover {
-      background: rgba(112, 101, 249, 0.1);
-      border-color: rgba(112, 101, 249, 0.5);
-    }
-  }
-
-  // ── QUOTE ───────────────────────────────────────────────────────────────
-
-  .quote-box {
-    width: 600px;
-    max-width: 100%;
-    z-index: 10;
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid rgba(112, 101, 249, 0.15);
-    border-radius: 1.25rem;
-    background: rgba(112, 101, 249, 0.03);
-  }
-
-  .quote-text {
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #7065f9;
-    margin: 0 0 0.4rem;
-  }
-
-  .quote-author {
-    font-size: 0.85rem;
-    color: #a89ec0;
-    margin: 0;
-  }
-
-  // ── PROJECTS PANEL ──────────────────────────────────────────────────────
-  // tinted panel creates a clear visual chapter break after the hero
-
-  .projects-panel {
-    background: #f7f5ff;
-    border-top: 2px solid transparent;
-    border-image: linear-gradient(to right, transparent, #a879ff, #f06ab7, transparent) 1;
-    padding: clamp(3rem, 5vw, 5rem) 0;
-    margin-top: 2rem;
-  }
-
-  .panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 0.5px solid rgba(112, 101, 249, 0.15);
-  }
-
-  .panel-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a89ec0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    &::before {
-      content: '';
-      display: block;
-      width: 1rem;
-      height: 1px;
-      background: rgba(112, 101, 249, 0.4);
-    }
-  }
-
-  .panel-count {
-    font-size: 0.75rem;
-    color: #a89ec0;
+  // quote styled as a code import statement
+  .sw-quote-code {
     font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin: 0;
+    text-align: left;
   }
 
-  // each project gets a numbered label above its card
-  .project-section {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-
-  .project-num {
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #a89ec0;
-    letter-spacing: 0.1em;
-    margin: 0 0 0.6rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    // short line after the number
-    &::after {
-      content: '';
-      display: block;
-      flex: 1;
-      height: 0.5px;
-      background: rgba(112, 101, 249, 0.12);
-    }
-  }
-
+  .sw-kw  { color: #a879ff; }   // keyword — import
+  .sw-str { color: #7ab8d4; }   // string — the quote text
+  .sw-op  { color: #a89ec0; }   // operator — from ;
+  .sw-fn  { color: #7065f9; }   // function/name — LinusTorvalds
 </style>
