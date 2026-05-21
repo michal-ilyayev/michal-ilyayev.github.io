@@ -8,7 +8,7 @@
 @use './buttons';
 @use './backgrounds';
 @use './home';
-
+@use './pages';
 
 // Design tokens — available everywhere via var(--name)
 // Also referenced in tailwind.config.js under theme.extend.colors
