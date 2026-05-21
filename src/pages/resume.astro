@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
-
 import Layout from '~/layouts/Layout.astro';
 import AvatarImg from '~/assets/img/me/3.png';
 ---
@@ -32,41 +31,33 @@ import AvatarImg from '~/assets/img/me/3.png';
               />
             </div>
             <div>
-              <h1
-                class="text-2xl print:text-4xl sm:text-4xl font-[400] font-serif italic border-b border-gray-300 pb-2 mb-2">
+              <h1 class="text-2xl print:text-4xl sm:text-4xl font-[400] font-serif italic border-b border-gray-300 pb-2 mb-2">
                 Michal Ilyayev
               </h1>
+              <p class="text-gray-500 text-md sm:text-xl print:text-xl italic">
+                Computer Science Student
+              </p>
             </div>
           </div>
           <div class="flex lg:justify-end print:justify-end">
             <div class="flex flex-col w-fit items-start gap-1.5 text-gray-600 text-sm">
               <a
-                class="flex items-center gap-2 hover:text-primary transition-all"
-                href="tel:+16473554049"
-              >
-                <Icon name="mdi:phone" size={20} class="text-gray-500" />
-                (647) 355-4049
-              </a>
-              <a
-                class="flex items-center gap-2 hover:text-primary transition-all"
-                href="mailto:ilyayevm@mcmaster.ca"
-              >
+              class="flex items-center gap-2 hover:text-primary transition-all"
+              href="https://github.com/michal-ilyayev"
+              target="_blank"
+            >
+              <Icon name="mdi:github" size={20} class="text-gray-500" />
+              github.com/michal-ilyayev
+            </a>
+              <a class="flex items-center gap-2 hover:text-primary transition-all" href="mailto:ilyayevm@mcmaster.ca">
                 <Icon name="mdi:email" size={20} class="text-gray-500" />
                 ilyayevm@mcmaster.ca
               </a>
-              <a
-                class="flex items-center gap-2 hover:text-primary transition-all"
-                href="https://michal-ilyayev.github.io"
-                target="_blank"
-              >
+              <a class="flex items-center gap-2 hover:text-primary transition-all" href="https://michal-ilyayev.github.io" target="_blank">
                 <Icon name="mdi:web" size={20} class="text-gray-500" />
                 michal-ilyayev.github.io
               </a>
-              <a
-                class="flex items-center gap-2 hover:text-primary transition-all"
-                href="https://www.linkedin.com/in/michal-ilyayev/"
-                target="_blank"
-              >
+              <a class="flex items-center gap-2 hover:text-primary transition-all" href="https://www.linkedin.com/in/michal-ilyayev/" target="_blank">
                 <Icon name="mdi:linkedin" size={20} class="text-gray-500" />
                 linkedin.com/in/michal-ilyayev
               </a>
@@ -77,13 +68,19 @@ import AvatarImg from '~/assets/img/me/3.png';
 
         <!-- resume body -->
         <div class="resume-body">
+
           <section>
             <h2>Summary</h2>
             <p>
-              Motivated Computer Science student with experience in Python, web development, and UI/UX design. Led
-              large, award-winning community projects and earned multiple recognitions including Schulich Leadership,
-              EREA, and the President's Award. Demonstrated strengths in team organization, creative problem-solving,
-              and learning quickly and independently.
+              Motivated Computer Science student at McMaster University with experience in Python, web
+              development, UI/UX design, and modern web technologies including Astro, React, Tailwind CSS,
+              TypeScript, JavaScript, HTML, and CSS.
+            </p>
+            <p>
+              I am passionate about building creative, user-focused digital experiences and enjoy combining
+              software development with visual design. Through internships, independent projects, university
+              involvement, and leadership roles, I have developed strong skills in problem-solving,
+              organization, collaboration, and learning independently.
             </p>
           </section>
 
@@ -94,19 +91,65 @@ import AvatarImg from '~/assets/img/me/3.png';
               <div class="section-heading">
                 <h3>Independent Software Development Projects</h3>
               </div>
+            
               <ul>
-                <li>Built personal portfolio website using Astro, TypeScript, and Tailwind CSS</li>
                 <li>
-                  <strong>Lockin.click</strong> — Next-generation coding assessment platform. React, Ant Design,
-                  Django/Python, PostgreSQL.
+                  Built and designed my personal portfolio website using Astro,
+                  TypeScript, Tailwind CSS, and responsive web design principles.
                 </li>
+            
                 <li>
-                  Additional projects and games available at:
+                  <strong>Lockin.click</strong>: Next-generation coding assessment
+                  platform built with React, Ant Design, Django/Python,
+                  and PostgreSQL.
+                </li>
+            
+                <li>
+                  Developed additional programming projects, games, and web applications
+                  using Python, JavaScript, PyGame, and modern web technologies.
+                  Additional work available on
                   <a
-                    class="text-primary hover:underline"
                     href="https://github.com/michal-ilyayev"
                     target="_blank"
-                  >github.com/michal-ilyayev</a>
+                    class="text-primary transition-all"
+                  >
+                    GitHub: https://github.com/michal-ilyayev 
+                  </a>.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <div class="section-heading">
+                <h3>Research Assistant, McMaster University</h3>
+                <span>June 2026 – Present</span>
+              </div>
+            
+              <p>
+                Working within McMaster University's Department of Computing and Software
+                on human-centered AI-augmented visualization systems focused on helping
+                users explore large datasets and extract insights through interactive tools.
+              </p>
+            
+              <ul>
+                <li>
+                  Assisting in the design and development of interactive AI-supported
+                  visualization systems and user-focused interfaces.
+                </li>
+            
+                <li>
+                  Exploring technologies such as React, React Flow, JavaScript,
+                  and modern frontend development workflows.
+                </li>
+            
+                <li>
+                  Researching methods for improving information sensemaking,
+                  human-AI interaction, and data exploration experiences.
+                </li>
+            
+                <li>
+                  Collaborating within McMaster University's Faculty of Engineering
+                  in a research-oriented software development environment.
                 </li>
               </ul>
             </section>
@@ -114,18 +157,25 @@ import AvatarImg from '~/assets/img/me/3.png';
             <section>
               <div class="section-heading">
                 <h3>Web Development Intern, NEMAL Technologies</h3>
-                <span>July 2024 – October 2024</span>
+                <span>July 2024 – October 2024, April 2026 – Present</span>
               </div>
+              <p>
+                NEMAL is a boutique software development company that provides custom software solutions
+                for small businesses and startups. As a Web Development Intern, I worked closely with an
+                experienced development team to develop and maintain client-facing web applications.
+              </p>
               <ul>
                 <li>
-                  Worked with an experienced development team to develop and maintain client-facing web applications.
+                  Assisted with UI/UX design and implemented responsive, user-friendly interfaces using
+                  Astro, React, and Tailwind CSS.
                 </li>
                 <li>
-                  Assisted in UI/UX design and implemented responsive, user-friendly interfaces using Astro, React, and
-                  Tailwind CSS.
+                  Supported website updates and contributed to layout, accessibility, and performance
+                  improvements.
                 </li>
                 <li>
-                  Supported website updates and contributed to layout, accessibility, and performance improvements.
+                  Gained hands-on experience working with modern frontend tools in a professional
+                  development environment.
                 </li>
               </ul>
             </section>
@@ -137,95 +187,55 @@ import AvatarImg from '~/assets/img/me/3.png';
               </div>
               <ul>
                 <li>
-                  Taught children between the ages of 3 and 12 essential swimming techniques and water safety practices.
+                  Taught children between the ages of 3 and 12 essential swimming techniques and water
+                  safety practices.
                 </li>
                 <li>
-                  Adapted lessons to different learning levels, ensuring a safe and positive experience for all
-                  students.
+                  Adapted lessons to different learning levels, helping each student build confidence and
+                  improve at their own pace.
                 </li>
+                <li>Maintained a safe, supportive, and positive learning environment.</li>
               </ul>
             </section>
-          </div>
-
-          <div>
-            <h2>Community Involvement</h2>
 
             <section>
               <div class="section-heading">
-                <h3>McMaster University Community</h3>
-                <span>2025 – Present</span>
-              </div>
-              <p>
-                Active general member in: Engineering Society (MES) • Women in Engineering (WIE) • Computer Science
-                Society • Artificial Intelligence Society (MACIS) • DeltaHacks
-              </p>
-            </section>
-
-            <section>
-              <div class="section-heading">
-                <h3>Leader &amp; President of the Shield Initiative Club</h3>
-                <span>2022 – 2025</span>
+                <h3>Community Involvement</h3>
               </div>
               <ul>
-                <li>Revived the club in 2022, started with 12 members, and by 2024, expanded to 60+ members.</li>
                 <li>
-                  Managed design processes, volunteer coordination, partner outreach, fundraisers, and large-scale
-                  events.
+                  <strong>McMaster University Community</strong><br />
+                  Active general member in the McMaster Engineering Society, Women in Engineering,
+                  Computer Science Society, Artificial Intelligence Society, and DeltaHacks.
                 </li>
-                <li>Organized and delivered over 40 wooden shields for children undergoing cancer treatment.</li>
+                <li>
+                  <strong>Leader &amp; President of the Shield Initiative Club</strong><br />
+                  Revived the club in 2022, started with 12 members, and helped expand it to over
+                  60 members by 2024.
+                </li>
+                <li>
+                  Managed design processes, volunteer coordination, partner outreach, fundraisers,
+                  and large-scale community events.
+                </li>
+                <li>
+                  Organized and delivered over 40 handmade wooden shields for children undergoing
+                  cancer treatment.
+                </li>
+                <li>
+                  <strong>High School Community Roles</strong><br />
+                  Student Council, Head of Visual Arts Council, Programming Club, and Women in STEM.
+                </li>
+                <li>
+                  <strong>Art Club Assistant at JRCC</strong><br />
+                  Instructed small groups of children ages 5–8 in holiday art projects.
+                </li>
+                <li>
+                  <strong>Babysitting</strong><br />
+                  Supervised children ages 3–9 and organized age-specific activities and meal plans.
+                </li>
               </ul>
             </section>
-
-            <section>
-              <div class="section-heading">
-                <h3>High School Community Roles</h3>
-                <span>2022 – 2025</span>
-              </div>
-              <p>Student Council • Head of Visual Arts Council • Programming Club • Women in STEM</p>
-            </section>
           </div>
-
-          <section>
-            <h2>Skills</h2>
-            <ul>
-              <li>
-                <strong>Software Development</strong>: Python, JavaScript, HTML, CSS, Astro, React, Tailwind CSS,
-                PyGame, Git
-              </li>
-              <li>
-                <strong>UI &amp; Digital Design</strong>: Figma, Adobe Photoshop, Adobe Illustrator, Canva
-              </li>
-              <li>
-                <strong>Visual Arts</strong>: Proficient in drawing and painting with various mediums, Digital Art, 3D
-                Design, Photography
-              </li>
-              <li>
-                <strong>Languages</strong>: English, Hebrew, and Russian
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>Awards</h2>
-            <ul>
-              <li>EREA scholarship candidate (2025 – Present)</li>
-              <li>Schulich Leadership Award (2024 – 2025)</li>
-              <li>Ontario Scholar / Honorary (2024 – 2025)</li>
-              <li>President's Award (2024 – 2025)</li>
-              <li>Honour Roll, Grade 11, Westmount Collegiate Institute (2023 – 2024)</li>
-              <li>Citizenship Award, Courage and Leadership (2023 – 2024)</li>
-              <li>First Place in DEGA International Art Competition (2023)</li>
-              <li>Honour Roll, Grade 10, Westmount Collegiate Institute (2022 – 2023)</li>
-              <li>Academic Award, Communication Technology (2022 – 2023)</li>
-              <li>Academic Award, Technological Design (2022 – 2023)</li>
-              <li>Merit Award, Visual Arts (2022 – 2023)</li>
-              <li>Standard First Aid with CPR "C" Certification (May 2023)</li>
-              <li>Swimming and Life-saving Instructor Certification (March 2023)</li>
-              <li>Assistant Instructor Certification (February 2023)</li>
-              <li>Honour Roll, Grade 9, Westmount Collegiate Institute (2021 – 2022)</li>
-              <li>Red Cross Babysitting Certification (August 2020)</li>
-            </ul>
-          </section>
 
           <div>
             <h2>Education</h2>
@@ -235,21 +245,122 @@ import AvatarImg from '~/assets/img/me/3.png';
                 <h3>B.A.Sc. Computer Science, McMaster University</h3>
                 <span>2025 – Present</span>
               </div>
+              <p>
+                Currently studying Computer Science at McMaster University with interests in software
+                development, artificial intelligence, UI/UX design, human-centered technology, and
+                interactive digital systems.
+              </p>
             </section>
 
             <section>
               <div class="section-heading">
-                <h3>Ontario Secondary School Diploma (OSSD), Westmount Collegiate Institute</h3>
+                <h3>Ontario Secondary School Diploma, Westmount Collegiate Institute</h3>
                 <span>2021 – 2025</span>
               </div>
-              <p>Graduated with an additional Accelerated Visual Arts Program Diploma.</p>
+              <p>
+                Graduated from Westmount Collegiate Institute with an additional Accelerated Visual
+                Arts Program Diploma. Completed university-level courses in Computer Science, Visual
+                Arts, Advanced Functions, Calculus &amp; Vectors, Physics, Chemistry, and English.
+              </p>
+              <p>
+                Honour Roll student with multiple awards for academic excellence, creativity,
+                citizenship, leadership, and visual arts.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-heading">
+                <h3>Extracurriculars and Self-Study</h3>
+              </div>
+              <ul>
+                <li>
+                  <strong>Programming</strong>: Online courses, tutorials, and independent projects in
+                  Python, HTML, CSS, JavaScript, React, Astro, and more.
+                </li>
+                <li>
+                  <strong>Swimming</strong>: Swimming since infancy, competed in many competitions
+                  including YRAA, and earned multiple medals.
+                  <ul class="my-2">
+                    <li>Certified Lifesaving and Swim Instructor.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Private Art Classes</strong>: Continued art training since 2019, developing
+                  creativity, technique, and collaboration through various visual art projects.
+                </li>
+                <li>
+                  <strong>Private Piano Lessons</strong>: Studied piano since 2021 and successfully
+                  performed twice in the school's talent show.
+                </li>
+              </ul>
             </section>
           </div>
+
+          <section>
+            <h2>Skills</h2>
+            <ul>
+              <li>
+                <strong>Software Development</strong>: Python, JavaScript, TypeScript, HTML, CSS,
+                Astro, React, Tailwind CSS, PyGame, Git
+              </li>
+              <li>
+                <strong>Backend and Tools</strong>: Django/Python, PostgreSQL, Ant Design, GitHub
+              </li>
+              <li>
+                <strong>UI &amp; Digital Design</strong>: Figma, Adobe Photoshop, Adobe Illustrator, Canva
+              </li>
+              <li>
+                <strong>Visual Arts</strong>: Drawing, painting, digital art, 3D design, photography,
+                and mixed media
+              </li>
+              <li>
+                <strong>Personality and Soft Skills</strong>: Responsible, kind, team player,
+                self-organized, detail-oriented, creative, persistent, optimistic, resourceful,
+                curious, and open-minded
+              </li>
+              <li>
+                <strong>Languages</strong>: Fluent in English, Hebrew, and Russian
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Honors, Awards, Certifications</h2>
+            <ul>
+              <li>EREA Scholarship Candidate, McMaster University (2025 – Present)</li>
+              <li>Schulich Leadership Award (2024 – 2025)</li>
+              <li>President's Award (2024 – 2025)</li>
+              <li>Ontario Scholar / Honorary Recognition (2024 – 2025)</li>
+              <li>Honour Roll, Grade 12, Westmount Collegiate Institute (2024 – 2025)</li>
+              <li>Honour Roll, Grade 11, Westmount Collegiate Institute (2023 – 2024)</li>
+              <li>Citizenship Award, Courage and Leadership (2023 – 2024)</li>
+              <li>First Place in DEGA International Art Competition (2023)</li>
+              <li>Honour Roll, Grade 10, Westmount Collegiate Institute (2022 – 2023)</li>
+              <li>Academic Award, Communication Technology (2022 – 2023)</li>
+              <li>Academic Award, Technological Design (2022 – 2023)</li>
+              <li>Merit Award, Visual Arts (2022 – 2023)</li>
+              <li>Standard First Aid with CPR "C" Certification (May 2023)</li>
+              <li>Swimming and Lifesaving Instructor Certification (March 2023)</li>
+              <li>Assistant Instructor Certification (February 2023)</li>
+              <li>Honour Roll, Grade 9, Westmount Collegiate Institute (2021 – 2022)</li>
+              <li>Red Cross Babysitting Certification (August 2020)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Creative Interests</h2>
+            <p>
+              Sketching and painting landscapes, human features, and structures; swimming;
+              playing piano; digital art; music; badminton; fishing; kayaking; skating;
+              hiking; and spending time with friends.
+            </p>
+          </section>
 
           <section>
             <h2>References</h2>
             <p>Available upon request.</p>
           </section>
+
         </div>
         <!-- resume body end -->
 
@@ -266,32 +377,20 @@ import AvatarImg from '~/assets/img/me/3.png';
     @apply
     fixed top-[130px] right-0 z-[1030]
     overflow-hidden
-
     hidden print:hidden
     md:flex items-center justify-center text-center
     text-primary bg-white
-    py-4
-    pl-4
-    pr-2
+    py-4 pl-4 pr-2
     rounded-l-2xl
-
-    no-underline
-    shadow-sm
-    drop-shadow-sm
-    border
-    border-primary
-    border-r-0
-    cursor-pointer
-    transition-all
-    hover:bg-primary-light
-    hover:text-white;
-  ;
+    no-underline shadow-sm drop-shadow-sm
+    border border-primary border-r-0
+    cursor-pointer transition-all
+    hover:bg-primary-light hover:text-white;
   }
 
   .resume-body {
     h2 {
       @apply mt-10 text-lg font-serif font-bold border-b border-gray-300 mb-4;
-
     }
 
     section {
