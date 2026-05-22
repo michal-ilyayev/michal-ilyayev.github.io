@@ -1,30 +1,26 @@
-export type ImageSource = {
-  // image URL
+// types.ts — shared types for the gallery component
+
+export type ImageSrc = {
   src: string;
-
-  // image width in pixels
+  srcThumb: string;
   width: number;
-
-  // image height in pixels
   height: number;
 };
 
-export type GalleryImage = ImageSource & {
-  // thumbnail image URL
-  srcThumb?: string;
-
-  // image title
+export type GalleryImage = {
+  src: string;
+  srcThumb: string;
+  width: number;
+  height: number;
   title: string;
-
-  // optional image description
   description?: string;
-
-  // responsive image sources
-  srcSet?: ImageSource[];
-
-  imageFit?: 'cover' | 'contain';
+  medium?: string;
+  year?: string;
+  // all views of this artwork — single item if only one photo
+  allSrcs: ImageSrc[];
+  srcSet?: unknown;
+  imageFit?: string;
 };
-
 
 export type GalleryProps = {
   images: GalleryImage[];

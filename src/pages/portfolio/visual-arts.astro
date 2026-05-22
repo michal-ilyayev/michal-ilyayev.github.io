@@ -8,35 +8,55 @@ import { artImages, type ArtImage } from '~/data/art-gallery';
 import { THUMB_SIZE } from '~/components/gallery/consts';
 import type { ImageMetadata } from 'astro';
 
-
 const imgFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/**/*.{jpeg,jpg,png}');
 
+// Optimise a single image path and return src + dimensions
+const optimiseImage = async (path: string) => {
+  const img: ImageMetadata = (await imgFiles[`/src/assets/art/${path}`]()).default;
 
+  const optimized = await getImage({
+    src: img,
+    format: 'webp',
+    inferSize: true,
+  });
+
+  const thumbnail = await getImage({
+    src: img,
+    format: 'webp',
+    quality: 50,
+    width: THUMB_SIZE,
+    height: THUMB_SIZE * (img.height / img.width),
+  });
+
+  return {
+    src: optimized.src,
+    srcThumb: thumbnail.src,
+    width: img.width,
+    height: img.height,
+  };
+};
+
+// Build a GalleryImage for each artwork
+// - paths[0] is always the thumbnail shown in the grid
+// - all paths are optimised and stored in allSrcs for the inner carousel
 const loadGalleryImage = async (imageData: ArtImage): Promise<GalleryImage | undefined> => {
-  const img: ImageMetadata = (await imgFiles[`/src/assets/art/${imageData.path}`]()).default;
-
   try {
-    const optimized = await getImage({
-      src: img,
-      format: 'webp',
-      inferSize: true,
-    });
+    const [primary, ...extras] = imageData.paths;
 
-    const thumbnail = await getImage({
-      src: img,
-      format: 'webp',
-      quality: 50,
-      width: THUMB_SIZE,
-      height: THUMB_SIZE * (img.height / img.width),
-    });
+    const primaryData = await optimiseImage(primary);
+    const extraSrcs   = await Promise.all(extras.map((p) => optimiseImage(p)));
 
     return {
-      src: optimized.src,
-      title: imageData.title,
+      src:        primaryData.src,
+      srcThumb:   primaryData.srcThumb,
+      width:      primaryData.width,
+      height:     primaryData.height,
+      title:      imageData.title,
       description: imageData.description,
-      width: img.width,
-      height: img.height,
-      srcThumb: thumbnail.src,
+      medium:     imageData.medium,
+      year:       imageData.year,
+      // all views including primary — used for the inner carousel
+      allSrcs: [primaryData, ...extraSrcs],
     } as GalleryImage;
   } catch (e) {
     console.error(e);
@@ -44,20 +64,13 @@ const loadGalleryImage = async (imageData: ArtImage): Promise<GalleryImage | und
   }
 };
 
-
-const images = await Promise.all(
-  artImages
-    .map(async (imageData) => {
-      return await loadGalleryImage(imageData);
-    })
-    .filter((img) => img !== undefined)
-);
+const images = (
+  await Promise.all(artImages.map(loadGalleryImage))
+).filter((img): img is GalleryImage => img !== undefined);
 ---
 
 <Layout title="Visual Arts Portfolio">
-  <div class="bg1">
-    <div></div>
-  </div>
+  <div class="bg1"><div></div></div>
   <div>
     <div class="my-24">
       <h1 class="text-4xl text-center my-6 font-handwriting text-primary">
