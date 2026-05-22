@@ -18,25 +18,25 @@ import programmerImg from '~/assets/img/programmer.svg';
 
   <!-- HERO — text left, illustration right -->
   <div class="page-container pt-8">
-    <div class="flex flex-col-reverse lg:flex-row items-center justify-center gap-32">
+    <div class="sw-hero-row flex flex-col-reverse lg:flex-row items-center gap-12">
 
       <div class="sw-hero-text">
-        <h1 class="page-title page-title--large">My <em>Coding</em><br />Portfolio</h1>
-        <p class="page-body-text">
+        <h1 class="page-title">My <em>Coding</em><br />Portfolio</h1>
+        <p class="sw-sub">
           Over the years, I've developed a wide range of projects, each one
           representing a unique aspect of my creativity and problem-solving skills.
         </p>
-        <p class="page-body-text">
+        <p class="sw-sub">
           Below are some of my favorite projects that I've worked on, each one
           showcasing my passion for software development.
         </p>
-        <a href="https://github.com/michal-ilyayev" target="_blank" class="page-gh-link page-gh-link--spaced">
+        <a href="https://github.com/michal-ilyayev" target="_blank" class="page-gh-link sw-gh-link">
           <Icon name="mdi:github" size={18} />
           github.com/michal-ilyayev
         </a>
       </div>
 
-      <div>
+      <div class="sw-hero-image">
         <Image src={programmerImg} height={400} alt="Programmer" />
       </div>
 
@@ -125,3 +125,96 @@ import programmerImg from '~/assets/img/programmer.svg';
   </div>
 
 </Layout>
+<style lang="scss">
+
+//title
+.page-title {  
+  font-size: clamp(3rem, 5vw + 1rem, 7rem); 
+  line-height: 0.9; 
+}
+
+//moves WHOLE hero
+.sw-hero-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0rem, 1.8vw, 12rem); // gap between text and image
+  width: 100%;
+  transform: translateX(3rem); 
+}
+
+//paragraph text size
+.sw-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.5rem;
+  max-width: 46rem; 
+  transform: translateX(-1.5rem); // ONLY text movement
+}
+
+
+//paragraph size
+.sw-sub {
+  font-size: clamp(1.05rem, 0.4rem + 0.55vw, 1.35rem);-height: 1.9; 
+  max-width: 36rem; 
+  margin: 0;
+  text-align: left;
+  color: #4f4c57;
+}
+
+ // ONLY image movement
+.sw-hero-image {
+  transform: translateX(3rem);
+}
+
+/* tablet + mobile */
+@media (max-width: 1025px) {
+  .page-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+
+//resets desktop movement
+  .sw-hero-row {
+    flex-direction: column-reverse;
+    transform: none; 
+    gap: 2rem; 
+  }
+
+  //resets text shift
+  .sw-hero-text {
+    transform: none; 
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    max-width: 100%;
+  }
+
+
+// resets image shift
+  .sw-hero-image {
+    transform: none; 
+  }
+
+  .page-title {
+    font-size: clamp(1.95rem, 9vw + 0.5rem, 2.75rem);
+    text-align: center;
+  }
+
+  .sw-sub {
+    font-size: clamp(0.85rem, 2.5vw + 0.55rem, 0.95rem);
+    max-width: 100%;
+    padding: 0 0.25rem;
+    text-align: center;
+  }
+
+  .sw-gh-link {
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+}
+</style>

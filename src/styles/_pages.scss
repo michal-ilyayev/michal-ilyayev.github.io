@@ -178,15 +178,23 @@
 .sw-hero-text {
   display: flex;
   flex-direction: column;
-  transform: translateX(2rem);
   gap: 1rem;
   max-width: 560px;
+}
+
+@media (min-width: 901px) {
+  .sw-hero-text {
+    transform: translateX(2rem);
+  }
 }
 
 @media (max-width: 900px) {
   .sw-hero-text {
     align-items: center;
+    text-align: center;
     max-width: 100%;
+    margin: 0 auto;
+    transform: none;
   }
 }
 
