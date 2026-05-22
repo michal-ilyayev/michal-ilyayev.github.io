@@ -1,7 +1,13 @@
-// _pages.scss — shared styles used across portfolio / content pages
-// Imported in global.scss with @use './pages'
+// _pages.scss — shared styles used across multiple portfolio pages
+// Location: src/styles/_pages.scss
+// Imported in global.scss with: @use './pages'
+//
+// RULE: only add a class here if it's used on 2+ pages.
+// Home-only styles → _home.scss | Resume-only styles → _resume.scss
 
 // ── PAGE TITLE ───────────────────────────────────────────────────────────────
+// Bold Inter + italic Georgia serif em — consistent heading treatment site-wide
+// Usage: <h1 class="page-title">My <em>Coding</em> Portfolio</h1>
 .page-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(2.8rem, 5vw, 4.5rem);
@@ -18,12 +24,12 @@
     color: var(--color-primary);
   }
 
-  &--large {
-    font-size: clamp(3.2rem, 5.5vw, 5rem);
-  }
+  // larger variant — add class="page-title page-title--large"
+  &--large { font-size: clamp(3.2rem, 5.5vw, 5rem); }
 }
 
 // ── BODY / LEAD TEXT ─────────────────────────────────────────────────────────
+// Mixin so you can @include body-text in component scss too
 @mixin body-text {
   font-size: 1.05rem;
   line-height: 1.8;
@@ -31,11 +37,11 @@
   margin: 0;
 }
 
-.page-body-text {
-  @include body-text;
-}
+.page-body-text { @include body-text; }
 
 // ── EYEBROW LABEL ────────────────────────────────────────────────────────────
+// Small uppercase label with a short line before it
+// Usage: <p class="page-eyebrow">Software Development</p>
 .page-eyebrow {
   font-size: 0.75rem;
   font-weight: 600;
@@ -57,6 +63,9 @@
 }
 
 // ── GITHUB / EXTERNAL PILL LINK ──────────────────────────────────────────────
+// Purple outlined pill for external links (GitHub, live site, etc.)
+// Usage: <a class="page-gh-link" href="...">...</a>
+// Add page-gh-link--spaced for extra top margin
 .page-gh-link {
   display: inline-flex;
   align-items: center;
@@ -80,7 +89,10 @@
   &--spaced { margin-top: 0.75rem; }
 }
 
-// ── LAVENDER PROJECTS PANEL (software portfolio) ─────────────────────────────
+// ── SOFTWARE PORTFOLIO — LAVENDER PROJECTS PANEL ─────────────────────────────
+// Tinted panel that creates a visual chapter break after the hero
+// To change panel colour: edit background
+// To change top border: edit the gradient in border-image
 .sw-cards-section {
   position: relative;
   padding: 3rem 0 5rem;
@@ -92,10 +104,11 @@
   .page-container { position: relative; z-index: 2; }
 }
 
+// decorative purple gradient strips on the sides of the panel
+// width auto-calculates based on how wide the viewport is vs the content max-width
 .sw-purple-strip {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 0; bottom: 0;
   width: calc((100vw - min(100%, 1600px)) / 2 + 3rem);
   pointer-events: none;
   z-index: 0;
@@ -111,7 +124,8 @@
   }
 }
 
-// ── QUOTE BLOCK (software portfolio) ─────────────────────────────────────────
+// ── SOFTWARE PORTFOLIO — QUOTE BLOCK ─────────────────────────────────────────
+// Centered card sitting on the gradient line between hero and projects
 .sw-quote-wrap {
   position: relative;
   display: flex;
@@ -120,10 +134,10 @@
   margin-bottom: 1rem;
 }
 
+// horizontal gradient line behind the quote box
 .sw-quote-line {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   height: 1.5px;
   background: linear-gradient(
     to right,
@@ -149,10 +163,10 @@
   box-shadow: 0 8px 36px rgba(112, 101, 249, 0.09);
 }
 
+// large decorative opening quote mark
 .sw-quote-mark {
   position: absolute;
-  top: -2rem;
-  left: 1.8rem;
+  top: -2rem; left: 1.8rem;
   font-family: Georgia, serif;
   font-size: 7rem;
   line-height: 1;
@@ -174,7 +188,10 @@
   color: #a89ec0;
 }
 
-// ── SOFTWARE HERO ────────────────────────────────────────────────────────────
+// ── SOFTWARE PORTFOLIO — HERO TEXT BLOCK ─────────────────────────────────────
+// Left-side text column in the software portfolio hero
+// On desktop: slight translateX to center the overall layout
+// On mobile: resets to centered, stacked column
 .sw-hero-text {
   display: flex;
   flex-direction: column;
@@ -183,9 +200,7 @@
 }
 
 @media (min-width: 901px) {
-  .sw-hero-text {
-    transform: translateX(2rem);
-  }
+  .sw-hero-text { transform: translateX(2rem); }
 }
 
 @media (max-width: 900px) {
@@ -198,8 +213,9 @@
   }
 }
 
+// ── RESPONSIVE ───────────────────────────────────────────────────────────────
 @media (max-width: 700px) {
   .sw-cards-section { padding: 2rem 0 3.5rem; }
-  .sw-purple-strip { width: 1.5rem; }
-  .sw-quote-box { padding: 1.8rem 1.5rem; }
+  .sw-purple-strip  { width: 1.5rem; }
+  .sw-quote-box     { padding: 1.8rem 1.5rem; }
 }

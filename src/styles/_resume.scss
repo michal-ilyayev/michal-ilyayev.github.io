@@ -1,5 +1,10 @@
 // _resume.scss — styles for src/pages/resume.astro
+// Location: src/styles/_resume.scss
+// Imported in global.scss with: @use './resume'
 
+// ── PRINT BUTTON ─────────────────────────────────────────────────────────────
+// Fixed pill on the right side — links to the actual PDF resume
+// Hidden on mobile (md:flex), hidden when printing (print:hidden)
 .btn-print {
   @apply
   fixed top-[130px] right-0 z-[1030]
@@ -13,60 +18,75 @@
   hover:bg-primary-light hover:text-white;
 }
 
+// ── RESUME HEADER ─────────────────────────────────────────────────────────────
+// Photo + name on the left, contact links on the right
+// Stacks vertically on mobile, row on lg+
 .resume-header {
   @apply w-full flex flex-col lg:flex-row print:flex-row
   justify-between lg:items-center print:items-center
   gap-10 pb-6 border-b border-gray-200;
 }
 
+// contact link rows in the header
 .contact-link {
   @apply flex items-center gap-2 hover:text-primary transition-all;
 }
 
+// ── RESUME BODY ───────────────────────────────────────────────────────────────
+// All content below the header — sections, headings, lists, etc.
 .resume-body {
+
+  // section headings — serif bold with a bottom border
   h2 {
     @apply mt-9 text-xl font-serif font-bold border-b border-gray-300 mb-4 pb-1;
   }
 
+  // prevent sections from splitting across print pages
   section {
     break-inside: avoid;
     @apply mb-5;
   }
 
-  .summary-box { @apply mt-4; }
+  // summary sits immediately after the header — no extra top margin
+  .summary-box    { @apply mt-4; }
   .summary-box h2 { @apply mt-0; }
 
+  // job/section title row — title left, date right
   .section-heading {
     @apply flex justify-between items-start flex-wrap gap-2 w-full mt-5 mb-2;
     span { @apply text-gray-700 text-sm italic; }
   }
 
+  // education cards with school logos
   .school-heading { @apply items-center; }
   .school-title   { @apply flex items-center gap-3; }
   .school-logo    { @apply w-8 h-8 object-contain shrink-0; }
   .westmount-logo { @apply w-10 h-8; }
 
+  // light gray card for education entries
   .education-card {
     @apply border border-gray-100 rounded-lg px-3 py-2 bg-gray-50;
   }
 
-  h3 { @apply font-semibold text-gray-800; }
-
-  ul { @apply list-disc list-outside ml-4; }
-
-  li, p { @apply text-gray-600 mb-2 mr-2 text-sm leading-relaxed; }
-
+  h3     { @apply font-semibold text-gray-800; }
+  ul     { @apply list-disc list-outside ml-4; }
+  li, p  { @apply text-gray-600 mb-2 mr-2 text-sm leading-relaxed; }
   strong { @apply font-semibold text-gray-800; }
 
+  // slightly tighter spacing for the skills list
   .skill-list li { @apply mb-1.5; }
 
+  // Research role — violet card so it stands out as the most notable position
+  // The "Current" pill is rendered via ::before in the component
   .research-role {
     @apply border border-violet-200 rounded-lg px-4 py-3 bg-violet-50/35 mb-5;
 
-    .section-heading h3 { @apply text-primary; }
+    // purple title + date to match the card
+    .section-heading h3   { @apply text-primary; }
     .section-heading span { color: var(--color-primary); opacity: 0.85; }
   }
 
+  // top 4 awards rendered in primary purple to catch the eye
   .award-highlight {
     @apply font-semibold;
     color: var(--color-primary);
