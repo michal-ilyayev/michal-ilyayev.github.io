@@ -1,5 +1,6 @@
 // _home.scss — layout for src/pages/index.astro
 // Buttons live in _buttons.scss, bg blob in _backgrounds.scss
+@use './pages';
 
 // Page wrapper — white base, hides blob overflow
 .home-page {
@@ -188,9 +189,7 @@ h1 {
   max-width: 590px;
 
   p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #5a5560;
+    @include pages.body-text;
     margin-bottom: 0.9rem;
   }
 }
@@ -471,10 +470,8 @@ h1 {
     p {
       width: 100%;
       max-width: 36rem;
-      font-size: 1rem;
+      @include pages.body-text;
       line-height: 1.85;
-      color: #5a5560;
-      margin: 0;
     }
 
     .button-row {

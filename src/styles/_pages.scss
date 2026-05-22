@@ -1,177 +1,197 @@
-// _pages.scss — shared styles used across multiple portfolio pages
+// _pages.scss — shared styles used across portfolio / content pages
 // Imported in global.scss with @use './pages'
-// DO NOT put home-page-specific or resume-specific styles here
-// Rule: only add a class here if it's used on 2+ pages
 
 // ── PAGE TITLE ───────────────────────────────────────────────────────────────
-// Bold Inter + italic Georgia serif — consistent heading treatment site-wide
-// Usage: <h1 class="page-title">My <em>Coding</em> Portfolio</h1>
 .page-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    color: #160025;
-    margin: 0;
-  
-    em {
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-weight: 300;
-      color: #7065f9;
-    }
-  }
-  
-  // ── EYEBROW LABEL ────────────────────────────────────────────────────────────
-  // Small uppercase label with a short line before it
-  // Usage: <p class="page-eyebrow">Software Development</p>
-  .page-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a89ec0;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin: 0;
-  
-    &::before {
-      content: '';
-      display: block;
-      width: 1.5rem;
-      height: 1px;
-      background: rgba(112, 101, 249, 0.4);
-    }
-  }
-  
-  // ── GITHUB / EXTERNAL PILL LINK ──────────────────────────────────────────────
-  // Purple outlined pill for external links (GitHub, live site etc.)
-  // Usage: <a class="page-gh-link" href="...">...</a>
-  .page-gh-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #7065f9;
-    text-decoration: none;
-    border: 1.5px solid rgba(112, 101, 249, 0.25);
-    background: rgba(112, 101, 249, 0.04);
-    padding: 0.5rem 1rem;
-    border-radius: 0.6rem;
-    width: fit-content;
-    transition: 0.2s ease;
-  
-    &:hover {
-      background: rgba(112, 101, 249, 0.1);
-      border-color: rgba(112, 101, 249, 0.5);
-    }
-  }
-  
-  // ── QUOTE BOX ────────────────────────────────────────────────────────────────
-  // Centered purple-tinted box — currently used on software page
-  // Usage:
-  //   <div class="quote-box">
-  //     <p class="quote-text">...</p>
-  //     <p class="quote-author">...</p>
-  //   </div>
-  .quote-box {
-    width: 600px;
-    max-width: 100%;
-    z-index: 10;
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid rgba(112, 101, 249, 0.15);
-    border-radius: 1.25rem;
-    background: rgba(112, 101, 249, 0.03);
-  }
-  
-  .quote-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #160025;
+  margin: 0;
+
+  em {
     font-family: Georgia, serif;
     font-style: italic;
-    font-size: 1.1rem;
-    color: #7065f9;
-    margin: 0 0 0.4rem;
+    font-weight: 300;
+    color: var(--color-primary);
   }
-  
-  .quote-author {
-    font-size: 0.85rem;
-    color: #a89ec0;
-    margin: 0;
+
+  &--large {
+    font-size: clamp(3.2rem, 5.5vw, 5rem);
   }
-  
-  // ── PROJECTS PANEL ───────────────────────────────────────────────────────────
-  // Lavender tinted panel — used on software page, reusable for any project listing
-  // To change panel colour: edit background
-  // To change top border: edit the gradient in border-image
-  .sw-projects-panel {
-    background: #f7f5ff;
-    border-top: 2px solid transparent;
-    border-image: linear-gradient(to right, transparent, #a879ff, #f06ab7, transparent) 1;
-    padding: clamp(3rem, 5vw, 5rem) 0;
-    margin-top: 2rem;
+}
+
+// ── BODY / LEAD TEXT ─────────────────────────────────────────────────────────
+@mixin body-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #5a5560;
+  margin: 0;
+}
+
+.page-body-text {
+  @include body-text;
+}
+
+// ── EYEBROW LABEL ────────────────────────────────────────────────────────────
+.page-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a89ec0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: rgba(112, 101, 249, 0.4);
   }
-  
-  .sw-panel-header {
-    display: flex;
+}
+
+// ── GITHUB / EXTERNAL PILL LINK ──────────────────────────────────────────────
+.page-gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  border: 1.5px solid rgba(112, 101, 249, 0.25);
+  background: rgba(112, 101, 249, 0.04);
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  width: fit-content;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: rgba(112, 101, 249, 0.1);
+    border-color: rgba(112, 101, 249, 0.5);
+  }
+
+  &--spaced { margin-top: 0.75rem; }
+}
+
+// ── LAVENDER PROJECTS PANEL (software portfolio) ─────────────────────────────
+.sw-cards-section {
+  position: relative;
+  padding: 3rem 0 5rem;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(to right, transparent, #a879ff, #f06ab7, transparent) 1;
+  background: #f7f5ff;
+  margin-top: 1rem;
+
+  .page-container { position: relative; z-index: 2; }
+}
+
+.sw-purple-strip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - min(100%, 1600px)) / 2 + 3rem);
+  pointer-events: none;
+  z-index: 0;
+
+  &--left {
+    left: 0;
+    background: linear-gradient(to right, rgba(112, 101, 249, 0.18) 0%, rgba(112, 101, 249, 0.08) 70%, transparent 100%);
+  }
+
+  &--right {
+    right: 0;
+    background: linear-gradient(to left, rgba(112, 101, 249, 0.18) 0%, rgba(112, 101, 249, 0.08) 70%, transparent 100%);
+  }
+}
+
+// ── QUOTE BLOCK (software portfolio) ─────────────────────────────────────────
+.sw-quote-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sw-quote-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(112, 101, 249, 0.3) 20%,
+    rgba(240, 106, 183, 0.3) 50%,
+    rgba(112, 101, 249, 0.3) 80%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.sw-quote-box {
+  position: relative;
+  z-index: 2;
+  width: 680px;
+  max-width: 100%;
+  text-align: center;
+  padding: 2.5rem 3.5rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(112, 101, 249, 0.1);
+  box-shadow: 0 8px 36px rgba(112, 101, 249, 0.09);
+}
+
+.sw-quote-mark {
+  position: absolute;
+  top: -2rem;
+  left: 1.8rem;
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  line-height: 1;
+  color: rgba(112, 101, 249, 0.15);
+}
+
+.sw-quote-text {
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.sw-quote-author {
+  margin: 0.9rem 0 0;
+  font-size: 0.9rem;
+  color: #a89ec0;
+}
+
+// ── SOFTWARE HERO ────────────────────────────────────────────────────────────
+.sw-hero-text {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(2rem);
+  gap: 1rem;
+  max-width: 560px;
+}
+
+@media (max-width: 900px) {
+  .sw-hero-text {
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 0.5px solid rgba(112, 101, 249, 0.15);
+    max-width: 100%;
   }
-  
-  .sw-panel-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a89ec0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  
-    &::before {
-      content: '';
-      display: block;
-      width: 1rem;
-      height: 1px;
-      background: rgba(112, 101, 249, 0.4);
-    }
-  }
-  
-  .sw-panel-count {
-    font-size: 0.75rem;
-    color: #a89ec0;
-    font-family: 'Courier New', monospace;
-  }
-  
-  // Numbered project label with a trailing line
-  // Usage: <p class="sw-project-num">01</p>
-  .sw-project-num {
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #a89ec0;
-    letter-spacing: 0.1em;
-    margin: 0 0 0.6rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  
-    &::after {
-      content: '';
-      display: block;
-      flex: 1;
-      height: 0.5px;
-      background: rgba(112, 101, 249, 0.12);
-    }
-  }
-  
-  .sw-project-section {
-    position: relative;
-    margin-bottom: 1rem;
-  }
+}
+
+@media (max-width: 700px) {
+  .sw-cards-section { padding: 2rem 0 3.5rem; }
+  .sw-purple-strip { width: 1.5rem; }
+  .sw-quote-box { padding: 1.8rem 1.5rem; }
+}

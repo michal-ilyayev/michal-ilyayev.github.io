@@ -16,177 +16,112 @@ import programmerImg from '~/assets/img/programmer.svg';
 <Layout title="Coding Projects">
   <div class="bg2"><div></div></div>
 
-  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
-  <div class="relative">
-    <div class="page-container pt-8">
-      <div class="flex flex-col lg:flex-row justify-around items-center gap-12">
+  <!-- HERO — text left, illustration right -->
+  <div class="page-container pt-8">
+    <div class="flex flex-col-reverse lg:flex-row items-center justify-center gap-32">
 
-        <!-- LEFT: text — image moved to right -->
-        <div class="sw-hero-text">
-          <h1 class="page-title">My <em>Coding</em><br />Portfolio</h1>
-          <p class="sw-sub">
-            Over the years, I've developed a wide range of projects, each one
-            representing a unique aspect of my creativity and problem-solving skills.
-          </p>
-          <p class="sw-sub">
-            Below are some of my favorite projects that I've worked on, each one
-            showcasing my passion for software development.
-          </p>
-          <a href="https://github.com/michal-ilyayev" target="_blank" class="page-gh-link">
-            <Icon name="mdi:github" size={18} />
-            github.com/michal-ilyayev
-          </a>
-        </div>
-
-        <!-- RIGHT: illustration -->
-        <div>
-          <Image src={programmerImg} height={400} alt="Programmer" />
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ── QUOTE ─────────────────────────────────────────────────────────── -->
-  <div class="page-container mt-20">
-    <div class="relative flex flex-col justify-center items-center">
-      <div class="quote-box">
-
-        <!-- styled as a fake import statement -->
-        <p class="sw-quote-code">
-          <span class="sw-kw">import</span>
-          <span class="sw-str"> "talk is cheap,</span>
-          <br />
-          <span class="sw-str">&nbsp;&nbsp;show me the code"</span>
-          <span class="sw-op"> from</span>
-          <span class="sw-fn"> LinusTorvalds</span><span class="sw-op">;</span>
+      <div class="sw-hero-text">
+        <h1 class="page-title page-title--large">My <em>Coding</em><br />Portfolio</h1>
+        <p class="page-body-text">
+          Over the years, I've developed a wide range of projects, each one
+          representing a unique aspect of my creativity and problem-solving skills.
         </p>
-
+        <p class="page-body-text">
+          Below are some of my favorite projects that I've worked on, each one
+          showcasing my passion for software development.
+        </p>
+        <a href="https://github.com/michal-ilyayev" target="_blank" class="page-gh-link page-gh-link--spaced">
+          <Icon name="mdi:github" size={18} />
+          github.com/michal-ilyayev
+        </a>
       </div>
-      <hr class="hidden border-t border-primary w-full absolute top-[1/2] z-0 md:block" />
+
+      <div>
+        <Image src={programmerImg} height={400} alt="Programmer" />
+      </div>
+
     </div>
   </div>
 
-  <!-- bouncing arrow -->
-  <div class="w-full">
-    <div class="mx-auto mt-10 animate-bounce w-20 h-20 flex items-center justify-center text-center rounded-full bg-white shadow-sm drop-shadow-sm border">
-      <Icon name="mdi:arrow-down" size={48} class="text-primary" />
-    </div>
-  </div>
+  <!-- CARDS SECTION — quote sits at the top as a transition from hero -->
+  <div class="sw-cards-section">
+    <div class="sw-purple-strip sw-purple-strip--left"></div>
+    <div class="sw-purple-strip sw-purple-strip--right"></div>
 
-  <!-- ── PROJECTS PANEL ─────────────────────────────────────────────────── -->
-  <!-- styles from _pages.scss — .projects-panel, .panel-header, .project-num etc. -->
-  <div class="projects-panel">
     <div class="page-container">
 
-      <div class="panel-header">
-        <p class="panel-eyebrow">Projects</p>
-        <p class="panel-count">05 total · always updating</p>
+      <!-- quote at the top of the cards section, bridging hero → projects -->
+      <div class="sw-quote-wrap">
+        <div class="sw-quote-line"></div>
+        <div class="sw-quote-box">
+          <span class="sw-quote-mark">"</span>
+          <p class="sw-quote-text">Talk is cheap.<br />Show me the code!</p>
+          <p class="sw-quote-author">— Linus Torvalds</p>
+        </div>
       </div>
 
-      <div class="project-section">
-        <p class="project-num">01</p>
-        <GitProjectCard title="Portfolio Website" gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io">
-          <Image src={thisWebsiteImg} height={700} alt="Portfolio Website" slot="image" />
-          <div>
-            <h2>This Website</h2>
-            <p>This website was developed using <code>Astro</code> and <code>TailwindCSS</code>.</p>
-            <p>For a full list of technologies and resources I used to build this website, please visit the <a href="/credits/">credits page</a>.</p>
-            <p>I built this website to learn and experiment with new technologies and design ideas. Feel free to borrow any code snippets or ideas from this website for your own projects.</p>
-          </div>
-        </GitProjectCard>
+      <!-- bouncing arrow -->
+      <div class="w-full">
+        <div class="mx-auto my-8 animate-bounce w-20 h-20 flex items-center justify-center text-center rounded-full bg-white shadow-sm drop-shadow-sm border">
+          <Icon name="mdi:arrow-down" size={48} class="text-primary" />
+        </div>
       </div>
 
-      <div class="project-section">
-        <p class="project-num">02</p>
-        <ProjectCard title="LOCK-IN" projectLink="https://www.lockin.click/">
-          <Image src={lockInImg} height={700} alt="LOCK-IN" slot="image" />
-          <div>
-            <h2>LOCK-IN</h2>
-            <p>LOCK-IN transforms how coding assignments and exams are delivered, completed, and evaluated — moving beyond traditional paper-based or form-based approaches.</p>
-            <p>It provides a secure, user-friendly platform for students to complete coding assignments and exams. The platform is designed to be easy to use, with a simple and intuitive interface that allows students to focus on their work while using modern code editors and tools.</p>
-            <p>
-              Frontend: <code>React</code>, <code>Tailwind</code>, <code>AntDesign</code>, <code>RTK Query</code><br />
-              Backend: <code>Django/Python</code>, <code>DRF</code>, <code>Postgres</code>, <code>Docker</code>, <code>AWS</code>.
-            </p>
-          </div>
-        </ProjectCard>
-      </div>
+      <GitProjectCard
+        title="Portfolio Website"
+        gitHubLink="https://github.com/michal-ilyayev/michal-ilyayev.github.io"
+      >
+        <Image src={thisWebsiteImg} height={700} alt="Portfolio Website" slot="image" />
+        <div>
+          <h2>This Website</h2>
+          <p>This website was developed using <code>Astro</code> and <code>TailwindCSS</code>.</p>
+          <p>For a full list of technologies and resources I used to build this website, please visit the <a href="/credits/">credits page</a>.</p>
+          <p>I built this website to learn and experiment with new technologies and design ideas. Feel free to borrow any code snippets or ideas from this website for your own projects.</p>
+        </div>
+      </GitProjectCard>
 
-      <div class="project-section">
-        <p class="project-num">03</p>
-        <GitProjectCard title="Whack a Mole" gitHubLink="https://github.com/michal-ilyayev/whack-a-mole">
-          <Image src={whackAMoleImg} height={700} alt="Whack a Mole" slot="image" />
-          <div>
-            <h2>Whack a Mole</h2>
-            <p>The good old Whack a Mole game developed with <code>PyGame</code> and <code>Python</code>.</p>
-            <p>Click on the moles to score points and avoid clicking on the bombs. The game ends when you click on a bomb 3 times.</p>
-          </div>
-        </GitProjectCard>
-      </div>
+      <ProjectCard title="LOCK-IN" projectLink="https://www.lockin.click/">
+        <Image src={lockInImg} height={700} alt="LOCK-IN" slot="image" />
+        <div>
+          <h2>LOCK-IN</h2>
+          <p>LOCK-IN transforms how coding assignments and exams are delivered, completed, and evaluated - moving beyond traditional paper-based or form-based approaches.</p>
+          <p>It provides a secure, user-friendly platform for students to complete coding assignments and exams. The platform is designed to be easy to use, with a simple and intuitive interface that allows students to focus on their work while using modern code editors and tools.</p>
+          <p>
+            Frontend: <code>React</code>, <code>Tailwind</code>, <code>AntDesign</code>, <code>RTK Query</code><br />
+            Backend: <code>Django/Python</code>, <code>DRF</code>, <code>Postgres</code>, <code>Docker</code>, <code>AWS</code>.
+          </p>
+        </div>
+      </ProjectCard>
 
-      <div class="project-section">
-        <p class="project-num">04</p>
-        <GitProjectCard title="Balloon Pop" gitHubLink="https://github.com/michal-ilyayev/balloon-pop">
-          <Image src={balloonPopImg} height={700} alt="Balloon Pop" slot="image" />
-          <div>
-            <h2>Balloon Pop</h2>
-            <p>A simple Balloon Pop game developed with <code>PyGame</code> and <code>Python</code>.</p>
-            <p>Pop as many balloons as possible and avoid the bomb balloon. The game ends when all balloons are popped or disappeared or when you click on the bomb balloon.</p>
-          </div>
-        </GitProjectCard>
-      </div>
+      <GitProjectCard title="Whack a Mole" gitHubLink="https://github.com/michal-ilyayev/whack-a-mole">
+        <Image src={whackAMoleImg} height={700} alt="Whack a Mole" slot="image" />
+        <div>
+          <h2>Whack a Mole</h2>
+          <p>The good old Whack a Mole game developed with <code>PyGame</code> and <code>Python</code>.</p>
+          <p>Click on the moles to score points and avoid clicking on the bombs. The game ends when you click on a bomb 3 times.</p>
+        </div>
+      </GitProjectCard>
 
-      <div class="project-section">
-        <p class="project-num">05</p>
-        <GitProjectCard title="Wall Game" gitHubLink="https://github.com/michal-ilyayev/wall-game">
-          <Image src={wallGameImg} height={650} alt="Wall Game" slot="image" />
-          <div>
-            <h2>Wall Game</h2>
-            <p>A simple Wall Game developed with <code>PyGame</code> and <code>Python</code>.</p>
-            <p>Navigate your circle using the mouse through the holes in the descending walls. Avoid the bouncing balls, as they will cause you to lose lives. Additionally, ensure your circle passes through the holes accurately. Failing to do so will drag your circle down, costing you life and changing your circle's colour and size.</p>
-            <p>The game ends when you lose all your lives.</p>
-          </div>
-        </GitProjectCard>
-      </div>
+      <GitProjectCard title="Balloon Pop" gitHubLink="https://github.com/michal-ilyayev/balloon-pop">
+        <Image src={balloonPopImg} height={700} alt="Balloon Pop" slot="image" />
+        <div>
+          <h2>Balloon Pop</h2>
+          <p>A simple Balloon Pop game developed with <code>PyGame</code> and <code>Python</code>.</p>
+          <p>Pop as many balloons as possible and avoid the bomb balloon. The game ends when all balloons are popped or disappeared or when you click on the bomb balloon.</p>
+        </div>
+      </GitProjectCard>
+
+      <GitProjectCard title="Wall Game" gitHubLink="https://github.com/michal-ilyayev/wall-game">
+        <Image src={wallGameImg} height={650} alt="Wall Game" slot="image" />
+        <div>
+          <h2>Wall Game</h2>
+          <p>A simple Wall Game developed with <code>PyGame</code> and <code>Python</code>.</p>
+          <p>Navigate your circle using the mouse through the holes in the descending walls. Avoid the bouncing balls, as they will cause you to lose lives. Additionally, ensure your circle passes through the holes accurately. Failing to do so will drag your circle down, costing you life and changing your circle's colour and size.</p>
+          <p>The game ends when you lose all your lives.</p>
+        </div>
+      </GitProjectCard>
 
     </div>
   </div>
 
 </Layout>
-
-
-<style lang="scss">
-  // All shared styles (page-title, page-eyebrow, page-gh-link, quote-box,
-  // projects-panel, panel-header, project-num) live in _pages.scss
-  // Only software-page-specific styles go here
-
-  .sw-hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    max-width: 520px;
-    padding-top: 2rem;
-  }
-
-  .sw-sub {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #5a5560;
-    margin: 0;
-  }
-
-  // quote styled as a code import statement
-  .sw-quote-code {
-    font-family: 'Courier New', monospace;
-    font-size: 1.05rem;
-    line-height: 1.9;
-    margin: 0;
-    text-align: left;
-  }
-
-  .sw-kw  { color: #a879ff; }   // keyword — import
-  .sw-str { color: #7ab8d4; }   // string — the quote text
-  .sw-op  { color: #a89ec0; }   // operator — from ;
-  .sw-fn  { color: #7065f9; }   // function/name — LinusTorvalds
-</style>
